@@ -1,0 +1,53 @@
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Common_Variables_Flights.txt
+Library			     ${EXECDIR}/python/setup.py
+Force Tags		     tags.regression.FF
+
+*** Variables ***
+
+${campaign-name}	Test Videotracing
+
+*** Test Cases ***
+
+DXUITC-3403: To check if different type of flights can be created under Video campaign (Tracking)
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${uid}=		    Get Uid
+    ${VideoCampaign}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link		New Campaign
+	Input Text		id=advertiser		${advertiser}
+	Click Link      ${advertiser} 
+    Click Link      ${advertiser}
+    Select From List By Value   	pick_media_type		${campaign-channel-2}
+    Click Button  					campaign_submit
+    Input Text  					campaign[name]  													${VideoCampaign}
+    Input Text  					campaign[start_date]  												${start_date}
+    Input Text  					campaign[end_date]  												${end_date}	
+    Input Text  					campaign[io_number]  												${optional}
+    Input Text  					campaign[cog_attributes][cpa_goal]  								${cpa}
+    Input Text  					campaign[cog_attributes][insertion_order_budget]				  	${budget}
+    Input Text  					campaign[cog_attributes][cpm]  										${cpm}
+    Input Text  					campaign[cog_attributes][cogs]  									${cogs}
+    Input Text  					campaign[cog_attributes][margin] 								 	${margin} 
+    Click Button                    xpath=.//input[@type='radio' and (@value='Distribution' and @id='campaign_objective_Distribution')]
+    Click Element                   id=campaign_objective_Distribution
+    Click Button  	                campaign_submit
+	Wait Until Page Contains Element   css=input.ember-view.ember-text-field.flight_name.text
+	Input Text   	               css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Click Element	               css=div.flight-field-flight-type> .chzn-container-single >.chzn-single
+	Input Text		               css=div.flight-field-flight-type> .chzn-container-single >.chzn-drop > .chzn-search > input		Tracking
+	Selenium2Library.Press Key     css=div.flight-field-flight-type> .chzn-container-single >.chzn-drop > .chzn-search > input    \\13
+	Input Text   	               css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Input Text   	               css=input.ember-view.ember-text-field.day_cap   	${day-cap}
+	Input Text   	               css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget}
+	Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Button                   css=button.ember-view.ember-button.primary.save-and-continue
+    Wait Until Page Contains   	Flight Details

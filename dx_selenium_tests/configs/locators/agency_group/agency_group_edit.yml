@@ -1,0 +1,68 @@
+#default by: 'id'
+agency_group_edit:
+    common: !include new_agency_group.yml
+    segment_name:
+        by: 'css selector'
+        value: '#segment_rates > thead > tr > th:nth-child(1)'
+    external_id:
+        by: 'css selector'
+        value: '#segment_rates > thead > tr > th:nth-child(2)'
+    cost:
+        by: 'css selector'
+        value: '#segment_rates > thead > tr > th:nth-child(3)'
+    price:
+        by: 'css selector'
+        value: '#segment_rates > thead > tr > th:nth-child(4)'
+    inherited:
+        by: 'css selector'
+        value: '#segment_rates > thead > tr > th:nth-child(5)'
+    organization_details:
+        value: 'organization_details'
+    currency:
+        value: 'currency'
+    configure_default:
+        value: 'default_settings'
+    add_on_cost_section:
+        value: 'organization_add_on_costs'
+    licenses:
+        value: 'organization_licensing'
+    seats:
+        value: 'organization_seats'
+    save_agency:
+        value: 'agency_group_submit'
+    error_message:
+        rate_card_with_different_currency: 'Rate card currency line 2: Geographic,1.0,0.45,0.54,CAD must match the organization currency (USD).'
+    invetory_locator:
+        by: 'css selector'
+        value: "input[data-inventory_supplier_name='{0}']"
+    greyed_out_currency_list_box:
+        by: 'css selector'
+        value: 'select[id="agency_group_organization_attributes_currency_id"][disabled="disabled"]'
+    facebook_rtb_edit_icon:
+        by: 'css selector'
+        value: '#facebook_rtb_creds_edit > img'
+    facebook_popup_title:
+        value: 'ui-dialog-title-facebook_rtb_credential_dialog_root'
+    own_facebook_seat_radio_button:
+        value: 'agency_group_organization_attributes_inventory_supplier_seats_attributes_FACEBOOK_RTB__inherit_false'
+    bussiness_id_textbox:
+        value: 'agency_group_organization_attributes_inventory_supplier_seats_attributes_FACEBOOK_RTB__private_seat_id'
+    access_token_textbox:
+        value: 'agency_group_organization_attributes_inventory_supplier_seats_attributes_FACEBOOK_RTB__password_encrypted'
+    facebook_authenticate_button:
+        by: 'css selector'
+        value: '.button.primary.auth_facebook'
+    facebook_authenticated_user:
+        by: 'css selector'
+        value: '.fb_email'
+    facebook_authentication_save_button:
+        value: 'fb_save'
+    agency_group_facebook_seat_value:
+        value: 'facebook_rtb_cred_inherit'
+    facebook_popup_close_button:
+        by: 'css selector'
+        value: 'div[aria-labelledby="ui-dialog-title-facebook_rtb_credential_dialog_root"] > .ui-dialog-titlebar > a'
+    agency_group_edit_page_title: 'Edit Organization'
+    facebook_popup_elements: ['bussiness_id_textbox', 'access_token_textbox']
+    agency_group_fb_bussiness_id: '1542562255976453'
+    agency_group_fb_access_token: 'CAAEV0mZBYJOoBAHCLPbq9yRqUOahi4qwIits1pR04Tsvh3a8dQCxtltilqbEo23zhJ7V2lN2yWXnhVSY1ECZBJkZCiQBQiBDS4cpVTC9bu9JnTz3gqrqFh4cUqgLmVJZAQGIVLp8ZAZBnagyWF9dNfSbrGZAneZBP5AARUb1UzZBXmStHJ8p9SR5KTZCQP95d8eBQ8YzZCkKL30SFujrRlctHZB8'

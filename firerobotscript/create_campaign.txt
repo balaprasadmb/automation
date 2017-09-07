@@ -1,0 +1,66 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${campaign_name}		test-campaign
+${cpa}					7
+${budget}				10000
+${cpm}					7
+${description}			flight
+${bid}					8
+${concept}              concept_1903
+${flash}                Flashless
+${filepath}             ${EXECDIR}/selenium_scripts/uploads/Tags_CuteXu.xls
+
+*** Test Cases ***
+
+Create Campaign
+	Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign}	Catenate    SEPARATOR=-	${campaign_name}	${uid}
+	Click Link		New Campaign
+	Input Text		id=advertiser		${advertiser}
+	Submit Form		pick_advertiser
+	Input Text		id=campaign_name	${campaign}
+	Input Text		id=campaign_start_date	${start_date}
+	Input Text		id=campaign_end_date	${end_date}
+	Input Text		id=campaign_cog_attributes_cpa_goal		${cpa}
+	Input Text		id=campaign_cog_attributes_insertion_order_budget		${budget}
+	Input Text		id=campaign_cog_attributes_cpm		${cpm}
+	Click Element	id=campaign_objective_Distribution
+	Write To File	campaign=${campaign}
+	Click Button   	campaign_submit
+    Page should Contain		The basic campaign information for ${advertiser} » ${campaign} was created successfully.
+
+Create Flight
+	Wait Until Page Contains Element	css=.flight_name
+	${uid}=			Get Uid
+	${flight}	Catenate    SEPARATOR=-	${description}	${uid}
+	Input Text	css=.flight_name	${flight}	
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field    	${bid}
+	Sleep		5s
+	Write To File	flight=${flight}
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+
+Create Creatives
+    Wait Until Page Contains Element	id=flight_details
+    Click Button	css=div#buttons_content>div>fieldset>ol>li>input.primary
+    Wait Until Page Contains Element	id=file
+    Choose File		id=advertiser_creatives		${filepath}
+    Input Text    id=concept	${concept}
+    Select From List By Label	id=is_flash	${flash}
+    Click Button   	id=advertiser_submit
+    Wait Until Page Contains Element	id=bulk_form
+    Click Button   	id=save_bulk_button
+    Wait Until Page Contains Element	css=div.group.assignment_fields
+    Sleep	10s
+    Select Radio Button	assignment_operation	assignment_operation_none
+    Click Button   	id=save_bulk_button
+    Wait Until Page Contains Element	css=div.trans
+

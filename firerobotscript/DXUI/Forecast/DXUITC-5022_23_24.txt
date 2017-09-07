@@ -1,0 +1,55 @@
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Forecast_variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-5022: To calculate projection impression and eCPM on FBS
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+    Click Link  	xpath=(.//a[contains(normalize-space(.), 'New Campaign')])[1]
+    Input Text  	advertiser  	${advertiser}
+    Click Element  	ui-dialog-title-dataxu_dialog
+    Select From List By Value   	campaign_currency_id   	${campaign-currency}
+    Select From List By Value   	pick_media_type   	${campaign-channel}
+    Select From List By Value   	pick_inventory_type   	${campaign-currency}
+    Click Button  	campaign_submit
+  
+    Input Text  	campaign[name]  	${campaign-name}
+    Input Text  	campaign[start_date]  	${mmddyyyy}
+    Input Text  	campaign[end_date]  	${mmddyyyy-2}
+    Input Text  	campaign[io_number]  	${optional}
+    Select From List By Index  	campaign[campaign_cost_model_type_id]  	${cost-model}
+    Input Text  	campaign[cog_attributes][cpa_goal]  	${cpa}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Input Text  	campaign[cog_attributes][cpm]  	${cpm}
+    Input Text  	campaign[cog_attributes][cogs]  	${cogs}
+    Input Text  	campaign[cog_attributes][margin]  	${margin}
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Sleep               8s
+    Click Button  	campaign_submit 
+    Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description} 
+    Input Text      css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   			${bid}
+    Input Text   	xpath=(.//label[contains(normalize-space(.),'Budget')]/following::input[@type='text'])[1]   		${budget-2}
+    Click Element   	ember308
+    Sleep       5s
+    Click Link   	xpath=.//a[contains(normalize-space(.), 'Calculate')] 
+    Click Button    ember691
+
+	
+DXUITC-5023: To calulate projection impression and eCPM on SF
+    Sleep       5s
+    Click Link   	xpath=.//a[contains(normalize-space(.), 'Calculate')]
+    Sleep       5s
+    Click Button   	xpath=.//input[@value='Save & Exit'][@type='submit']
+
+DXUITC-5024: To calulate projection impression and eCPM on CE
+    Click Link   	xpath=.//a[contains(normalize-space(.), 'Edit Campaign')]
+    Sleep       5s
+    Click Link   	xpath=.//a[contains(normalize-space(.), 'Calculate')]                                                                     

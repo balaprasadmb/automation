@@ -1,0 +1,14 @@
+#default by: 'id'
+sso_login_page:
+    url: 'sso/login'
+    email:
+        by: 'css selector'
+        value: 'input[type="email"]'
+    password:
+        by: 'css selector'
+        value: 'input[type="password"]'
+    access_button:
+        by: 'css selector'
+        value: 'button[type="submit"]'
+    back_to_legacy_login_link:
+        value: 'legacy_login'

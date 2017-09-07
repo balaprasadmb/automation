@@ -1,0 +1,58 @@
+***Settings***
+Resource          start_end_date_variables.txt
+Library	          Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}	Campaign
+
+***Test Cases***
+
+DXUITC-5030: Blank Dates Test Case
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  	css=a.add.button.new_campaign_top
+    Input Text  	advertiser  	${advertiser}
+    Click Element  	ui-dialog-title-dataxu_dialog
+    Submit Form         id=pick_advertiser
+    Input Text  	campaign[name]  	                          ${campaign-name}
+    Input Text  	campaign[start_date]  	                          ${mmddyyyy}
+    Input Text  	campaign[end_date]  	                          ${mmddyyyy-2}
+    Input Text  	campaign[io_number]  	                          ${optional}
+    Select From List By Index  	campaign[campaign_cost_model_type_id]     ${cost-model}
+    Input Text  	campaign[cog_attributes][cpa_goal]  	${cpa}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  ${budget}
+    Input Text  	campaign[cog_attributes][cpm]  	${cpm}
+    Input Text  	campaign[cog_attributes][cogs]  	          ${cogs}
+    Input Text  	campaign[cog_attributes][margin]  	          ${margin}
+    Page Should Contain 	Add dates & target CPM to see forecast.
+ 
+DXUITC-4949: Start date passed Test Case
+    Input Text  	campaign[start_date]  	${mmddyyyy-5}
+    Input Text  	campaign[end_date]  	${mmddyyyy-4}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Start date has passed. Forecast is for planning purposes, and is only available if run dates are in ')])[last()]
+
+DXUITC-5029: End date passed Test Case
+    Input Text  	campaign[start_date]  	${mmddyyyy-6}
+    Input Text  	campaign[end_date]  	${mmddyyyy-5}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'The end date is in the past. Forecasting unavailable.')])[last()]
+
+DXUITC-4864: One Day campaign Test Case
+    Input Text  	campaign[start_date]  	                                ${mmddyyyy-3}
+    Input Text  	campaign[end_date]  	                                ${mmddyyyy-4}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Start date has passed. Forecast is for planning purposes, and is only available if run dates are in ')])[last()]
+
+DXUITC-4544: Valid Start/EndDate Test Case
+    Input Text  	campaign[start_date]  	                                ${mmddyyyy-6}
+    Input Text  	campaign[end_date]  	                                ${mmddyyyy-7}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Sleep               10s
+    # User can see Forecasting pannel

@@ -1,0 +1,21 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-5034:To check the functionality of Edit audiences from list page
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    css=#composite_segments_table>tbody>tr:nth-child(1)>td:nth-child(1)>a
+	Click Link    css=#composite_segments_table > tbody> tr:nth-child(1) > td:nth-child(1) > a
+    Page Should Contain Link    ${advertiser}
+    Page Should Contain Link   Edit
+    Page Should Contain Link   View All
+    Page Should Contain Element    id=currency_id
+    Page Should Contain Element    composite_segment_view

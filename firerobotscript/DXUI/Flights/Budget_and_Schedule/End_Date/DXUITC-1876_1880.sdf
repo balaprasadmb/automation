@@ -1,0 +1,35 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+
+*** Test Cases ***
+
+DXUITC-1876:To check if flight is created when end date field is kept blank
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker    	${empty}
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-5}
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue 	 
+    Page Should Contain   	Flights end at must be scheduled during the campaign start and end date
+	
+DXUITC-1880:To check if flight is created when both the date fields are kept blank
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${empty}
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker    	${empty}
+    Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+	

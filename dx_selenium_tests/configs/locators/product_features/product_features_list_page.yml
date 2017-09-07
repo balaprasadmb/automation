@@ -1,0 +1,12 @@
+#default by: 'id'
+product_features_list_page:
+    url: 'admin/product_features'
+    filter_text_box:
+        value: 'filter_product_features_view'
+    product_feature_list_table:
+        by: 'tag_name'
+        value: 'tbody'
+    first_edit_link:
+        by: 'css selector'
+        value: 'tbody > tr:nth-child(1) > .actions > a'
+    update_success_message: "Successfully updated product feature '{0}'"

@@ -1,0 +1,22 @@
+*** Settings ***
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-1848: To check working of "filter by tactic" drop down
+	Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element    css=div.filter-tactic>select
+    Page Should Contain   	Filter by tactic
+    Page Should Contain   	Default
+	

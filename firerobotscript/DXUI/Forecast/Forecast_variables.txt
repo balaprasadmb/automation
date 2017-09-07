@@ -1,0 +1,28 @@
+*** Variables ***
+
+${campaign-channel} 	online
+${optional} 	21
+${cost-model} 	0
+${cpa}      	6
+${cpm} 	        7
+${cogs} 	    0.19
+${margin}   	51.0
+${description} 	Flight
+${bid}      	3.60
+${budget}    	6565
+${budget-2} 	777.00
+${budget-3} 	6565
+${budget-4} 	996.00
+${description-2} 	Flight 2
+${description-3} 	Audience test
+${cpm-2} 	    6.5
+${mmddyyyy}     05/20/2015
+${mmddyyyy-2}   06/20/2015
+${mmddyyyy-3} 	03/20/2015
+${mmddyyyy-4} 	04/30/2015
+${budget-2} 	5656
+${cpm-2} 	    6
+${goal-ctr} 	44
+${audience-size} 	200000
+${campaign-currency} 	United States Dollar (USD)
+

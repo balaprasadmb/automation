@@ -1,0 +1,70 @@
+
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Common_Variables_Flights.txt
+Library			     ${EXECDIR}/python/setup.py
+Force Tags		     tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3055: To check contents of flight detailed edit page
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Button                   css=button.ember-view.ember-button.primary.save-and-continue
+    Wait Until Page Contains   	Flight Details
+    Page Should Contain   	Flight Budget and Spending
+    Page Should Contain   	Inventory Suppliers
+    Page Should Contain   	?
+    Page Should Contain   	Add On Costs
+    Page Should Contain   	?
+    Page Should Contain   	Impression Caps
+    Page Should Contain   	?
+    Page Should Contain   	Frequency Cap
+    Page Should Contain   	?
+    Page Should Contain   	Content Channels
+    Page Should Contain   	?
+    Page Should Contain   	Language Targeting
+    Page Should Contain   	?
+    Page Should Contain   	Geographic Targeting
+    Page Should Contain   	?
+    Page Should Contain   	Blacklist
+    Page Should Contain   	?
+    Page Should Contain   	Whitelist
+    Page Should Contain   	?
+    Page Should Contain   	Dayparting
+    Page Should Contain   	?
+    Page Should Contain   	Audience Targeting
+	
+#DXUITC-3071 : To check working of algorithm drop down	
+	#Click Element           css=div#ember315_chzn>a.chzn-single
+	#Select From List By Label		css=div#ember315_chzn>a.chzn-single>div.chzn-drop>div.chzn-results>input		Distribution - DX-100
+	#Selenium2Library.Press Key		css=div#ember315_chzn>a.chzn-single>div.chzn-drop>div.chzn-results>input		Distribution    \\13
+	
+DXUITC-3425 : To verify working of language targeting section
+    Click Element		css=div#language_targeting>div.section_header.contain_cols9>h1>div.section_title.cols4
+	Click Element		css=#flight_inherit_language_targeting_false
+	Select From List By Value		id=target_languages_all		45
+	
+DXUITC-3404: To check working of cancel button
+    Click Button    Cancel
+	Wait Until Page Contains		Flight budget and schedule setup
+	Page Should Contain		Flight budget and schedule setup
+	
+DXUITC-3406: To check working of save and continue button	
+	Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Element                  css=input.ember-view.ember-text-field.percent
+    Click Button                   css=button.ember-view.ember-button.primary.save-and-continue
+    Wait Until Page Contains   	Flight Details
+	Click Button		css=input.primary
+    Page Should Contain		Upload File 
+	

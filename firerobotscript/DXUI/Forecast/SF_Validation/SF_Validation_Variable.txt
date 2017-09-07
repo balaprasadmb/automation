@@ -1,0 +1,23 @@
+
+***Variables***
+${advertiser} 	        Pirch
+${campaign-currency} 	1
+${campaign-channel} 	online
+${mmddyyyy} 	        04/11/2015
+${mmddyyyy-2} 	        05/25/2015
+${mmddyyyy-3} 	        02/01/2015
+${mmddyyyy-4}           02/11/2015
+${mmddyyyy-5} 	        01/01/2015
+${optional} 	        21
+${cost-model} 	        CPM
+${cpa} 	                6
+${budget} 	        10000
+${cpm}           	7
+${cogs} 	        0.19
+${margin} 	        51.0
+${description} 	    Test 
+${frequency-cap-impressions} 	2
+${bid} 	            50
+${day-cap} 	        5.00
+${budget-2} 	        600.00
+${empty}                " "

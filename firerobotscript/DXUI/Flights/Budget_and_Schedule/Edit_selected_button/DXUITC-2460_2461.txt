@@ -1,0 +1,62 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		 tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-2460: To check if edit selected button is disabled when all the flight checkboxes are unchecked
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Element Should Be Disabled  css=.contain_cols8 >div > div.cols5 > div.group >button.ember-view.ember-button:nth-child(1)
+	
+DXUITC-2461:To check working of edit selected button
+    Wait Until Page Contains   	Flight budget and schedule setup
+	Sleep             5s
+	Select Checkbox   css=div.ember-view.fbs-checkbox.select-all>input
+	Select Checkbox   css=div.ember-view.fbs-checkbox>input
+	Click Button      css=.contain_cols8 >div > div.cols5 > div.group >button.ember-view.ember-button:nth-child(1)
+	#Page Should Contain   	Editing 1 Flight
+   
+DXUITC-2472: To check working of cancel button on the pop-up of edit selected button
+	Click Button            cancel
+	Page Should Contain   	Flight budget and schedule setup
+	
+DXUITC-2476: To check functionality of update flight button on the pop-up
+   Click Button      css=.contain_cols8 >div > div.cols5 > div.group >button.ember-view.ember-button:nth-child(1)
+   Click Button      Update Flights
+   Page Should Contain   	Flight budget and schedule setup
+  
+DXUITC-2473:To check if all the fields are enabled when respective checkbox is checked
+   Element Should Be Enabled		css=.contain_cols8 >div > div.cols5 > div.group >button.ember-view.ember-button:nth-child(1)
+   
+DXUITC-2477:To verify if same edited data is present on the UI, for all the selected flights
+   Click Button       css=.contain_cols8 >div > div.cols5 > div.group >button.ember-view.ember-button:nth-child(1)
+   Page Should Contain   	Type
+   Page Should Contain   	Standard Exchange
+   Page Should Contain   	Decision Algorithm
+   Page Should Contain   	Distribution - DX-100
+   Page Should Contain   	Start Date
+   Page Should Contain   	End Date
+   Click Button             cancel
+	
+DXUITC-2475:To check if enabled fields can be edited
+	Select Checkbox   css=div.ember-view.fbs-checkbox.select-all>input
+	Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Input Text   	css=input.ember-view.ember-text-field.day_cap   	${day-cap}
+	Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-4}
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+    #Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details

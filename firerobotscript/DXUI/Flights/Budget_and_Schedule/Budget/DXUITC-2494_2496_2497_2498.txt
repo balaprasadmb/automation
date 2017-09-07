@@ -1,0 +1,49 @@
+ *** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-2494:To check if campaign currency sign is inherited in budget field and remains as it is while entering
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Page Should Contain   	Budget
+    Page Should Contain   	$
+	
+DXUITC-2496: To check if flight is created when alphabetical characters in BUDGET are entered
+   Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+   Input Text       css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-1}
+   Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+   Input Text   	css=input.ember-view.ember-text-field.day_cap   	${day-cap}
+   Click Element    css=input.ember-view.ember-text-field.percent
+   Click Element    css=input.ember-view.ember-text-field.percent
+   Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+   Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+   Page Should Contain   	Flights io budget is not a number
+   
+DXUITC-2497:To check if flight is created when special characters are entered
+   Clear Element Text  css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field
+   Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-2}
+   Click Element   css=input.ember-view.ember-text-field.percent
+   Click Element   css=input.ember-view.ember-text-field.percent
+   Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+   Page Should Contain   	Flights io budget is not a number
+   
+DXUITC-2498:To check if flight is created when negative numbers are entered
+  Clear Element Text  css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field
+  Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-3}
+  Click Element   css=input.ember-view.ember-text-field.percent
+  Click Element   css=input.ember-view.ember-text-field.percent
+  Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+  Page Should Contain   	Flights io budget must be greater than or equal to 0	   
+	

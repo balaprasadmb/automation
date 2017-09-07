@@ -1,0 +1,4 @@
+Flight Description,Flight Budget,Tactic Name,Tactic Budget,Tactic Impression Cap,Flight Type,Algorithm,Start At,End At,Default Bid,Max Day Budget,Frequency Cap,Impression Cap,Inventory Suppliers,Oneview Policy,Content Channels,Target Languages,Language Source,Geo Target Area Type,Geo Targets,Whitelist Names,Blacklist Names,Creatives,Preferred Placement,Dayparting,Viewability,Inherit Viewability,Included Audiences,Excluded Audiences
+test-flight-1,1000,Default,,,Spending Flight,DX-301,08/11/2015,08/12/2015,3,,,,,,,,,,,,,,,,,
+test-flight-2,1000,Default,,,Spending Flight,DX-301,08/11/2015,08/12/2015,3,,,,,,,,,,,,,,,,,
+test-flight-3,1000,Default,,,Spending Flight,DX-301,08/11/2015,08/12/2015,3,,,,,,,,,,,,,,,,,

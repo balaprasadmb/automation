@@ -1,0 +1,37 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-865:Contents of Actions Column
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link       ${campaign}
+    Page Should Contain Link    ${advertiser}
+    Page Should Contain Element    //img[@alt='Icon_play']
+    Page Should Contain Element    //img[@alt='Icon_edit']
+    Page Should Contain Element    //img[@alt='Icon_copy']
+    Page Should Contain Element    //img[@alt='Icon_remove']
+    Click Image    //img[@alt='Icon_copy']
+    Confirm Action
+    Page Should Contain    Successfully copied Flight
+	Wait Until Page Contains Element	css=.flight_name
+	Click Element	css=.save-and-exit
+	Wait Until Page Contains Element	//img[@alt='Icon_edit']	
+  	Click Image    //img[@alt='Icon_edit']
+    Page Should Contain Element    flight_description
+    Page Should Contain    Flight:
+    Page Should Contain    Flight Details
+    Go Back
+	Wait Until Page Contains Element	//img[@alt='Icon_remove']
+    Click Image    //img[@alt='Icon_remove']
+    Confirm Action
+    Page Should Contain    successfully deleted.
+   

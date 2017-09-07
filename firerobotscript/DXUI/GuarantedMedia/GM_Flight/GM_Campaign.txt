@@ -1,0 +1,247 @@
+ ***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	   		Selenium2Library   15.0   5.0
+Resource		GM_Campaign_Variables.txt
+Resource        Common_Variables.txt
+Resource	    GM_Campaign_Variables.txt
+Library	 	    ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+*** Variables ***
+
+${campaign-name}	GMCampaign
+
+***Test Cases***
+DXUITC-118: To verify Contents of campaign list page
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    Click Link  	drop1
+    ${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Page Should Contain   	Organization:
+    Page Should Contain   	New Campaign
+    Page Should Contain   	New Media Plan
+    Page Should Contain   	Name
+    Page Should Contain   	Budget
+    Page Should Contain   	CPA Goal
+    Page Should Contain   	Starts
+    Page Should Contain   	Ends
+    Page Should Contain   	Assets
+
+DXUITC-95: To verify availability of inventory type as 'Guaranteed Media' option
+    ${advertiser}	            Get Advertiser
+    Click Link  				css=a.add.button.new_campaign_top
+    Input Text   				advertiser   							${advertiser}
+    Click Link      ${advertiser} 
+    Click Link      ${advertiser}
+    Select From List By Label   pick_inventory_type  					${inventory-type} 
+    Submit Form     			id=pick_advertiser
+
+DXUITC-102: To verify contents of 'GM campaign Edit Page'
+    Page Should Contain 		Campaign Details
+    Page Should Contain 		Budget and Spending Setup
+    Page Should Contain			Campaign Objective
+    Page Should Contain			Lookback Windows
+    Page Should Contain			Available Guaranteed Inventory
+    Page Should Contain			Add On Costs
+
+DXUITC-352:Creation of GM campaign with blank Campaign name field
+    Input Text  				campaign_start_date    								${start_date}
+    Input Text  				campaign_end_date  									${end_date}
+    Input Text  				campaign_io_number  								${cpa}
+    Click Element  				css=div#budget_and_spending_setup > div.section_header.contain_cols12 > h1 > div.section_title.cols4
+    Select From List By Label  	campaign_campaign_cost_model_type_id  				${cost-model}
+    Input Text  				campaign_cog_attributes_cpa_goal					${cpa}
+    Input Text  				campaign_cog_attributes_insertion_order_budget  	${budget}
+    Input Text  				campaign_cog_attributes_cpm			        		${cpa}
+    Input Text  				campaign_cog_attributes_cogs						${cpa}
+    Input Text  				campaign_cog_attributes_margin						${cpa}
+    Click Element  				campaign_objective_Distribution
+    Click Element  				select_all_inventory
+    Click Button  				campaign_submit
+    Page Should Contain     	Campaign name can't be blank
+
+DXUITC-107: To create GM Online Campaign.
+    ${uid}=		    Get Uid
+    ${GMcampaign}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+    Input Text  				campaign_name  	        							${GMcampaign}
+    Click Button  				campaign_submit
+
+DXUITC-108: To verify contents of GM campaign show page.
+    Page Should Contain 	  	Edit
+    Page Should Contain 	  	View All Campaigns
+    Page Should Contain 	  	Reports
+    Page Should Contain 	  	Blocked Publishers
+    Page Should Contain 	  	Smart Assign Creatives
+    Page Should Contain 	    Guaranteed Media Flights - explanation
+
+DXUITC-211: To verify creation of GM flight.
+	Click Link					New Flight
+    Input Text  				css=input.ember-view.ember-text-field.new_description  	${GMflight}
+	Click Link					Save All
+
+DXUITC-229: To verify contents of GM flight show page.
+	Click Link					${GMflight}
+    Page Should Contain 		Flight Details
+    Page Should Contain         Guaranteed Media
+    Page Should Contain			Guaranteed Media - DX-601
+    Page Should Contain			Guaranteed Inventory
+    Page Should Contain 		Add On Costs
+    Page Should Contain 		Impression Caps
+    Page Should Contain			Frequency Cap
+    Page Should Contain			Language Targeting
+    Page Should Contain 		Geographic Targeting
+    Page Should Contain 		Dayparting
+    Page Should Contain 		Audience Targeting
+
+DXUITC-245: To verify contents of GM flight Edit page.
+	Click Link						Edit
+    Page Should Contain 	  		Flight Details
+    Page Should Contain         	Guaranteed Media
+    Page Should Contain 	  		Guaranteed Inventory
+    Page Should Contain 	  		Add On Costs
+    Page Should Contain 	  		Impression Caps
+    Page Should Contain		  		Frequency Cap
+    Page Should Contain 	  		Language Targeting
+    Page Should Contain 	  		Geographic Targeting
+    Page Should Contain		  		Dayparting
+    Page Should Contain 	  		Audience Targeting
+    Page Should Contain Button   	Cancel
+    Page Should Contain Button   	flight_submit
+
+DXUITC-251: To verify functionality of 'Save & Exit' button from GM flight edit page
+    Click Button   					flight_submit
+    Page Should Contain				Guaranteed Media Flights - explanation
+
+DXUITC-174: To verify contents of 'Baseline Flight' show page.
+	Click Link						Baseline Flight
+    Page Should Contain				Baseline Flight
+    Page Should Contain	 			Active
+    Page Should Contain 			Baseline
+    Page Should Contain				Start date
+    Page Should Contain 			End date	
+    #Page Should Contain 			OBA Compliance 
+    #Page Should Contain     		OBA compliance enabled for all creatives
+
+DXUITC-186/DXUITC-138: To verify functionality of 'Edit' link from Baseline flight sprocket icon & Contents of edit page
+	Click Link						View Campaign
+	Click Element					css= tr> td:nth-child(5) >span>.gear_box_outer > img
+	Click Link 						css=.gear_box_content>ol>li>a
+    Page Should Contain				Flight Details
+    Page Should Contain 			Baseline Flight
+    Page Should Contain 			Active
+    Page Should Contain 			Baseline
+    Page Should Contain 			Start Date
+    Page Should Contain 			End Date
+    Page Should Contain 			Preferred Placement
+    Page Should Contain     		No Preference
+    #Page Should Contain 			OBA compliance enabled for all creatives
+    Page Should Contain  			5% Baseline Impressions
+    Page Should Contain  			If active, the panel flight will use 5% of impressions, allocating the rest to the flight waterfall.
+    Page Should Contain Button   	Cancel
+    Page Should Contain Button   	Save & Exit
+    Page Should Contain Button   	flight_submit
+
+DXUITC-151/DXUITC-254: To verify functionality of 'Cancel' button from baseline flight edit page
+    Click Button   					Cancel
+    Page Should Contain				Guaranteed Media Flights - explanation
+
+DXUITC-157: To verify functionality of 'Save & Exit' button from baseline flight edit page.
+    Click Element  					css= tr> td:nth-child(5) >span>.gear_box_outer > img
+	Click Link 						css=.gear_box_content>ol>li>a
+    Click Button  					Save & Exit
+    Page Should Contain 			Guaranteed Media Flights - explanation
+
+DXUITC-200: To verify contents of 'Creative Optimized Flight' show page.
+    Click Link  					Creative Optimized Flight
+    Page Should Contain 			Creative Optimized Flight
+    Page Should Contain 			Creative Optimized
+    Page Should Contain 			Start date
+    Page Should Contain 			End date
+    Page Should Contain 			Add On Costs
+
+DXUITC-187/DXUITC-180: To verify functionality of 'Edit' link from Creative Optimized Flight sprocket icon & Contents of edit page.
+    Click Link  					View Campaign
+    Click Element  					css=tr~tr~tr > td:nth-child(5) >span>.gear_box_outer > img
+	Click Link 						css=tr~tr~tr > td:nth-child(5) >span>.gear_box_outer >.gear_box_content>ol>li>a
+    Page Should Contain 			Flight Details
+    Page Should Contain				Creative Optimized Flight
+    Page Should Contain 			Creative Optimized
+    Page Should Contain 			Start Date
+    Page Should Contain 			End Date
+    Page Should Contain 			Preferred Placement
+    Page Should Contain 			No Preference
+    #Page Should Contain 			OBA compliance
+    Page Should Contain 			Add On Costs
+    Page Should Contain Button   	Cancel
+    Page Should Contain Button   	Save & Exit
+    Page Should Contain Button   	flight_submit
+
+DXUITC-192: To verify functionality of 'Cancel' button from Creative Optimized flight edit page.
+    Click Button   					Cancel
+    Page Should Contain 			Guaranteed Media Flights - explanation
+
+DXUITC-194: To verify functionality of 'Save & Exit' button from Creative Optimized flight edit page.
+    Click Element  					css=tr~tr~tr > td:nth-child(5) >span>.gear_box_outer > img
+	Click Link 						css=tr~tr~tr > td:nth-child(5) >span>.gear_box_outer >.gear_box_content>ol>li>a
+    Click Button  					Save & Exit
+    Page Should Contain				Guaranteed Media Flights - explanation
+
+DXUITC-323: To verify Creation of GM Flights with duplicate name.
+	Click Link						New Flight
+    Input Text  					css=input.ember-view.ember-text-field.new_description  	${GMflight}
+    Click Link  					Save All
+    Wait Until Page Contains 		Flights description has already been taken	
+    Click Link  					Cancel
+
+DXUITC-201: To verify 'None Assigned' link functionality from 'Creatives' column for 'Creative Optimized Flight'
+    Click Link  					css=tr~tr~tr > td:nth-child(4) >a
+    Wait Until Page Contains 		Confirm Creative Assignments
+    Click Button   					Exit
+    Page Should Contain 			Guaranteed Media Flights - explanation
+
+DXUITC-272: To verify 'None Assigned' link functionality from 'Targeting' column for GM flight.
+    Click Link  					css=tr > td:nth-child(3) >a
+    Page Should Contain				Audience Targeting
+    Click Button  					Cancel
+	Page Should Contain 			Guaranteed Media Flights - explanation
+
+DXUITC-111: To verify 'Edit' link from campaign show page.
+    Click Link  					Edit
+    Page Should Contain Button  	Update Campaign
+
+DXUITC-343: To verify functionality of 'Update Campaign' button
+    Click Button  					Update Campaign
+    Page Should Contain 			Guaranteed Media Flights - explanation
+
+DXUITC-5193: To verify Functionality of 'Smart Assign Creatives' from Campaign show page & contents of 'Smart Assign Creatives' popup
+    Click Link  					Smart Assign Creatives
+    Sleep							5s
+    Page Should Contain  			Smart Assign Creatives
+    Page Should Contain Button  	smart_assign_cancel
+    Page Should Contain Button  	smart_assign_submit
+    Click Element               	//button[@title='close']
+
+DXUITC-5194: Functionality of reports link
+    Click Link  					reports
+    Sleep 							10s
+    Page Should Contain  			Reports for
+    Page Should Contain				Summary
+    Page Should Contain 			Creative
+    Page Should Contain				Audience
+    Page Should Contain 			Advanced Insight
+    Page Should Contain 			Intelligence
+    Page Should Contain				Custom Query
+    
+DXUITC-5195: Functionality of Blocked publishers link
+    Go Back
+    Click Link  					Blocked Publishers
+    Wait Until Page Contains  		Blocked Publishers
+    
+DXUITC-5196: To verify 'View All Campaigns' link from campaign show page.
+    Go Back
+    Click Link  					View All Campaigns
+    Page Should Contain Link  		css=a.add.button.new_campaign_top
+    Page Should Contain				New Media Plan

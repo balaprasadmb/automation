@@ -1,0 +1,270 @@
+#default by: 'id'
+detailed_edit_creatives:
+    bulk_upload_creatives_button:
+        by: 'css selector'
+        value: '#creative_forms > .headBot > a:nth-child(1)'
+    add_detailed_creative:
+        value: 'add_new_detail'
+    first_creative_link:
+        by: 'css selector'
+        value: '#creative_list>ol>li:nth-child(1)>a'
+    first_creative_name:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>input[id$="_name"]'
+    first_concept:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>input[id$="_concept"]'
+    first_size:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>select[id$="_size"]'
+    first_size_width:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>input[id$="_width_pixels"]'
+    first_size_height:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>input[id$="_height_pixels"]'
+    first_ad_type:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>select[id$="_creative_format_id"]'
+    first_ad_feature:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>.creative_sub_select'
+    first_tag_type:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>select[id$="_tag_type_id"]'
+    first_url:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>input[id$="url"]'
+    first_offer_type:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>select[id$="_offer_type_id"]'
+    first_additional:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>textarea'
+    first_start_date:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>input[id$="_start_date_visible"]'
+    first_end_date:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>input[id$="_end_date_visible"]'
+    first_lang_targeting:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>select[id$="language_id"]'
+    first_is_flash:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>select'
+    first_select_vendor:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.vendors>div>div>div>select'
+    first_remove_vendor:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.vendors>div>div>div>img'
+    second_vendor:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.vendors>div>div>div>select'
+    remove_second_vendor:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.vendors>div>div>div>img'
+    first_new_vendor:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.new_ad_service_vendor'
+    first_placement:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>select[id$="_position"]'
+    first_z_index:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.tiny'
+    first_external_id_source:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div>div>div>select'
+    first_external_id_value:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div>div>div>input'
+    first_remove_external_id:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div>div>div>img'
+    second_source:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div:nth-child(2)>div>div>select'
+    second_value:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div:nth-child(2)>div>div>input'
+    remove_second_external_id:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.externals>div:nth-child(2)>div>div>img'
+    first_new_external_id:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>.add'
+    first_add_on_input:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.creative_add_ons_bucket>div>div>div>textarea'
+    first_add_on_select:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.creative_add_ons_bucket>div>div>div>div>select'
+    first_add_on_remove:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.creative_add_ons_bucket>div>div>div>div>img'
+    first_new_add_on:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>div>div>.add_creative_add_on'
+    first_click_tracking:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>.ad_tag_fields>div>input[id$="_tracking"]'
+    first_original_link:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>strong>.original'
+    first_processed_link:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>strong>.processed'
+    first_secure_link:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>strong>.secure'
+    first_secure_processed_link:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>strong>.secure_processed'
+    first_edit_tags:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.original_ad_tag_snippet'
+    first_processed_tags:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.processed_tag'
+    first_secure_tags:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.secure_tag'
+    first_secure_processed_tags:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>div>div>.secure_processed_tag'
+    first_cancel:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>.buttons>.cancel_new_creatives'
+    first_validate:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>.buttons>.validate'
+    first_preview:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>.buttons>.preview'
+    first_save:
+        by: 'css selector'
+        value: '#detailed_form_fields>div:nth-child(1)>div>.buttons>.primary'
+    second_creative_link:
+        by: 'css selector'
+        value: '#creative_list>ol>li:nth-child(2)>a'
+    second_creative_name:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(2)>div>div>input[id$="_name"]'
+    second_concept:
+        by : 'css selector'
+        value: '#detailed_form_fields>div:nth-child(2)>div>div>input[id$="_concept"]'
+    detailed_edit:
+        by: 'css selector'
+        value: '#detailed_view_link'
+    creative_form:
+        value: 'creative_forms'
+    first_creative_textbox:
+        value: 'creatives_c1_name'
+    assign_campanion_link:
+        by: 'css selector'
+        value: '.assign_companion_asset'
+    assing_asset_table:
+        value: 'assets'
+    first_asset_radio_button:
+        by: 'css selector'
+        value: '#assets > tbody > tr:nth-child(1) > td > input[type="radio"]'
+    first_asset_name:
+        by: 'css selector'
+        value: '#assets > tbody > tr:nth-child(1) > td.asset > span'
+    assign_asset_button:
+        by: 'css selector'
+        value: 'input[value="Assign asset"]'
+    save_bulk_creative_button:
+        value: 'save_bulk_button'
+    detailed_form:
+        value: 'detailed_form'
+    source:
+        value: 'source'
+    errors:
+        by: 'css'
+        value: '.detail_errors'
+    creative_save_loader:
+        by: 'css selector'
+        value: '.spinner.save-spinner'
+    fb_fight_dropdown:
+        by: 'css selector'
+        value: '#external_id_c10_chzn > .chzn-single > div > b'
+    fb_flight_dropdown_input:
+        by: 'css selector'
+        value: '.chzn-search>input'
+    fb_first_destination_url_textbox:
+        value: 'creatives_c1_facebook_destination_url'
+    fb_first_view_tag_textbox:
+        value: 'creatives_c1_facebook_view_tag'
+    fb_first_title_textbox:
+        value: 'creatives_c1_facebook_title'
+    fb_first_body_text_box:
+        value: 'creatives_c1_facebook_body'
+    fb_first_image_browse_button:
+        value: 'creatives_c1_facebook_image'
+    fb_flight_loader:
+        by: 'css selector'
+        value: '.facebook_flight_loader.hang-left'
+    fb_creative_preview:
+        by: 'css selector'
+        value: '#facebook_preview_c1 > iframe'
+    details_view:
+        value: 'details_view'
+    click_tracking_status:
+        by: 'css selector'
+        value: '#ad_tag_snippet_content>div>div'
+    tags_section:
+        by: 'css selector'
+        value: '.read_only_textarea>p'
+    page_contents:
+        1: 'It is recommended that you leave creative dates undefined unless you have a specific use case for the setting'
+        2: '(e.g., automatically updating creative concepts mid-flight). The creative dates setting does not override flight assignment;'
+        3: 'even with dates defined, creatives must still be assigned to an active flight in order for impressions to be served.'
+        4: 'Enabling language targeting for a creative will restrict the creative to display only in browsers or on sites with a matching language.'
+        5: 'This will limit distribution. Always include an untargeted creative as a default.'
+        6: 'For expandable creatives, z-Index configures in which layer of the creative the OBA icon will appear.'
+        7: 'Additional HTML and Javascript can be appended or prepended to your creative markup.  The [[[CACHEBUSTER]]] macro can be used in this markup.'
+        8: 'DataXu automatically inserts cache-busting and click-tracking macros for ad servers. These will only be shown when previewing your creative.'
+        9: 'RMX flights will not run with secure creative tags. Please ensure you have a non-secure creative tag available for any RMX flights.'
+    blank_messages:
+        name: 'Name is invalid'
+        concept: "Concept can't be blank"
+        width: "Width Pixels can't be blank"
+        height: "Height Pixels can't be blank"
+        flash: 'Is Flash is not included in the list'
+        url: 'Domains Creative must have one "Advertiser domain"'
+        tags: "Secure Tag can't be blank"
+        ad_tag: "Ad Tag Snippet can't be blank"
+    special_chars:
+        z_index: 'Z Index is not a number'
+        url: 'Domains URL is invalid:'
+    over_limit:
+        name: 'Name is too long (maximum is 255 characters)'
+        concept: 'Concept is too long (maximum is 200 characters)'
+    validation:
+        width: 'Width Pixels is not a number'
+        height: 'Height Pixels is not a number'
+        external_id: 'Base External IDs must be unique within a source.'
+        ad_tag: "ad tag type can't be blank."
+        concept: "Concept is invalid"
+    success_message: 'Creatives successfully saved. Creative Registration status may take up to 48 hours to update.'
+    ad_type: ['Banner', 'Video', 'Rich Media', 'Facebook']
+    banner_features: ['In Page Flash', 'HTML5 or Static']
+    video_features: ['Pre Roll', 'Mid Roll', 'Post Roll', 'Interactive Pre Roll']
+    rich_media_features: ['Unknown', 'Expanding', 'Flash in Flash', 'Floating', 'Peel Down', 'Special', 'Widget Ads']
+    fb_creative_detail_edit_page_element: ['first_creative_name', 'first_concept', 'first_url', 'first_offer_type', 'fb_first_destination_url_textbox', 'fb_first_view_tag_textbox', 'fb_first_title_textbox', 'fb_first_body_text_box', 'fb_first_image_browse_button', 'first_cancel', 'first_validate', 'first_preview', 'first_save']
+    external_id_row_elements: ['first_external_id_source', 'first_external_id_value', 'first_remove_external_id']
+    external_id_source_dropdown_options: ['DFA', 'Atlas', 'MediaMind']
+    external_id_sources: ['DFA', 'Atlas', 'MediaMind', 'RMX', 'BlueKai', 'WURFL', 'Facebook', 'Facebook Campaign', 'Facebook Page Post Ad', 'SalesForce']
+    page_elements: ['add_detailed_creative', 'first_creative_link', 'first_creative_name', 'first_concept','first_size', 'first_ad_type', 'first_ad_feature', 'first_tag_type', 'first_url','first_offer_type', 'first_additional', 'first_start_date', 'first_end_date', 'first_lang_targeting', 'first_is_flash', 'first_new_vendor', 'first_placement', 'first_z_index', 'first_new_external_id', 'first_new_add_on', 'first_click_tracking','first_original_link','first_processed_link', 'first_secure_link', 'first_secure_processed_link', 'first_edit_tags', 'first_cancel', 'first_validate', 'first_preview', 'first_save']
+    creative_sizes: ['300x250', '336x280', '720x300', '234x60' ,'120x90', '728x90', '300x600', '320x50','300x75', '216x36', '168x28', '120x30', 'Custom Size...']
+    languages: ['English', 'French', 'German', 'Italian', 'Polish', 'Portuguese', 'Spanish']
+    creative_attributes : ['- Select One -', 'Flash', 'Flashless']
+    placements: ['Top Right', 'Top Left', 'Bottom Right', 'Bottom Left']
+    ad_tag_section: ['first_original_link', 'first_processed_link', 'first_secure_link', 'first_secure_processed_link']
+    ad_tag_types: ['iFrame', 'Javascript', 'URL', 'Legacy', 'Image', 'VAST 2.0.1', 'Facebook', 'ORMMA', 'MRAID v1', 'MRAID v2']
+    creative_show_page_contents: ['AppNexus', 'RMX RTB', 'Edit', 'All Creatives']
+    vendors : ['Adometry', 'DoubleVerify', 'PerformLine', 'Accuen', 'ADITION', 'AdMotion', 'Bluestreak', 'Chango', 'DataXu', 'DFA', 'eBay', 'LiveRail', 'Mixpo', 'NexTag', 'OpenX', 'Sociomantic', 'Zedo', 'Dimestore', 'MetrixLab', 'TNS', 'Acxiom', 'BlueKai', 'DataLogix', 'Nurago', 'Target']
+    external_ids_values: ['first_source', 'first_external_id', 'second_source', 'second_external_id']

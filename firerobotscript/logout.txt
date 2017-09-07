@@ -1,0 +1,19 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/dates.py
+Force Tags		tags.regression.mandatory
+
+*** Test Cases ***
+
+LogOut Test Case
+    Click Link		Logout
+    Wait Until Page Contains Element	user_session_email
+    Input Text   	user_session_email   	${email-address}
+    Input Password   	user_session_password   	${password}
+    Select Checkbox   	user_session_remember_my_name
+    Click Button   	user_session_submit
+    Wait Until Page Contains Element	css=img[alt='DataXu']
+    Close Browser

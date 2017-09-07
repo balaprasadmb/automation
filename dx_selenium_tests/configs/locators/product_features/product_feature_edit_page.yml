@@ -1,0 +1,11 @@
+#default by: 'id'
+product_feature_edit_page:
+    url: 'admin/product_features/%/edit'
+    user_selection_box:
+        by: 'css selector'
+        value: '#users_chzn > .chzn-choices > .search-field > input'
+    selected_users:
+        by: 'css selector'
+        value: '#users_chzn > .chzn-choices > li > span'
+    update_product_feature_button:
+        value: 'product_feature_submit'

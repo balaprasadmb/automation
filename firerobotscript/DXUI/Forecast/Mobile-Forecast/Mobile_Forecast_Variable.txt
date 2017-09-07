@@ -1,0 +1,18 @@
+
+*** Variables ***
+${advertiser} 	7th Generation
+${campaign-channel} 	online
+${campaign-channel-2} 	mobile
+${mmddyyyy} 	04/20/2015
+${mmddyyyy-2} 	05/29/2015
+${optional} 	21
+${cost-model} 	0
+${cpa} 	6
+${budget} 	5600
+${cpm} 	7
+${cogs} 	0.19
+${margin} 	51.0
+${description} 	Test flight
+${bid} 	3.60
+${budget-2} 	666.00
+${app_link}	           stg-ui-app05.sldc.dataxu.net

@@ -1,0 +1,20 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Force Tags		tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-836:DXUI-6902 - Functionality of 'Cancel' button from 'Smart Assign Creative' pop up
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    css=td.first>a
+    Click Link    Smart Assign Creatives
+    Click Element    smart_assign_cancel
+    Page Should Contain    Upload New Flight(s)
+    Page Should Contain    Upload Attribution Data
+    Page Should Contain    Export All Flights
+    

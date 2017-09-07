@@ -1,0 +1,27 @@
+***Variables***
+
+${29} 	                        Chinese
+${-2} 	                        Czech
+${mmddyyyy} 	      04/10/2015
+${mmddyyyy-2} 	      05/30/2015
+${cost-model}          CPM
+${cpa}                10
+${budget}             2000
+${cpm}                30
+${cogs}              0.19
+${margin}           35.0
+${advertiser}          21st Century
+${optional}             50
+${description} 			Test 01
+${frequency-cap-impressions} 	2
+${bid} 				20
+${day-cap} 			10
+${budget-2} 		5000
+${30} 				45
+${-2} 				51
+${-3} 				55
+${3} 				44
+${separate-geotargeting-for-this-flight} 	Specify regions within...
+${vietnam} 			States & Territories
+${vietnam-2} 			Metrocodes
+

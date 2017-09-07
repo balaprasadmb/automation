@@ -1,0 +1,19 @@
+#default by: 'id'
+login:
+    url: 'login/'
+    email:
+        value: 'user_session_email'
+    password:
+        value: 'user_session_password'
+    login_submit:
+        value: 'user_session_submit'
+    system_message_dialog:
+        by: 'css selector'
+        value: '.ui-dialog'
+    system_message_dialog_close_link:
+        by: 'css selector'
+        value: '.ui-icon-closethick'
+    user_password:
+        value: 'password'
+    user_password_confirmation:
+        value: 'password_confirmation'

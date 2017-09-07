@@ -1,0 +1,56 @@
+***Settings***
+
+Documentation  	Test suite created with FireRobot.
+Library       	Selenium2Library   15.0   5.0
+Resource  	    Variables_Media.txt
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+*** Test Cases ***
+
+DXUITC-2175:Contents of Media Plan
+    
+	Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link   	New Media Plan
+    Page Should Contain Link   	Media Plans & Campaigns
+    Page Should Contain   	Details
+    Page Should Contain   	Model & Activities
+    Page Should Contain   	Campaigns
+    Page Should Contain   	Lookback Windows
+
+DXUITC-2249:Create Media plan
+    ${uid}			Get Uid
+	${media-plan-name}	Catenate    SEPARATOR=-	${name}	${uid}
+    Input Text   	media_plan_name   	${media-plan-name}
+    Input Text   	media_plan_project_plan_budget   	${project-plan-budget}
+    Select From List By Value   	media_plan_currency_id   	${currency}
+    Select From List By Value   	media_plan_performance_attribution_type_id   	${currency}
+    Input Text   	media_plan_attributions_attributes_0_window_size   	${last-click}
+    Select From List By Value   	media_plan_attributions_attributes_0_window_unit   	${last-click-2}
+    Input Text   	media_plan_attributions_attributes_1_window_size   	${last-click}
+    Select From List By Value   	media_plan_attributions_attributes_1_window_unit   	${last-click-2}
+    Click Button   	                 media_plan_submit
+	Page Should Contain             Successfully created media plan.
+	Write To File					media_plan=${media-plan-name}				 
+
+DXUITC-2280:Work Flow of Media Plan
+    Click Link   	drop1
+    ${media-plan-name}		Get Media Plan
+    Page Should Contain   	${media-plan-name}
+    Page Should Contain   	Reports
+    Click Link   	${media-plan-name}
+    
+DXUITC-4960:To verify currency displayed properly in Value drop down    
+    Click Link   	 drop1
+    Click Link   	 New Media Plan
+    Select From List By Value   	media_plan_currency_id   	${currency3}
+    Click Button   	 Add row
+    Select From List By Index   	css=div#media_plan_activities>div>div>select.value_type   1
+    Page Should Contain   		%
+    

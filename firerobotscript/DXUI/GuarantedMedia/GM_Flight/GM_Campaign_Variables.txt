@@ -1,0 +1,11 @@
+***Variables***
+${campaign-currency} 	1
+${campaign-channel} 	online
+${inventory-type} 		Guaranteed Media
+${GMcampaign}	 		ReTest GM Campaign10
+${insertion-order} 		5
+${cost-model} 			CPM
+${cpa} 					7.56
+${budget} 				10000.47
+${margin} 				30
+${GMflight}				Test GM Flight

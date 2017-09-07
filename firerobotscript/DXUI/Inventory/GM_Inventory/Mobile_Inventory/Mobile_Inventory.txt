@@ -1,0 +1,56 @@
+***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	   		Selenium2Library   15.0   5.0
+Resource		Variables_Mobile_Inventory.txt
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+
+*** Variables ***
+
+${campaign-name}	PublisherName
+
+***Test Cases***
+DXUITC-5096: To check functionality of 'New Guaranteed Media' button
+   Go To		http://${app_link}/advertisers/1/campaigns?locale=en
+   Click Link  				drop6
+   ${advertiser}	Get Advertiser
+   Click Element    css=.chzn-single
+   Input Text    	css=div.chzn-search>input    ${advertiser}
+   Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+   Click Link					css=a.add.button.new_source
+   Wait Until Page Contains  	Create Guaranteed Media
+
+DXUITC-5180: To verify functionality of 'Not Assigned' link from Inventory and Tags
+   Click Link					Not Assigned
+   
+DXUITC-1503: To verify contents of 'Assign creative' pop-up under 'Inventory & Tags' section   
+   Wait Until Page Contains   	Assign Creative
+   Page Should Contain   		Creative Name
+   Page Should Contain   		Creative Concept
+   Page Should Contain   		Created
+   Page Should Contain   		close
+   Page Should Contain Button   css=button.assign_creative.primary
+   
+DXUITC-1525: To verify functionality of 'Close' button for 'Assign creative' pop-up
+   Click Element 				css=span.ui-icon.ui-icon-closethick
+   Sleep 						5s
+   Page Should Contain   		Not Assigned
+
+DXUITC-1401/DXUITC-1597/DXUITC-1602: Creation of GM mobile inventory with budget/cost value as numeric
+   ${uid}=		    Get Uid
+   ${publisher-1}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+   Input Text  					guaranteed_inventory_name  							${publisher-1}
+   Input Text  					guaranteed_inventory_publisher_domains  			${publisher-1}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Select From List By Index  	guaranteed_inventory_media_type  					${media-type}
+   Click Element               	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Page Should Contain  		Organization:
+   Page Should Contain  		New Guaranteed Media

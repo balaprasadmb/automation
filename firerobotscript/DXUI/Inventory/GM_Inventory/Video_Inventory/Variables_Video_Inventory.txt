@@ -1,0 +1,5 @@
+***Variables***
+
+${publisher-1}      Video Inventory
+${media-type}		2
+${budgetcost}		10.23

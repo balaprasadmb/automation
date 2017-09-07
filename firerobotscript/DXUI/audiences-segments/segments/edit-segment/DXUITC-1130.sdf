@@ -1,0 +1,33 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Variables ***
+${activity}       21st Century-YM
+
+*** Test Cases ***
+DXUITC-1130:To verify the 'Cancel' button functionality on Edit activity page
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Select From List By Label    first_party_segment_active_filter    View All
+    Sleep    3s
+    Click Image    //*[@id='composite_segments_table']/tbody/tr[1]/td[9]/span/img
+    Click Link    Edit
+    Click Element    //input[@value='Add Pixel Activity']
+    Wait Until Page Contains Element	//input[@id='checkall']
+    Click Element    checkall
+    Click Element    //input[@value='Add Selected']
+    Click Image    //*[@id='activities_table']/table/tbody/tr/td[7]/span/img
+    Click Link    Edit
+    Input Text    activity_name    ${activity}
+    Click Element    //input[@value='Cancel']
+    Page Should Contain Link    Activities
+    Page Should Contain Link    Edit
+    Page Should Contain    DataXu pixel ID

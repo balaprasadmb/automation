@@ -1,0 +1,12 @@
+#default by: 'id'
+login_slides_show_page:
+    edit_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(1)'
+    back_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(2)'
+    login_slides_show_page_contents: ['Name', 'Enabled', 'Body']
+    login_slides_show_page_elements: ['edit_link', 'back_link']
+    slide_creation_success_message: 'Login screen slide was successfully created.'
+    slide_update_success_message: 'Login screen slide was successfully updated.'

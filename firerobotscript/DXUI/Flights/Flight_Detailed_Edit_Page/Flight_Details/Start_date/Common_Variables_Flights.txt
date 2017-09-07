@@ -1,0 +1,43 @@
+***Variables***
+${optional}            21
+${cost-model}          CPM
+${cpa}                 6
+${budget}              1222
+${bid}                 50
+${bid-1}               00
+${bid-2}               $%^
+${bid-3}               -55
+${bid-4}               5.50
+${bid-5}               01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891
+${bid-6}               ABC125
+${cpm}                 7
+${cogs}                0.19
+${margin}              51.0
+${campaign-name}       F304
+${description}         Test
+${description-2}       qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiop345
+${description-3}       $%^&
+${specialcharacters}   $%^&
+${numeric}             12345
+${description-6}       abcd123
+${description-7}       </script>
+${description-8}       Test flight with firerobot
+#${uppercasecharacters} TESTFLIGHT 
+${day-cap}             50
+${day-cap-2}           asd123
+${day-cap-3}           $%^
+${day-cap-4}           5.25
+${day-cap-5}           -50
+${budget-1}            ABC
+${budget-2}            $%^
+${budget-3}            -55
+${budget-4}            55.55
+${budget-5}            3000
+${frequency-cap-impressions}    ABC
+${frequency-cap-impressions-2}  XYZ
+${frequency-cap-impressions-4}   0123ABC
+${frequency-cap-impressions-5}    859XYZ
+${frequency-cap-impressions-6}    5
+${frequency-cap-impressions-7}    6
+${filter-by-description}          abc
+${empty}               " "

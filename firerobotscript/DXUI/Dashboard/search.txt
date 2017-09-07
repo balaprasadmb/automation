@@ -1,0 +1,57 @@
+***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Resource        dashboard_variables.txt
+Force Tags		tags.regression.DIGC
+
+
+***Test Cases***
+
+DXUITC-1216 :Functionality of Search box for Blank search
+    Go To  		https://${app_link}/account?locale=en 
+    Click Link  Dashboard
+    Input Text  form_hash_wrapper_name_filter  	                ${filter-on}
+    Select From List By Value  	form_hash_wrapper_sort_by  	    ${sort-by}
+    Select From List By Value  	form_hash_wrapper_data_source  	${data-source}
+    Select From List By Value  	form_hash_wrapper_date_range  	${date-range}
+    Click Button  	form_hash_wrapper_submit
+    Page Should Contain 	Showing Campaigns 1-10 of
+    
+DXUITC-1217 :Detailed content for Dashboard
+    Page Should Contain Textfield  	form_hash_wrapper_name_filter
+    Page Should Contain List  	    form_hash_wrapper_sort_by
+    Page Should Contain List  	    form_hash_wrapper_data_source
+    Page Should Contain List  	    form_hash_wrapper_date_range
+    Page Should Contain Button  	form_hash_wrapper_submit
+    Page Should Contain  	        Add Campaign
+    Page Should Contain 	        Showing Campaigns 1-10 of
+    Page Should Contain Image  	    Edit campaign
+    Page Should Contain Image  	    Icon_gear
+    Page Should Contain  	        Links
+    Page Should Contain  	        Reports
+    Page Should Contain  	        Creatives
+    Page Should Contain  	        Audiences
+    #Page Should Contain Image  	    Icon_play
+    Page Should Contain Element  	xpath=(.//span[contains(normalize-space(.), '« Previous')])[1]
+    Page Should Contain Link  	Next »
+    Page Should Contain Element  	xpath=(.//span[contains(normalize-space(.), '« Previous')])[last()]
+    Page Should Contain Link  	Next »
+
+DXUITC-1218 :Functionality of Search box for Dashboard
+    Input Text  	form_hash_wrapper_name_filter  	            ${filter-on1}
+    Select From List By Value  	form_hash_wrapper_sort_by  	    ${sort-by}
+    Select From List By Value  	form_hash_wrapper_data_source  	${data-source}
+    Select From List By Value  	form_hash_wrapper_date_range  	${date-range}
+    Click Button  	form_hash_wrapper_submit
+    Page Should Contain  	                                    ${filter-on1}
+    Page Should Contain Element		//div[@class='controls']
+
+DXUITC-1221 :-Functionality of Search box for invalid search
+    Input Text  	form_hash_wrapper_name_filter  	${filter-on2}
+    Select From List By Value  	form_hash_wrapper_sort_by  	${sort-by}
+    Select From List By Value  	form_hash_wrapper_data_source  	${data-source}
+    Select From List By Value  	form_hash_wrapper_date_range  	${date-range}
+    Click Button  	form_hash_wrapper_submit
+    Page Should Contain  	No campaigns found matching the search request.

@@ -1,0 +1,14 @@
+***Variables***
+
+
+${optional}            21
+${cost-model}          CPM
+${cpa}                 6
+${budget}              1222
+${bid}                 50
+${cpm}                 7
+${cogs}                0.19
+${margin}              51.0
+${campaign-name}       F304
+${description}         Test
+${day-cap}             50

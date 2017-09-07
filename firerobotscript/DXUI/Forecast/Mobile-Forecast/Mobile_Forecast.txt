@@ -1,0 +1,125 @@
+*** Settings ***
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Mobile_Forecast_Variable.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}		Campaign
+
+*** Test Cases ***
+
+DXUITC-4818: Mobile Targeting 'Applications, Mobile websites, or both' section Supports to Forecast
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  					css=a.add.button.new_campaign_top
+    Input Text  					advertiser  														${advertiser}
+    Click Element  					ui-dialog-title-dataxu_dialog
+    Select From List By Value   	pick_media_type   													${campaign-channel-2}
+    Click Button  					campaign_submit
+    Input Text  					campaign[name]  													${campaign-name}
+    Input Text  					campaign[start_date]  												${mmddyyyy}
+    Input Text  					campaign[end_date]  												${mmddyyyy-2}
+    Input Text  					campaign[io_number]  												${optional}
+    Select From List By Index  		campaign[campaign_cost_model_type_id] 							 	${cost-model}
+    Input Text  					campaign[cog_attributes][cpa_goal]  								${cpa}
+    Input Text  					campaign[cog_attributes][insertion_order_budget]				  	${budget}
+    Input Text  					campaign[cog_attributes][cpm]  										${cpm}
+    Input Text  					campaign[cog_attributes][cogs]  									${cogs}
+    Input Text  					campaign[cog_attributes][margin] 								 	${margin} 
+    Click Button                    xpath=.//input[@type='radio' and (@value='Distribution' and @id='campaign_objective_Distribution')]
+    Click Element                   id=campaign_objective_Distribution
+    Click Button  	                css=#campaign_submit
+    Sleep          				    5s
+    Input Text   	                css=input.ember-view.ember-text-field.flight_name.text    	           ${description}
+	Input Text   	                css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget}
+    Input Text   	                css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Click Element                   css=input.ember-view.ember-text-field.percent
+	Click Element                   css=input.ember-view.ember-text-field.percent
+    Click Button                	css=button.ember-view.ember-button.primary.save-and-continue
+    Sleep       					5s
+    Click Element   				css=#app_or_web>div.section_header.contain_cols9>h1>div.section_title.cols4
+    Select From List By Value   	flight_app_or_web   	mobile_websites
+    Sleep       					5s
+    Page Should Contain   	Forecast
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+	
+DXUITC-4815: Mobile Targeting 'WiFi vs. Carrier Gateway' section Supports To Forecasts
+    sleep                   5s
+	Click Element   		css=#mobile_connection_types>div.section_header.contain_cols9>h1>div.section_title.cols4
+	Select Checkbox   		flight_mobile_connection_type_ids_0
+    Select Checkbox   		flight_mobile_connection_type_ids_1
+	Sleep       					5s
+    Page Should Contain   	Forecast
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+	
+DXUITC-4819: Mobile Targeting 'Mobile Devices' section Supports To Forecast
+    Sleep                    5s
+    Click Element   	     css=#mobile_devices>div.section_header.contain_cols9>h1>div.section_title.cols4
+    Select Checkbox          all-tablets
+    Select Checkbox   	     all-smartphones
+    Select Checkbox   	     all-feature-phones
+    Sleep       					5s
+    Page Should Contain   	Forecast
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+	
+DXUITC-4820: Mobile Targeting 'Mobile Platforms' section Supports To Forecast
+    Sleep                     5s
+    Click Button   	        mv_all_sel_mobile_platforms
+    Sleep       			5s
+    Page Should Contain   	Forecast
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+    Click Button   	        rm_all_sel_mobile_platforms
+    Sleep       			5s
+    Page Should Contain   	Forecast
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+	
+DXUITC-4821: Mobile Targeting 'Mobile Carriers' section Supports To Forecast
+   Sleep                    5s
+   Click Element   	            css=#mobile_carriers>div.section_header.contain_cols9>h1>div.section_title.cols4
+   Click Button                 	mv_all_sel_mobile_carriers
+   Sleep       					5s
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+
+   Click Button   	rm_all_sel_mobile_carriers
+   Sleep       					5s
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+   Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+	
+
+

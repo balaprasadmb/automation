@@ -1,0 +1,10 @@
+#default by: 'id'
+media_plan_show_page:
+    media_plans_and_campaigns_link:
+        by: 'css selector'
+        value: '.breadcrumbs > a:nth-child(2)'
+    edit_media_plan_button:
+        by: 'css selector'
+        value: "input[value='Edit']"
+    messages:
+        success: 'Successfully created media plan.'

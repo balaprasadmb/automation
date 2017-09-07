@@ -1,0 +1,54 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource  	    Variables_Media.txt
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+*** Test Cases ***
+
+DXUITC-4537_4899:Create Media plan with currecny other than USD $ Currency sign is visible only for first activity pixel(in value field)
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link   	New Media Plan
+    ${uid}			Get Uid
+	${media-plan-name}	Catenate    SEPARATOR=-	${name}	${uid}
+    Input Text   	media_plan_name   	${media-plan-name}
+    Input Text   	media_plan_project_plan_budget   	${project-plan-budget}
+    Select From List By Value   	media_plan_currency_id   	${currency3}
+    Select From List By Value   	media_plan_performance_attribution_type_id   	${currency}
+    Input Text   	media_plan_attributions_attributes_0_window_size   	${last-click}
+    Select From List By Value   	media_plan_attributions_attributes_0_window_unit   	${last-click-2}
+    Input Text   	media_plan_attributions_attributes_1_window_size   	${last-click}
+    Select From List By Value   	media_plan_attributions_attributes_1_window_unit   	${last-click-2}
+    Click Button   	media_plan_submit
+	Write To File			media_plan=${media-plan-name}
+	
+DXUITC-2447:Contents of Show page
+    Click Link   	        drop1
+    ${media-plan-name}		Get Media Plan
+    Page Should Contain   	${media-plan-name}
+    Page Should Contain   	Reports
+    Click Link   	        ${media-plan-name}
+    Page Should Contain   	Media Plans & Campaigns
+    Page Should Contain   	Details
+    Page Should Contain   	Model & Activities
+    Page Should Contain   	Campaigns
+    Page Should Contain   	Lookback Windows
+
+DXUITC-2451:Report Link
+    Click Link   	Report
+    
+DXUITC-2454:Edit button functionality    
+    Click Link   	drop1
+    ${media-plan-name}		Get Media Plan
+    Page Should Contain   	${media-plan-name}
+    Page Should Contain   	Reports
+    Click Link   	${media-plan-name}
+    Click Button   	Edit

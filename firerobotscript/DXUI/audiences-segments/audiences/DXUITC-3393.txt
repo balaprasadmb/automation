@@ -1,0 +1,19 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-3393: To check the Currency list present under currency dropdown
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    ${currency}    Get Element Attribute    currency_switcher@data-currencies
+    Click Link    Create New Audience
+    Wait Until Page Contains         Create a Composed Audience
+    ${currency1}    Get Element Attribute    currency_switcher@data-currencies
+    Should Be Equal    ${currency}    ${currency1}

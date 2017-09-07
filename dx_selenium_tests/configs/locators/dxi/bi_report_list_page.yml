@@ -1,0 +1,24 @@
+#default by: 'id'
+bi_report_list_page:
+    new_bi_report_pack_button:
+        by: 'link text'
+        value: 'New Business Intelligence Report Pack'
+    new_bi_report_button:
+        by: 'link text'
+        value: 'New Business Intelligence Report'
+    bi_reports_list_table:
+        by: 'css selector'
+        value: '.sortable'
+    first_report_name:
+        by: 'css selector'
+        value: 'tbody > tr:nth-child(1) > .name > div'
+    first_report_delete_button:
+        by: 'css selector'
+        value: 'tbody > tr:nth-child(1) > .actions > a[title="Delete"] > img'
+    first_report_edit_icon:
+        by: 'css selector'
+        value: 'tbody > tr:nth-child(1) > .actions > a[title="Edit"] > img'
+    bi_report_list_page_contents: ['Business Intelligence Reports', 'Report Name', 'Description', 'Actions']
+    bi_report_list_page_elements: ['new_bi_report_button', 'new_bi_report_pack_button']
+    report_creation_success_message: 'The Business Intelligence Report was Successfully Created!'
+    report_Pack_creation_success_message: 'The Business Intelligence Report Pack was Successfully Created!'

@@ -1,0 +1,42 @@
+#default by: 'id'
+flights_show_page:
+    advertiser_link:
+        by: 'css selector'
+        value: '.breadcrumbs>a:nth-child(1)'
+    campaign_link:
+        by: 'css selector'
+        value: '.breadcrumbs>a:nth-child(2)'
+    edit_link:
+        by: 'link text'
+        value: 'Edit'
+    view_campaign_link:
+        by: 'link text'
+        value: 'View Campaign'
+    creatives_link:
+        by: 'link text'
+        value: 'Creatives'
+    campaign_flight_budget_setup_link:
+        by: 'link text'
+        value: 'Campaign Flight Budget Setup'
+    blacklist_link:
+        value: 'view_campaign_blacklist'
+    whitelist_link:
+        value: 'view_campaign_whitelist'
+    oneview_section:
+        value: 'oneview'
+    flight_basics:
+        by: 'id'
+        value: 'flight_basics_content'
+    flight_type:
+        by: 'css selector'
+        value: '#flight_basics_content > div:nth-child(2) > div:nth-child(2) > p'
+    flight_algorithm:
+        by: 'css selector'
+        value: '#flight_basics_content > div:nth-child(2) > div:nth-child(3) > p'
+    fb_campaign_id:
+        by: 'css selector'
+        value: '#flight_basics_content > div:nth-child(2) > div:nth-child(8) > p'
+    device_types_message:
+        by: 'css selector'
+        value: '#device_types_content>div'
+    flight_show_page_element: ['campaign_link', 'edit_link', 'view_campaign_link', 'creatives_link']

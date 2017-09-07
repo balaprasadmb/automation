@@ -1,0 +1,39 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Variables ***
+${segments}        01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678912345
+
+*** Test Cases ***
+DXUITC-1658:To verify that segment is not saved with blank name
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Select From List By Label    first_party_segment_active_filter    View All
+    Sleep    3s
+    Click Image    //*[@id='composite_segments_table']/tbody/tr[1]/td[9]/span/img
+    Click Link    Edit
+    Input Text    segment_name    ${EMPTY}
+    Click Element    segment_submit
+    Page Should Contain    Name can't be blank
+
+DXUITC-1667:To verify that segment is not updated with 256 characters
+	${string}	Get String
+	${segment}		Catenate    SEPARATOR=-	${segments}	${string}
+    Input Text    segment_name    ${segment}
+    Click Element    segment_submit
+    Page Should Contain    Name must contain fewer than 255 characters
+
+DXUITC-1661:To verify that segment is updated with special characters
+		${uid}		Get Uid
+		${segments}		Catenate    SEPARATOR=-	!@#$	${uid}
+	    Input Text    segment_name    ${segments}
+	    Click Element    segment_submit
+	    Page Should Contain    Successfully updated segment '${segments}'.

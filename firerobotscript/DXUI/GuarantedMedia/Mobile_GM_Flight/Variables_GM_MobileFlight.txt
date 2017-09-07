@@ -1,0 +1,7 @@
+#***Variables***
+#${inventory-type} 			Guaranteed Media
+#${GMcampaign}	 			ReTest GM Mobile Campaign05
+#${cost-model} 				CPM
+#${cpa} 						7.23
+#${budget} 					1000.28
+#${GMflight}					GM mobile Flight

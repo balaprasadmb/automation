@@ -1,0 +1,41 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Test Cases ***
+DXUITC-1685:To verify that segment is not updated with characters in Expiration minutes
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Select From List By Label    first_party_segment_active_filter    View All
+    Sleep    3s
+    Click Image    //*[@id='composite_segments_table']/tbody/tr[1]/td[9]/span/img
+    Click Link    Edit
+    Input Text    segment_expiration    aaaaaa
+    Select From List By Label    segment_expiration_units    minutes
+    Click Element    segment_submit
+    Page Should Contain    Expiration is not a number
+
+DXUITC-1687:To verify that segment is not updated with 2147483647 Expiration minutes
+    Input Text    segment_expiration    2147483647
+    Select From List By Label    segment_expiration_units    minutes
+    Click Element    segment_submit
+    Page Should Contain    Expiration must be less than 2147483647
+
+DXUITC-1689:To verify that segment is not updated with 0 Expiration minutes
+    Input Text    segment_expiration    0
+    Select From List By Label    segment_expiration_units    minutes
+    Click Element    segment_submit
+    Page Should Contain    Expiration must be greater than 0
+
+DXUITC-1686:To verify that segment is updated with 2147483646 Expiration minutes
+   	Input Text    segment_expiration    2147483646
+    Select From List By Label    segment_expiration_units    minutes
+    Click Element    segment_submit
+    Page Should Contain    Successfully updated segment

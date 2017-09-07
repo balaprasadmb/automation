@@ -1,0 +1,206 @@
+***Settings***
+
+Documentation		Test suite created with FireRobot.
+Library	   			Selenium2Library   15.0   5.0
+Resource			Variables_Online_Inventory.txt
+Resource            Common_Variables.txt
+Library			    ${EXECDIR}/python/setup.py
+Force Tags		    tags.regression.DIGC
+
+
+***Test Cases***
+
+DXUITC-1323: To check contents of inventory list page.
+    Go To		http://${app_link}/advertisers/1/campaigns?locale=en
+    Click Link  			drop6
+	${advertiser}		Get Advertiser
+    Click Element    	css=.chzn-single
+    Input Text    	 	css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Page Should Contain  	Guaranteed Media
+    Page Should Contain  	Organization:
+    Page Should Contain  	New Guaranteed Media
+    Page Should Contain  	Publisher Name
+    Page Should Contain  	Placement Name
+    Page Should Contain  	Media Size / Max. Duration
+    Page Should Contain  	Created
+    Page Should Contain  	Show
+    Page Should Contain  	10
+    Page Should Contain  	25
+    Page Should Contain  	50
+    Page Should Contain  	100
+    Page Should Contain  	entries
+    Page Should Contain  	Previous
+    Page Should Contain  	Next
+
+DXUITC-5096: To check functionality of 'New Guaranteed Media' button.
+    Click Link				css=a.add.button.new_source
+    Page Should Contain  	Create Guaranteed Media
+
+DXUITC-5097: Contents of inventory edit page
+    Page Should Contain  	Inventory Details
+    Page Should Contain  	Publisher Name
+    Page Should Contain  	Placement
+    Page Should Contain  	Available
+    Page Should Contain  	Secure
+    Page Should Contain  	Media Type
+    Page Should Contain  	Tag Type
+    Page Should Contain  	Inventory and Tags
+    Page Should Contain  	Size
+    Page Should Contain  	Default Creative
+    Page Should Contain  	Add Another Size
+    Page Should Contain  	Budget
+
+DXUITC-1595: To check budget section gets open while click on it & verify contents of it
+    Click Element           		css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+    Page Should Contain  			Currency
+    Page Should Contain  			Budget
+    Page Should Contain  			Cost
+    Page Should Contain  			Billable
+    Page Should Contain Button  	guaranteed_inventory_submit
+    Page Should Contain Button  	Cancel
+
+DXUITC-1363: Creation of new inventory with blank Publisher Name.
+    Input Text  			guaranteed_inventory_name  						${placement}
+    Select Checkbox  		guaranteed_inventory_active
+    Select Checkbox  		guaranteed_inventory_secure
+    Input Text  			guaranteed_inventory_budget  					${budgetcost}
+    Input Text  			guaranteed_inventory_cost_value  				${budgetcost}
+    Select Checkbox  		guaranteed_inventory_inventory_pools_attributes_0_is_billable
+    Click Button  			guaranteed_inventory_submit
+    Page Should Contain  	Publisher domains can't be blank
+
+DXUITC-1479: Creation of new inventory with blank Placement Name.
+    Input Text  			guaranteed_inventory_publisher_domains  			${placement}
+    Clear Element Text		guaranteed_inventory_name
+    Click Button  			guaranteed_inventory_submit
+    Page Should Contain  	Inventory pools name can't be blank
+
+DXUITC-5153: To verify 'Publisher Name' with 'less than' & 'greater than' sign
+   Clear Element Text		guaranteed_inventory_publisher_domains
+   Input Text  				guaranteed_inventory_publisher_domains  			${publisher-5}
+   Input Text  				guaranteed_inventory_name  							${placement-4}
+   Select Checkbox  		guaranteed_inventory_active
+   Select Checkbox  		guaranteed_inventory_secure
+   Click Button  			guaranteed_inventory_submit
+   Page Should Contain  	Publisher domains is invalid
+
+DXUITC-1492:To verify 'Placement Name' with 'less than' & 'greater than' sign
+   Clear Element Text		guaranteed_inventory_publisher_domains
+   Clear Element Text		guaranteed_inventory_name
+   Input Text  				guaranteed_inventory_publisher_domains  			${placement-4}
+   Input Text  				guaranteed_inventory_name  							${publisher-5}
+   Select Checkbox  		guaranteed_inventory_active
+   Select Checkbox  		guaranteed_inventory_secure
+   Click Button  			guaranteed_inventory_submit
+   Page Should Contain  	Name is invalid
+
+DXUITC-1368/DXUITC-1480: To check 'Publisher Name/Placement Name' accepts upto 255 characters
+   Clear Element Text		guaranteed_inventory_publisher_domains
+   Input Text  				guaranteed_inventory_publisher_domains  			${placement-1}
+   Input Text  				guaranteed_inventory_name  							${placement-1}
+   Click Button  			guaranteed_inventory_submit
+   Page Should Contain  	Organization:
+   Page Should Contain  	New Guaranteed Media
+
+DXUITC-1370/DXUITC-1486: To check 'Publisher Name/Placement Name' is accepting alpha numeric characters.
+   Click Link					css=a.add.button.new_source
+   Input Text  					guaranteed_inventory_name  							${placement-2}
+   Input Text  					guaranteed_inventory_publisher_domains  			${placement-2}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Click Element            	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Wait Until Page Contains  	Organization:
+   Page Should Contain   		New Guaranteed Media
+
+DXUITC-1371/DXUITC-1488: To check 'Publisher Name/Placement Name' is accepting special characters.
+   Click Link					css=a.add.button.new_source
+   Input Text  					guaranteed_inventory_name  							${placement-3}
+   Input Text  					guaranteed_inventory_publisher_domains  			${placement-3}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Click Element            	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Page Should Contain  		Organization:
+   Page Should Contain 		 	New Guaranteed Media
+
+DXUITC-1365: To check 'Remove' button functionality from new inventory edit page   
+   Click Link						css=a.add.button.new_source
+   Wait Until Page Contains   		Inventory and Tags
+   Page Should Contain   			Not Assigned
+   Click Image   					Icon_delete
+   Page Should Not Contain Link   	Not Assigned
+   
+DXUITC-1357: To check functionality of 'Cancel' button from new inventory edit page
+   Click Button  				Cancel
+   Page Should Contain  		Organization:
+   Page Should Contain  		New Guaranteed Media
+
+DXUITC-1335: To check contents of gear icon.
+   Click Image					//img[@alt='Icon_gear']
+   Page Should Contain  		Edit
+   Page Should Contain  		Export Tags
+
+DXUITC-1336: To check functionality of 'Edit' link from gear icon.
+   Click Link					Edit
+   Page Should Contain  		Edit Guaranteed Media
+   Page Should Contain Button  	guaranteed_inventory_submit
+   Page Should Contain Button  	Cancel
+   Click Button  				Cancel
+   Page Should Contain  		New Guaranteed Media
+
+DXUITC-1362/DXUITC-1597/DXUITC-1602: To create Online inventory with budget/cost as numeric value
+   Click Link					css=a.add.button.new_source
+   Input Text  					guaranteed_inventory_name  							${placement-6}
+   Input Text  					guaranteed_inventory_publisher_domains  			${publisher-6}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Select From List By Index  	guaranteed_inventory_media_type  					${media-type}
+   Click Element               	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Page Should Contain  		Organization:
+   Page Should Contain  		New Guaranteed Media
+
+DXUITC-1334: To check functionality of 'Publisher Name' link from inventory list page
+   Click Link					css= .publisher_domains.sorting_1 > a
+   Page Should Contain  		Inventory Details
+   Page Should Contain   		Publisher Name
+   Page Should Contain   		Placement Name
+   Page Should Contain   		Secure
+   Page Should Contain   		Available
+   Page Should Contain   		Media Type
+   Page Should Contain   		Tag Type
+   Page Should Contain   		Placement Name ID
+   Page Should Contain   		Currency
+   Page Should Contain   		Billable
+   Page Should Contain  		Inventory and Tags
+   Page should Contain Button   Edit Guaranteed Media
+   Go Back
+   Wait Until Page Contains		Organization:
+
+DXUITC-1334: To check functionality of 'Placement Name' link from inventory list page
+   Click Link					css= .name > a
+   Page Should Contain  		Inventory Details
+   Page Should Contain   		Publisher Name
+   Page Should Contain   		Placement Name
+   Page Should Contain   		Secure
+   Page Should Contain   		Available
+   Page Should Contain   		Media Type
+   Page Should Contain   		Tag Type
+   Page Should Contain   		Placement Name ID
+   Page Should Contain   		Currency
+   Page Should Contain   		Billable   
+   Page Should Contain  		Inventory and Tags
+   Page should Contain Button  	Edit Guaranteed Media
+   Go Back
+   Wait Until Page Contains	Organization:

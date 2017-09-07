@@ -1,0 +1,15 @@
+#default by: 'id'
+ci_datasets_list_page:
+    ci_datasets_list_table:
+        value: 'ci_datasets'
+    new_dataset_button:
+        by: 'css selector'
+        value: '.lnkbtn.add'
+    first_gear_icon:
+        by: 'css selector'
+        value: 'table > tbody > tr:nth-child(1) > td:nth-child(7) > span > img'
+    edit_link:
+        by: 'css selector'
+        value: 'table > tbody > tr:nth-child(1) > td:nth-child(7) > span > .gear_box_content > ol > li:nth-child(1) > a'
+    ci_list_page_title: 'Customer Intelligence Datasets'
+    ci_creation_success_message: 'The Customer Intelligence Dataset was Successfully Created!'

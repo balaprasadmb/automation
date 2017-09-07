@@ -1,0 +1,23 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-854:Add Flights button functionality
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+	Wait Until Page Contains Element	css=.chzn-single
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link       ${campaign}
+    Page Should Contain Link    ${advertiser}
+    Click Link    Add Flights
+    Wait Until Element Is Visible	css=.flight_name
+    Page Should Contain    New Flights
+    Page Should Contain Element    css=.ember-view.ember-button.add.add-flight
+    

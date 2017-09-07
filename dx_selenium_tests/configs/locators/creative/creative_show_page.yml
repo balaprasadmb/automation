@@ -1,0 +1,18 @@
+#default by: 'id'
+creative_show_page:
+    edit_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(1)'
+    delete_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(2)'
+    creatives_for_advertiser_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(3)'
+    all_creatives_link:
+        by: 'css selector'
+        value: '.headBot > p > a:nth-child(4)'
+    ad_tag_snippet_section:
+        value: 'ad_tag_snippet_content'
+    creative_show_page_elements: ['edit_link', 'delete_link', 'creatives_for_advertiser_link', 'all_creatives_link']
+    creative_show_page_title: 'Creative:'

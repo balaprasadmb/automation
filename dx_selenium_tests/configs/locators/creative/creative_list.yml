@@ -1,0 +1,121 @@
+#default by: 'id'
+creative_list:
+    url: '/admin/advertisers/161/creatives/'
+    advertiser_click:
+        by : 'css selector'
+        value : '.chzn-container>a.chzn-single>div'
+    advertiser_input:
+        by: 'css selector'
+        value: '.chzn-container>.chzn-drop>.chzn-search>input'
+    new_creative_button:
+        by: 'css selector'
+        value: '.new_creative_button'
+    new_assets_button:
+        by: 'css selector'
+        value: '.linedup.add'
+    filters:
+        value: 'filter_creatives'
+    select_all:
+        by: 'css selector'
+        value: '.select_all'
+    first_creative_checkbox:
+        by: 'css selector'
+        value: '#creatives_view>table>tbody>tr:nth-child(1)>.selectable>input'
+    first_creative_link:
+        by: 'css selector'
+        value: '#creatives_view>table>tbody>tr:nth-child(1)>.name>a'
+    first_creative_gear_icon:
+        by: 'css selector'
+        value: '#creatives_view > table > tbody > tr:nth-child(1) > .actions > .gear_box_outer > img'
+    first_creative_edit_link:
+        by: 'css selector'
+        value: '#creatives_view > table > tbody > tr:nth-child(1) > .actions > .gear_box_outer > div > ol >  li:nth-child(1) > a'
+    rmx_ids_popup:
+        by: 'css selector'
+        value: '.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.dialog-500'
+    close_rmx_ids_popup:
+        by: 'css selector'
+        value: '.ui-icon.ui-icon-closethick'
+    get_rmx_id:
+        by: 'css selector'
+        value: '.show_ids'
+    creative_table:
+        by: 'css selector'
+        value: '#creatives_view>table'
+    creatives_view:
+        by: 'id'
+        value: 'creatives_view'
+    search: '728x90'
+    creative_tag_spinner:
+        by: 'css selector'
+        value: '#creatives_list_title > .spinner'
+    asset_filter_textbox:
+        by: 'css selector'
+        value: '#assets_index_table_view > .table_view_header > div > div > form > input'
+    asset_list_table:
+        by: 'css selector'
+        value: '#assets_index_table_view>table'
+    asset_name_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(2) > a'
+    asset_size_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(3) > a'
+    asset_type_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(4) > a'
+    asset_format_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(5) > a'
+    asset_last_updated_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(6) > a'
+    asset_actions_header:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > thead > tr > th:nth-child(7) > span'
+    first_asset_checkbox:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > tbody > tr:nth-child(1) > td:nth-child(1) > input'
+    first_asset_gear_icon:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > tbody > tr:nth-child(1) > td:nth-child(7) > span > img'
+    first_asset_edit_link:
+        by: 'css selector'
+        value: '#assets_index_table_view > table > tbody > tr:nth-child(1) > td:nth-child(7) > span > .gear_box_content > ol > li:nth-child(1) > a'
+    generate_creatives_button:
+        value: 'generate_creatives_from_assets'
+    delete_asset_button:
+        value: 'delete_assets'
+    asset_show_rows_dropdown:
+        by: 'css selector'
+        value: '#assets_index_table_view > .table_view_footer > .cols7 > .pagination > .pagination_select_rows > #per_page'
+    asset_go_to_page_textbox:
+        by: 'css selector'
+        value: '#assets_index_table_view > .table_view_footer > .cols7 > .pagination > .pagination_form > #page'
+    asset_list_prev_button:
+        by: 'css selector'
+        value: '#assets_index_table_view > .table_view_footer > .cols7 > .pagination > a.previous-page'
+    asset_list_next_button:
+        by: 'css selector'
+        value: '#assets_index_table_view > .table_view_footer > .cols7 > .pagination > a.next-page'
+    sections_title: ['Creative tags', 'Assets']
+    creatives_not_found_message: 'There are no  creatives on AppNexus and RMX for this advertiser.'
+    creative_success_message: 'Creatives successfully saved. Creative Registration status may take up to 48 hours to update.'
+    asset_success_message: 'Assets were successfully uploaded and queued for transcoding'
+    asset_delete_message: 'Assets were successfully deleted!'
+    asset_list_page_elements:
+        - asset_filter_textbox
+        - new_assets_button
+        - asset_name_header
+        - asset_size_header
+        - asset_type_header
+        - asset_format_header
+        - asset_last_updated_header
+        - asset_actions_header
+        - first_asset_gear_icon
+        - asset_show_rows_dropdown
+        - asset_go_to_page_textbox
+        - asset_list_prev_button
+        - asset_list_next_button
+        - generate_creatives_button
+        - delete_asset_button

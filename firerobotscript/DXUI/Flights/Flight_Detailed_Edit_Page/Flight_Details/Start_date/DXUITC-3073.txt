@@ -1,0 +1,66 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3073:To check working of start date calender
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	Input Text       css=#flight_description   ${description}
+	Click Element    css=#flight_start_at_visible
+	Click Element    css=#flight_end_at_visible
+	
+DXUITC-3075_DXUITC-3079:To check if start date calender adjusts itself when we put invalid date in start date
+    Input Text       css=#flight_description   ${description}
+	Input Text       css=#flight_start_at_visible  ${invalid_date}	
+	Input Text       css=#flight_end_at_visible    ${end_date}
+	Click Button     css=input.primary
+	Page Should Contain		Start date can't be blank
+	
+DXUITC-3080:To check if flight is created when start date field is kept blank
+    Input Text    css=#flight_start_at_visible                    ${empty}
+	Input Text    css=#flight_end_at_visible    ${end_date}
+	Click Button     css=input.primary
+	Page Should Contain		Start date can't be blank
+	
+DXUITC-3081:To check if flight is created when both the date fields are kept blank
+    Input Text    css=#flight_start_at_visible                    ${empty}
+	Input Text    css=#flight_end_at_visible    ${empty}
+	Click Button     css=input.primary
+	Page Should Contain     End date can't be blank
+    Page Should Contain     Start date can't be blank
+	
+DXUITC-3078:To check if special characters can be put in start date field manually
+    Input Text		css=#flight_start_at_visible                    ${char_date}
+	Input Text      css=#flight_end_at_visible    ${end_date}
+	Click Button     css=input.primary
+	Page Should Contain     Start date can't be blank
+	
+#DXUITC-3074:To check if flight is created when flight start date is before campaign start date	
+   #Input Text    css=#flight_start_at_visible                    ${empty}
+   #Input Text    css=#flight_end_at_visible		${empty}
+   #Input Text    css=#flight_start_at_visible                   ${end_date}
+   #Input Text    css=#flight_end_at_visible    ${end_date}
+   #Click Button     css=input.primary
+   #Page Should Contain     End date can't be blank
+   
+#DXUITC-3076:To check if valid start date can be put manually
+  #Input Text    css=#flight_start_at_visible                   ${start_date}
+  #Input Text    css=#flight_end_at_visible    ${end_date}
+  #Click Button     css=input.primary
+  #Page Should Contain     Flight Details

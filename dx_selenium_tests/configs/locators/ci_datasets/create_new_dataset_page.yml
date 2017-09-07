@@ -1,0 +1,10 @@
+#default by: 'id'
+create_new_dataset_page:
+
+    organization_dropdown:
+        value: 'ci_dataset_advertiser_id'
+    dataset_name_textbox:
+        value: 'ci_dataset_name'
+    create_dataset_button:
+        value: 'ci_dataset_submit'
+    ci_edit_page_title: 'Update Customer Intelligence Dataset'

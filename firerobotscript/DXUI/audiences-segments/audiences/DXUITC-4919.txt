@@ -1,0 +1,22 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-4919:'Composed Audience' table should remains as it is though error occured while creating
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Create New Audience
+    Click Element    css=.select_all
+    Click Element    segment_composed_with
+    Page Should Contain Element    //*[@id='audience_table']/table/tbody/tr[1]/td[1]/input
+    Input Text    segment_name    ${EMPTY}
+    Click Button    segment_submit
+    Page Should Contain    Expression can't be blank
+    Page Should Contain Element    //*[@id='audience_table']/table/tbody/tr[1]/td[1]/input

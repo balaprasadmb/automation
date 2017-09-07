@@ -1,0 +1,23 @@
+***Variables***
+${optional} 	      21
+${cost-model} 	      0
+${cpa} 	              6
+${budget} 	         5600
+${budget-2} 	      0.00
+${budget-3} 	      565.60
+${budget-4}           -565
+${cpm} 	              7
+${cogs} 	      0.19
+${margin} 	      51.0
+${description} 	      Test Flight01
+#${description-2}     Test01
+${frequency-cap-impressions} 	2
+${bid} 	              6.00
+${bid-2}              5.00
+${bid-3}              -5
+${bid-4}              50
+${bid-5}              60
+${day-cap} 	          5.00
+${allocated} 	      10.00
+${empty}              " "
+

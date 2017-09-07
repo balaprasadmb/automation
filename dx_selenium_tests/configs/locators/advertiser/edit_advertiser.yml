@@ -1,0 +1,76 @@
+edit_advertiser:
+    common: !include new_advertiser.yml
+    page_header:
+         by: 'css selector'
+         value: '.headTop>h1'
+    edit_page_content: ['details_section', 'currency_section', 'default_settings_section', 'oba_compliance_section', 'add_on_cost_section', 'rate_card_section', 'configure_licensing_section', 'configure_seats_section', 'facebook_section', 'submit_button', 'cancel_button']
+    details_section_content: ['organization_type', 'agency_group_disabled', 'agency_disabled', 'organization_name', 'email', 'contact_name', 'additional_domains', 'primary_domain', 'offer_type', 'platform_type']
+    inventory_locator:
+        by: 'css selector'
+        value: "input[data-inventory_supplier_name='{0}']"
+    error_message_for_email: 'Organization email must be in a valid format.'
+    error_message:
+        rate_card_with_different_currency: 'Rate card currency line 2: Geographic,1.0,0.45,0.54,CAD must match the organization currency (USD).'
+    agency_group_disabled:
+        by: 'css selector'
+        value: 'select[id="agency_group_id"][disabled="disabled"]'
+    details_section:
+        value: 'organization_details'
+    currency_section: 
+        value: 'currency'
+    default_settings_section:
+        value: 'default_settings'
+    oba_compliance_section:
+        value: 'oba_compliance'
+    add_on_cost_section:
+        value: 'organization_add_on_costs'
+    aoc_name_text_box:
+        by: 'css selector'
+        value: '.aoc_name > input'
+    aoc_channel_dropdown:
+        by: 'css selector'
+        value: 'div.aoc_channel > select[class="organization-channel"]'
+    rate_card_section:
+        value: 'segment_rates'
+    configure_licensing_section:
+        value: 'organization_licensing'
+    configure_seats_section:
+        value: 'organization_seats'
+    facebook_section:
+        value: 'facebook_pages'
+    agency_disabled:
+        by: 'css selector'
+        value: 'select[id="agency_id"][disabled="disabled"]'
+    save_advertiser_button:
+        value: 'advertiser_submit'
+    facebook_rtb_edit_icon:
+        by: 'css selector'
+        value: '#facebook_rtb_creds_edit > img'
+    existing_acc_id_radio_button:
+        value: 'account_use_existing_id'
+    acc_id_textbox:
+        value: 'fb_existing_account_id'
+    authenticate_button:
+        by: 'css selector'
+        value: '.button.primary.auth_facebook'
+    facebook_authentication_save_button:
+        value: 'fb_save'
+    advertiser_facebook_seat_status:
+        value: 'facebook_rtb_cred_inherit'
+    authenticated_email:
+        by: 'css selector'
+        value: '.fb_email'
+    facebook_popup_close_button:
+        by: 'css selector'
+        value: 'div[aria-labelledby="ui-dialog-title-facebook_rtb_credential_dialog_root"] > .ui-dialog-titlebar > a'
+    facebook_page_id_textbox:
+        value: 'new_facebook_page_id'
+    facebook_add_page_button:
+        by: 'css selector'
+        value: '#facebook_pages_content > div:nth-child(3) > div:nth-child(2) > .add'
+    facebook_resync_link:
+        by: 'css selector'
+        value: '.name > span > span > a'
+    facebook_account_id: '361795177295404'
+    facebook_page_id: '545661285489322'
+    advertiser_edit_page_title: 'Edit Organization'

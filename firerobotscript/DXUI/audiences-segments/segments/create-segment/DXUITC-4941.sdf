@@ -1,0 +1,29 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Variables ***
+${segments}       segment
+
+*** Test Cases ***
+DXUITC-4941:DXUI-8076 'View all' link from segments redirected to audiences list page
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+	${uid}=			Get Uid
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Click Link    Create First Party Segment
+    Page Should Contain    Create new Segment for ${advertiser}
+    Page Should Contain Link    Back to List
+	${segment}		Catenate    SEPARATOR=-	${segments}	${uid}
+    Input Text    segment_name    ${segment}
+    Click Element    segment_submit
+    Page Should Contain    Successfully created segment '${segment}'.
+    Click Link    View All
+    Page Should Not Contain Element    currency_switcher
+    Page Should Contain Element    first_party_segment_active_filter

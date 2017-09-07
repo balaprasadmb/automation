@@ -1,0 +1,21 @@
+--noncritical tags.regression.SA
+login.txt
+create_agency_group.txt
+create_agency.txt
+create_advertiser.txt
+create_campaign.txt
+create_inventory.txt
+create_activity.txt
+DXUI/campaigns/1_switchtocampaignview.txt
+DXUI/Dashboard
+DXUI/Inventory
+DXUI/campaigns/campaign-show-page
+DXUI/campaigns/campaigns-list-page
+DXUI/campaigns/Media_Plan
+DXUI/audiences-segments/segments
+DXUI/audiences-segments/audiences
+DXUI/Flights
+DXUI/GuarantedMedia
+DXUI/campaigns/z_SwitchCampaignDashboard.txt
+logout.txt
+selenium_tests

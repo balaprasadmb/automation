@@ -1,0 +1,30 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${email}				demo_email@sample.com
+${contact-name} 		demo name
+${agency-group-name}	regression
+
+*** Test Cases ***
+
+Create Agency Group
+	Go To			http://${app_link}/agency_groups/new?locale=en
+	${uid}=			Get Uid
+	${agency-group}		Catenate    SEPARATOR=-	${agency-group-name}	${uid}
+	Input Text   	agency_group_name   	${agency-group}
+	Input Text   	agency_group_organization_attributes_email   	${email}
+	Input Text   	agency_group_organization_attributes_contact_name   	${contact-name}
+	Choose File     agency_group_rate_card	${CURDIR}/rate_cards/rate_card_USD.xls
+	Click Element	select_all
+	Click Element	inherit_licensing
+	Click Element	agency_group_organization_attributes_mobile_enabled
+	Click Element	agency_group_organization_attributes_video_enabled
+	Write To File	agency_group=${agency-group}
+	Click Button   	agency_group_submit	
+        Page should Contain		Agency group "${agency-group}" was successfully created.	

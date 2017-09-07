@@ -1,0 +1,26 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Variables ***
+${segments}       9012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234578901234567890123456789012345678901234567890123456789012345678901234567891234
+
+*** Test Cases ***
+DXUITC-1148:To verify that segment is created with 255 characters
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Click Link    Create First Party Segment
+    Page Should Contain    Create new Segment for ${advertiser}
+    Page Should Contain Link    Back to List
+	${string}	Get String
+	${segment}		Catenate    SEPARATOR=-	${segments}	${string}
+    Input Text    segment_name    ${segment}
+    Click Element    segment_submit
+    Page Should Contain    Successfully created segment

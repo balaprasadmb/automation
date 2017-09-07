@@ -1,0 +1,8 @@
+#default by: 'id'
+generate_creative_page:
+    creative_name_text_box:
+        by: 'css selector'
+        value: '.creative_name'
+    ok_button:
+        value: 'modal_generate_creatives'
+    generate_creative_message: 'Assets were successfully uploaded and queued for transcoding'

@@ -1,0 +1,42 @@
+***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	   		Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+***Test Cases***
+DXUITC-3588: To check availability of 'Custom inventory' sub tab to user who has permission of 'Custom Inventory' under Product feature
+    Go To		http://${app_link}/advertisers/1/campaigns?locale=en
+    Click Link  			drop6
+	${advertiser}	 Get Advertiser
+    Click Element    css=.chzn-single
+    Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Page Should Contain   	Custom Inventory
+
+DXUITC-3611: To check contents of Custom inventory list page
+	Click Link   			\#ui-tabs-3
+	Sleep					5s
+	Page Should Contain   	New Custom Inventory
+	Page Should Contain   	Publisher Name
+	Page Should Contain   	Placement Name
+	Page Should Contain   	Media Sizes
+	Page Should Contain   	Created
+	Page Should Contain   	Show
+	Page Should Contain   	10
+	Page Should Contain   	25
+	Page Should Contain   	50
+	Page Should Contain   	100
+	Page Should Contain   	entries
+	Page Should Contain   	Previous
+	Page Should Contain   	Next
+
+DXUITC-5184: To verify contents of sprocket icon from Custom inventory list page
+	Click Image				css=img.gear_box
+	Page Should Contain  	Edit
+
+DXUITC-3618: To check availability of 'Export Tags' link   
+	Page Should Not Contain  		Export Tags
+   

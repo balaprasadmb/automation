@@ -1,0 +1,59 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3100:To check if campaign currency sign is inherited in the bid box and remains as it is while entering
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	Input Text       css=#flight_description    ${description}
+	Input Text   	 css=#flight_default_bid   	${default-bid-usd}
+	
+DXUITC-3101:To check if flight is created when bid is kept blank
+    Clear Element Text  css=#flight_default_bid 
+	Click Button     css=input.primary
+	Page Should Contain		Default bid can't be blank
+    Page Should Contain		Default bid is not a number
+	
+DXUITC-3102:To check if flight is created when alphabetical characters are entered
+    Input Text   css=#flight_default_bid   	${default-bid-usd-2}
+	Click Button     css=input.primary
+	Page Should Contain		Default bid can't be blank
+    Page Should Contain		Default bid is not a number
+	
+DXUITC-3103:To check if flight is created when special characters are entered
+    Input Text   css=#flight_default_bid   	${default-bid-usd-3}
+	Click Button     css=input.primary
+	Page Should Contain		Default bid can't be blank
+    Page Should Contain		Default bid is not a number
+	
+DXUITC-3104:To check if flight is created when negative numbers are entered
+    Input Text		css=#flight_default_bid   	${default-bid-usd-4}
+	Click Button     css=input.primary
+	Page Should Contain		Default bid must be greater than or equal to 0
+	
+DXUITC-3107:To check if flight is created when flight bid is entered more than 100
+    Input Text		css=#flight_default_bid   	${default-bid-usd-6}
+	Click Button     css=input.primary
+	Page Should Contain		Default bid must be less than or equal to 100.0
+
+DXUITC-3105:To check if flight is created when decimal number is entered
+    Input Text		css=#flight_default_bid   	${default-bid-usd-5}
+	Click Button        css=input.primary
+	Page Should Contain   Upload File
+   

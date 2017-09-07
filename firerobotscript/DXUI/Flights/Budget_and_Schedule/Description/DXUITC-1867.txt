@@ -1,0 +1,27 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-1867:To check if flight is created when numbers are entered
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Input Text   	css=input.ember-view.ember-text-field.flight_name.text    	           ${description-5}
+	Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-5}
+    Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	

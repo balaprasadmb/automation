@@ -1,0 +1,5 @@
+#default by: 'id'
+edit_flight:
+    common: !include create_flight.yml
+    media_type:
+        value: 'flight_creative_media_type_id'

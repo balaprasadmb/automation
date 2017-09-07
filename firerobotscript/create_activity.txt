@@ -1,0 +1,27 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${activity-name}		regression-activity
+
+*** Test Cases ***
+
+Create Activity
+	Go To			http://${app_link}/advertisers/1/activities?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${activity}	Catenate    SEPARATOR=-	${activity-name}	${uid}
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Wait Until Page Contains		Create Activity
+	Click Link		Create Activity
+	Wait Until Page Contains Element	css=#activities_list > .activity_fields > .cols3 > input[id$= '_name']	
+	Input Text		css=#activities_list > .activity_fields > .cols3 > input[id$= '_name']	${activity}
+	Click Button   	activity_submit
+	Write To File	activity=${activity}

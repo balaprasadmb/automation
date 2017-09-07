@@ -1,0 +1,130 @@
+***Settings***
+
+Resource            SF_Lang_Targeting_Variable.txt
+Documentation	  Test suite created with FireRobot.
+Library	          Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}		Campaign
+
+***Test Cases***
+
+To Verify changes reflected on Forecasting after updating Inventory,Add on costs,impression caps
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  	css=a.add.button.new_campaign_top
+    Input Text  	campaign[advertiser][name]  	${advertiser}
+    Submit Form         id= pick_advertiser
+    Input Text  	campaign_name  	${campaign-name}
+    Input Text  	campaign_start_date  	${mmddyyyy}
+    Input Text  	campaign_end_date  	${mmddyyyy-2}
+    Input Text  	campaign_io_number  	${optional}
+    Select From List By Label  	campaign_campaign_cost_model_type_id  	${cost-model}
+    Input Text  	campaign_cog_attributes_cpa_goal  	${cpa}
+    Input Text  	campaign_cog_attributes_insertion_order_budget  	${budget}
+    Input Text  	campaign_cog_attributes_cpm  	${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	${cogs}
+    Input Text  	campaign_cog_attributes_margin  	${margin}
+    Click Element  	campaign_objective_Distribution
+    Click Element  	campaign_objective_Distribution
+    Click Button  	campaign_submit
+    Input Text  	ember1118  	${description}
+    Input Text  	ember1537  	${mmddyyyy}
+    Input Text  	ember1587  	${mmddyyyy-2}
+    Input Text  	ember1616  	${frequency-cap-impressions}
+    Input Text  	ember1641  	${frequency-cap-impressions}
+    Input Text  	ember1739  	${bid}
+    Input Text  	ember1774  	${day-cap}
+    Input Text  	ember1807  	${budget-2}
+    Click Element  	container2
+    Click Button  	xpath=.//button[contains(normalize-space(.), 'Save & Continue')][@type='button']
+    Page Should Contain Element  	xpath=.//h4[contains(normalize-space(.), 'Forecast (Low Confidence) (High Confidence)')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT ALLOCATION (1 flights)')]
+    Click Element  	xpath=(.//div[contains(normalize-space(.), '►Language Targeting')])[last()]
+    Click Element  	flight_inherit_language_targeting_false
+    Click Element  	flight_inherit_language_targeting_false
+
+DXUITC-4682:To check Forecast sidecar after selecting language targeting section on SF page
+    Select From List By Value  	xpath=.//select[contains(normalize-space(.), 'Bulgarian Chinese Czech Danish Dutch English Filipino Finnish French German Hindi Hungarian Indonesi')]  	${30}
+    Select From List By Value  	xpath=.//select[contains(normalize-space(.), 'Bulgarian Chinese Czech Danish Dutch English Filipino Finnish French German Hindi Hungarian Indonesi')]  	${-2}
+    Select From List By Value  	xpath=.//select[contains(normalize-space(.), 'Bulgarian Chinese Czech Danish Dutch English Filipino Finnish French German Hindi Hungarian Indonesi')]  	${-3}
+    Click Button  	xpath=(.//input[@value='>'][@type='submit'])[2]
+    #Forecast sidecar should get update.
+    Page Should Contain Element  	xpath=.//h4[contains(normalize-space(.), 'Forecast (Low Confidence) (High Confidence)')]
+    Page Should Contain Element  	xpath=.//small[contains(normalize-space(.), 'Flight Duration:')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT ALLOCATION (1 flights)')]
+
+To check Forecast sidecar after deselecting language targeting section on SF page
+    Click Button  	                xpath=(.//input[@value='<<'][@type='submit'])[2]
+    #Forecast sidecar should get update.
+    Page Should Contain Element  	xpath=.//h4[contains(normalize-space(.), 'Forecast (Low Confidence) (High Confidence)')]
+    Page Should Contain Element  	xpath=.//small[contains(normalize-space(.), 'Flight Duration:')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT ALLOCATION (1 flights)')]
+
+DXUITC-4686: To check Forecasting sidecar after adding/updating inventories
+    Click Element   	checkit2
+    Click Element   	checkit2
+    #Forecast sidecar should get update.
+    Page Should Contain Element  	xpath=.//h4[contains(normalize-space(.), 'Forecast (Low Confidence) (High Confidence)')]
+    Page Should Contain Element  	xpath=.//small[contains(normalize-space(.), 'Flight Duration:')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT SETTINGS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CREATIVES & AUDIENCE')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'CAMPAIGN DETAILS')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'INVESTMENT')]
+    Page Should Contain Element  	xpath=.//strong[contains(normalize-space(.), 'FLIGHT ALLOCATION (1 flights)')]
+
+DXUITC-4681:To check Forecast sidecar after adding/updating impression caps
+    Click Element   	                id=impressions_cap
+    Input Text   	                flight_impression_cap   	${impression-cap-optional}
+    Click Element   	xpath=.//strong[contains(normalize-space(.), 'Limit One Impression Per Page View')]
+    
+DXUITC-4687:To check Forecast after updating 'Geo-graphic' section on SF page.
+    Click Element  	xpath=(.//div[contains(normalize-space(.), '►Geographic Targeting')])[last()]
+    Click Element  	flight_inherit_geo_targeting_false
+    Click Element  	flight_inherit_geo_targeting_false
+  
+To check after selecting/deselecting All 'Countries'    
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]    
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 97%')])[last()]
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 100%')])[last()]
+
+To check after selecting/deselecting all 'State & Territories'
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'Target the entirety of one or more countries Specify regions within...')]  	${separate-geotargeting-for-this-flight}
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'States & Territories Metrocodes Postal Codes')]  	${vietnam}
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 35%')])[last()]
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 100%')])[last()]
+
+To check after selecting/deselecting all 'Metrocodes'
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'Target the entirety of one or more countries Specify regions within...')]  	${separate-geotargeting-for-this-flight}
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'States & Territories Metrocodes Postal Codes')]  	${vietnam-2}
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 40%')])[last()]
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    #Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 100%')])[last()]

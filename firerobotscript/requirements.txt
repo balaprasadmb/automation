@@ -1,0 +1,7 @@
+decorator==3.4.2
+docutils==0.12
+robotframework==2.8.7
+robotframework-selenium2library==1.6.0
+selenium==2.45.0
+wsgiref==0.1.2
+xlrd==0.9.3

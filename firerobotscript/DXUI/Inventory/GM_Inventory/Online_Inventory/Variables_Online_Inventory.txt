@@ -1,0 +1,12 @@
+***Variables***
+
+${placement}		Inventory Online02
+${budgetcost}		5.23
+${media-type}		0
+${placement-1}		02cdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
+${placement-2}		abc123456
+${placement-3}		!@#$%^&*
+${placement-4}		Online Inventory0123
+${publisher-5}      <abcdef>
+${placement-6}		Placement Name Inventory
+${publisher-6}      Publisher Name Inventory

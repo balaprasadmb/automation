@@ -1,0 +1,5 @@
+#default by: 'id'
+asset_edit_page:
+    asset_save_button:
+        value: 'asset_submit'
+    asset_edit_page_title: 'Edit Asset'

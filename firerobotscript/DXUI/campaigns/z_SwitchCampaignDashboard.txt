@@ -1,0 +1,11 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource        Common_Variables.txt
+Force Tags		tags.regression.mandatory
+
+*** Test Cases ***
+Switch to Campaign Dashboard
+	Go To    	  http://${app_link}/account?locale=en
+	Click Link    Admin
+    Click Link    Switch to Campaign Dashboard

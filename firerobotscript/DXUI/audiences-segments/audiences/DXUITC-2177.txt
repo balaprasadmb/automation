@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Variables ***
+${segment-name}    segment
+
+*** Test Cases ***
+DXUITC-2177: To check the functionality of "Cancel" button from Create a Composed Audience page
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	${uid}=			Get Uid
+	${segment}		Catenate    SEPARATOR=-	${segment-name}	${uid}
+    Click Link    Create New Audience
+	Click Element    css=.select_all
+    Input Text    segment_name    ${segment}
+    Click Element    //input[@value='Cancel']
+    Page Should Not Contain    ${segment}

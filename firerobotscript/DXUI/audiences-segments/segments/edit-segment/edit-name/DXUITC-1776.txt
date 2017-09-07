@@ -1,0 +1,29 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Variables ***
+${segment}        samename
+
+*** Test Cases ***
+DXUITC-1776:To verify that segment is not updated with already exists name
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Click Link    Create First Party Segment
+	${uid}=			Get Uid
+	${segments}		Catenate    SEPARATOR=-	${segment}	${uid}
+    Input Text    segment_name    ${segments}
+    Click Element    segment_submit
+    Click Link    View All
+    Click Link    Segments
+    Click Link    Create First Party Segment
+    Input Text    segment_name    ${segments}
+    Click Element    segment_submit
+    Page Should Contain    Name already exists for advertiser.

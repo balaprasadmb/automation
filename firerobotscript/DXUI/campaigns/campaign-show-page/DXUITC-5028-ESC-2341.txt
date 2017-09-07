@@ -1,0 +1,64 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.DIGC
+
+*** Variables ***
+
+${campaign}       campgns
+${cpa}            7
+${budget}         5000
+${cpm}            7
+${description}    flights
+${frequency}      2
+${bid}            5
+${day_cap}        55555.00
+
+*** Test Cases ***
+DXUITC-5028:ESC-2341 Unable to assign creatives to a flight for College Republican National Committee campaign
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${uid}			Get Uid
+	${new_campaign}	Catenate    SEPARATOR=-	${campaign}	${uid}
+	${new_flight}	Catenate    SEPARATOR=-	${description}	${uid}
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    New Campaign
+    Input Text    advertiser    ${advertiser}
+	Click Element  	ui-dialog-title-dataxu_dialog
+	Select From List By Value   	pick_media_type 	mobile  
+    Submit Form    pick_advertiser
+    Page Should Contain    Add new campaign
+    Input Text    campaign_name    ${new_campaign}
+    Input Text    campaign_start_date    ${start_date}
+    Input Text    campaign_end_date    ${end_date}
+    Click Element    //li[@class='pipelast']
+    Input Text    campaign_cog_attributes_cpa_goal    ${cpa}
+    Input Text    campaign_cog_attributes_insertion_order_budget    ${budget}
+    Input Text    campaign_cog_attributes_cpm    ${cpm}
+    Sleep    3s
+    Select Radio Button    campaign[objective]    Completed_Views
+    Click Element    campaign_submit
+    Page Should Contain    The basic campaign information for ${advertiser} » ${new_campaign} was created successfully.
+    Input Text    css=.ember-view.ember-text-field.flight_name.text    ${new_flight}
+    Input Text    css=.ember-view.ember-text-field.mid-num    ${frequency}
+    Input Text    //div[@id='flights']/div/div[2]/div/div/div[4]/div/input    ${bid}
+    Input Text    css=.ember-view.ember-text-field.day_cap    ${day_cap}
+    Input Text    //div[@class='numeric io_budget']/input    ${budget}
+    Click Element    css=.ember-view.ember-button.primary.save-and-continue
+    Sleep    5s
+    Page Should Contain    Flight:
+    Select From List By Label    flight_creative_format_id    Banner
+    Click Element    //input[@class='select_all_inventory_suppliers']
+    Click Element    //*[@class='save_and_exit']
+    Page Should Contain    Campaign:
+    Page Should Contain Link    Edit
+    Page Should Contain Link    View All Campaigns
+    Click Image    //img[@alt='Icon_edit']
+    Select From List By Label    flight_creative_format_id    Linear Video
+    Click Element    //input[@class='select_all_inventory_suppliers']
+    Click Element    //*[@class='save_and_exit']
+    

@@ -1,0 +1,59 @@
+  *** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3424:Content channels
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	Click Element   css=#content_channels>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Click Button    css=#mv_all_sel_content_channels
+	Page Should Contain   	Applied (
+    Page Should Contain   	27
+    Page Should Contain   	)
+    Page Should Contain   	Trusted Anonymous Sites
+    Page Should Contain   	Arts & Entertainment
+	Click Button            css=#rm_all_sel_content_channels
+	Page Should Contain   	Available (
+    Page Should Contain   	27
+    Page Should Contain   	)
+
+DXUITC-3425:Language targeting
+    Click Element           css=#language_targeting>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Page Should Contain   	Inherit targeting from campaign
+    Page Should Contain   	Separate Language Targeting for this flight
+	Click Button     		css=#flight_inherit_language_targeting_false
+	Click Button            css=#mv_all_sel_target_languages
+	Click Button            css=#rm_all_sel_target_languages
+
+DXUITC-3426:Geographic targeting
+    Click Element			css=#target_audiences>div.section_header.contain_cols12>h1>div.section_title.cols4
+    Page Should Contain   	Inherit options from campaign
+    Page Should Contain   	Separate Geotargeting for this flight
+	Click Button			css=#flight_inherit_geo_targeting_false
+	Click Button    	    css=#mv_all_sel_country_countries
+	Click Button           css=#rm_all_sel_country_countries
+
+DXUITC-3427:Dayparting
+    Click Element			css=div#dayparting>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Click Link              Use the 24-7 grid to filter by hours
+
+DXUITC-3405: To check working of save and exit button
+    Click Button    save_and_exit
+    Confirm Action
+    Wait Until Page Contain  Campaign

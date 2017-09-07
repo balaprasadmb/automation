@@ -1,0 +1,28 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${email}				demo_email@sample.com
+${contact-name} 		demo name
+${agency_name}			regression_agency
+*** Test Cases ***
+
+Create Agency
+	Go To			http://${app_link}/agencies?locale=en
+	Click Link		New Agency
+	${organization-name}=	Get Agency Group
+	${uid}=		Get Uid
+	${agency}	Catenate    SEPARATOR=-	${agency_name}	${uid}
+	Select From List By Label	agency_agency_group_id	${organization-name}
+	Input Text   	agency_name   	${agency}
+	Input Text   	agency_organization_attributes_email   	${email}
+	Input Text   	agency_organization_attributes_contact_name   	${contact-name}
+	Choose File     agency_rate_card	${CURDIR}/rate_cards/rate_card_USD.xls
+	Write To File	agency=${agency}
+	Click Button   	agency_submit
+        Page should Contain		 Agency ${agency} was successfully created.

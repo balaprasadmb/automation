@@ -1,0 +1,9 @@
+***Variables***
+
+${deal-name}				FireRobot Test Deals
+${exchange}					59
+${deal-id}					abcde12345
+${deal-type}				preferred_deal
+${currency}					1
+${cost-cpm}					21
+${description-optional}		Test Description

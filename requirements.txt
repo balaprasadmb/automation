@@ -1,0 +1,11 @@
+decorator==4.0.10
+docutils==0.12
+robotframework==3.0
+robotframework-selenium2library==1.7.4
+selenium==2.53.1
+wsgiref==0.1.2
+xlrd==0.9.3
+pyyaml==3.11
+robotframework-pabot==0.30
+paramiko==2.0.2
+pytractor==0.2.1

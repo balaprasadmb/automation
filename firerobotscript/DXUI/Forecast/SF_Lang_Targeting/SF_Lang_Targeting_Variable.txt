@@ -1,0 +1,28 @@
+***Variables***
+${campaign-currency} 	    1
+${campaign-channel} 	    online
+${mmddyyyy} 	            02/09/2015
+${mmddyyyy-2} 	            03/30/2015
+${optional} 	            21
+${cost-model} 	            CPM
+${cpa} 	                    6
+${budget} 	            1222
+${cpm}          	    7
+${cogs} 	            0.19
+${margin} 	            51.0
+${description} 	            Test 01
+${frequency-cap-impressions} 	2
+${bid} 	                    2.00
+${day-cap}  	            5.00
+${budget-2} 	            660.00
+${budget-3} 	           -660.00
+${30} 	                    45
+${-2} 	                    51
+${-3} 	                    55
+${3} 	                    44
+${impression-cap-optional}  50
+${impression}               50
+${separate-geotargeting-for-this-flight} 	Specify regions within...
+${vietnam} 		    States & Territories
+${vietnam-2} 		    Metrocodes
+

@@ -1,0 +1,67 @@
+***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	   		Selenium2Library   15.0   5.0
+Resource		Variables_Budget Section.txt
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+
+***Test Cases***
+DXUITC-1596: Creation of GM inventory with budget as billable
+   Go To						http://${app_link}/advertisers/1/campaigns?locale=en
+   Click Link  					drop6
+   ${advertiser}	            Get Advertiser
+   Click Element                css=.chzn-single
+   Input Text    			    css=div.chzn-search>input    ${advertiser}
+   Selenium2Library.Press Key   css=div.chzn-search>input    \\13
+   Click Link					css=a.add.button.new_source
+   Wait Until Page Contains  	Create Guaranteed Media
+   Input Text  					guaranteed_inventory_publisher_domains  			${publisher-1}
+   Input Text  					guaranteed_inventory_name  							${publisher-1}
+   Click Element               	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Wait Until Page Contains  	Organization:
+   Page Should Contain  		New Guaranteed Media
+   Click Link					${publisher-1}
+   Wait Until Page Contains		Inventory Details
+   Page Should Contain Image   	Green_check
+   
+DXUITC-1607: Creation of GM inventory with budget as non billable
+   Click Link  			        drop6
+   Click Link					css=a.add.button.new_source
+   Wait Until Page Contains  	Create Guaranteed Media
+   Input Text  					guaranteed_inventory_publisher_domains  			${publisher-2}
+   Input Text  					guaranteed_inventory_name  							${publisher-2}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Click Element               	css=div#budget_section>div.section_header.contain_cols12>h1>div.section_title.cols4
+   Input Text  					guaranteed_inventory_budget  						${budgetcost}
+   Input Text  					guaranteed_inventory_cost_value  					${budgetcost}
+   #Select Checkbox  			guaranteed_inventory_inventory_pools_attributes_0_is_billable
+   Click Button  				guaranteed_inventory_submit
+   Wait Until Page Contains  	Organization:
+   Page Should Contain  		New Guaranteed Media
+   Click Link					${publisher-2}
+   Wait Until Page Contains		Inventory Details
+   Page Should Contain Image   	Orange_exclamation
+   
+DXUITC-1600/DXUITC-1605: Creation of GM inventory with 'Budget' & 'Cost' value as blank
+   Click Link  			        drop6
+   Click Link					css=a.add.button.new_source
+   Wait Until Page Contains  	Create Guaranteed Media
+   Input Text  					guaranteed_inventory_publisher_domains  			${publisher-3}
+   Input Text  					guaranteed_inventory_name  							${publisher-3}
+   Select Checkbox  			guaranteed_inventory_active
+   Select Checkbox  			guaranteed_inventory_secure
+   Click Button  				guaranteed_inventory_submit
+   Wait Until Page Contains  	Organization:
+   Page Should Contain  		New Guaranteed Media
+   Click Link					${publisher-3}
+   Wait Until Page Contains		Inventory Details
+   Page Should Contain   		$-.-- 
+   Page Should Contain   		$-.-- 

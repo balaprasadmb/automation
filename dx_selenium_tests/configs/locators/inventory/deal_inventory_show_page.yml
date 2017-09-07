@@ -1,0 +1,9 @@
+#default by: 'id'
+deal_inventory_show_page:
+    deals_link:
+        by: 'css selector'
+        value: '.headBot > p > a'
+    edit_deal_button:
+        by: 'css selector'
+        value: 'input[value="Edit Deal"]'
+    deal_show_page_contents: ['Deal Details', 'Deal Name', 'Created On', 'Exchange', 'Deal ID', 'Deal Type', 'Cost (CPM)', 'Start Date', 'End Date', 'Is Billable?', 'Permissions', 'Permissioned Agency Groups', 'Permissioned Agencies', 'Permissioned Advertisers']

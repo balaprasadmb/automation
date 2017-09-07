@@ -1,0 +1,45 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Variables ***
+${campaign-name}		onlineTracking-campaign
+
+*** Test Cases ***
+
+DXUITC-3401:To check if different type of flights can be created under online campaign (Tracking)
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${uid}=		    Get Uid
+    ${OnlineCampaign}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link		New Campaign
+	Input Text		id=advertiser		${advertiser}
+	Submit Form		pick_advertiser
+	Input Text		id=campaign_name	 ${OnlineCampaign}
+	Input Text		id=campaign_start_date	${start_date}
+	Input Text		id=campaign_end_date	${end_date}
+	Input Text		id=campaign_cog_attributes_cpa_goal		${cpa}
+	Input Text		id=campaign_cog_attributes_insertion_order_budget		${budget}
+	Input Text		id=campaign_cog_attributes_cpm		${cpm}
+	Click Element	id=campaign_objective_Distribution
+	Click Button   	campaign_submit
+	Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Click Element	css=div.flight-field-flight-type> .chzn-container-single >.chzn-single
+	Input Text		css=div.flight-field-flight-type> .chzn-container-single >.chzn-drop > .chzn-search > input		Tracking
+	Selenium2Library.Press Key    css=div.flight-field-flight-type> .chzn-container-single >.chzn-drop > .chzn-search > input    \\13
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Input Text   	css=input.ember-view.ember-text-field.day_cap   	${day-cap}
+	Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget}
+	Click Element    css=input.ember-view.ember-text-field.percent
+    Click Element    css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+    Wait Until Page Contains   	Flight Details
+	

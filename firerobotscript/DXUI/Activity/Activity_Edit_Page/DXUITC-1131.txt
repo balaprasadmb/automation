@@ -1,0 +1,61 @@
+*** Settings ***
+
+Documentation	     	Test suite created with FireRobot.
+Library	   		        Selenium2Library   15.0   5.0
+Resource                Common_Variables.txt
+Library			        ${EXECDIR}/python/setup.py
+Force Tags		        tags.regression.ACT
+
+
+*** Variables ***
+${activity-name}		regression-activity
+
+*** Test Cases ***
+
+DXUITC-1131:To check contents of activity edit page for new activity for user having permission of 3rd party tag
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	Click Link   	Activities
+	${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link      Create Activity     
+	Page Should Contain   	Name
+    Page Should Contain   	Activity type
+    Page Should Contain   	Secure
+    Page Should Contain   	RMX
+    Page Should Contain   	DFA
+    Page Should Contain   	Enable Sharing
+    Page Should Contain   	Create new segment containing these pixels
+      
+DXUITC-1137:To check contents of new activity edit page for user having permission of activity sharing
+    Page Should Contain   	Name
+    Page Should Contain   	Activity type
+    Page Should Contain   	Secure
+    Page Should Contain   	RMX
+    Page Should Contain   	DFA
+    Page Should Contain   	Enable Sharing
+    Page Should Contain   	Create new segment containing these pixels
+	Page Should Contain Button  Cancel
+	
+DXUITC-1210:To check functinality of 'Add pixel' button from new activity edit page
+    Click Button		css=#add_pixel
+	
+DXUITC-1213:To check 'Remove' button functionality from new activity edit page
+    Click Image        css=#img.remove
+
+DXUITC-1168:To check functionality of 'Cancel' button from activity edit page
+    Click Button        	xpath=.//input[@value='Cancel'][@type='button']
+	Page Should Contain   	Organization:
+			
+DXUITC-1198_DXUITC-1201:Updating 'Secure' field/Updating 'RMX' field	
+	${uid}=			Get Uid
+	${secureactivity}		Catenate    SEPARATOR=-	${activity-name}	${uid}
+	Input Text		css=#activities_list > .activity_fields > .cols3 > input[id$= '_name']	${secureactivity}
+	Click Element    css=div[id$='_source_chzn'] > .chzn-single
+	Input Text    	 css=div[id$='_source_chzn'] > div.chzn-drop > div.chzn-search>input    DFA
+    Selenium2Library.Press Key    css=div[id$='_source_chzn'] > div.chzn-drop > div.chzn-search>input    \\13
+	Click Element		css=input[id$='_secure']
+	Select Checkbox   	css=input[id$='_rmx']
+	Click Button   	    activity_submit
+   

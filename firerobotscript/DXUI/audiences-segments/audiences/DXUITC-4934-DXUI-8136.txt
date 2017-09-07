@@ -1,0 +1,22 @@
+***Settings***
+
+Documentation	  Test suite created with FireRobot.
+Library	  Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+***Test Cases***
+
+DXUITC-4934:DXUI-8136 - To check Master check box functionality for "Recommended Segments" table
+	Go To          	http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link   Create New Audience
+    Wait Until Page Contains         Create a Composed Audience
+    Select From List By Index   reference_campaign    1
+    Select From List By Label   currency_switcher    United States Dollars (USD)
+    Click Element  	 css=.select_all
+    Click Element  	css=#recommended_segments_table >table>thead>tr>th>.select_all

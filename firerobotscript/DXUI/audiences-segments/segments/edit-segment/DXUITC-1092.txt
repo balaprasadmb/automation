@@ -1,0 +1,40 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-1092:To verify the 'Show' link functionality on segments edit page
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Select From List By Label    first_party_segment_active_filter    View All
+    Click Image    //*[@id='composite_segments_table']/tbody/tr[1]/td[9]/span/img
+    Click Link    Edit
+    Page Should Contain    Update Segment:
+    Page Should Contain Link    Show
+    Page Should Contain Link    View All
+    Click Link    Show
+    Page Should Contain Link    Edit
+    Page Should Contain Link    View All
+    Page Should Contain Link    ${advertiser}
+    Page Should Contain    Expiration
+    Page Should Contain    Activity Threshold
+    Page Should Contain    Activity
+    Page Should Contain    Shared
+    Page Should Contain    Last Fired On
+    Page Should Contain    Including Audiences
+    Page Should Contain Element    //input[@value='Add Pixel Activity']
+    Page Should Contain    Name
+    Page Should Contain    Pixel ID
+    Page Should Contain    Activity Type
+    Page Should Contain    Last Fired On
+    Page Should Contain    30 Day Activity
+    Page Should Contain    Shared
+    Page Should Contain    Actions
+    Page Should Contain Link    See all pixels for this advertiser

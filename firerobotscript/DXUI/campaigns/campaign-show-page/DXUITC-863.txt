@@ -1,0 +1,23 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-863:Flight Name link
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link       ${campaign}
+    Page Should Contain Link    ${advertiser}
+    Click Link    css=tr.flight_row>td.first>a
+    Page Should Contain    Flight:
+    Page Should Contain Link    Edit
+    Page Should Contain Link    View Campaign
+    Page Should Contain Link    Creatives
+    

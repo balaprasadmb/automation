@@ -1,0 +1,31 @@
+*** Settings ***
+
+Resource           dashboard_variables.txt 
+Documentation	   Test suite created with FireRobot.
+Library	           Selenium2Library   15.0   5.0
+Resource           Common_Variables.txt 
+Force Tags		   tags.regression.DIGC   
+
+*** Test Cases ***
+
+DXUITC-1226 :To check Dashboard Sprocket icon Test Case
+   Go To  		             https://${app_link}/account?locale=en 
+   Click Link   	         Dashboard
+   Click Image    	         Icon_gear
+   Page Should Contain Element   xpath=(.//div[contains(normalize-space(.), 'LinksReportsCreativesAudiences')])[12]
+   
+DXUITC-1227 :To check Report link from sproket icon
+   Click Link   	xpath=(.//a[contains(normalize-space(.), 'Reports')])[2]
+   Click Link   	xpath=.//a[contains(normalize-space(.), 'Dashboard')]
+   Click Image   	Icon_gear
+
+DXUITC-1223 : To check Creative link from sproket icon
+   Click Link   	xpath=(.//a[contains(normalize-space(.), 'Creatives')])[2]
+   Click Link   	xpath=.//a[contains(normalize-space(.), 'Dashboard')]
+   Click Image   	Icon_gear
+
+DXUITC-1234 : To check Audiences link from sproket icon
+   Click Link   	xpath=(.//a[contains(normalize-space(.), 'Audiences')])[2]
+   Click Link   	xpath=.//a[contains(normalize-space(.), 'Dashboard')]
+   Click Image   	Icon_gear
+   Click Link   	xpath=(.//a[contains(normalize-space(.), 'Audiences')])[2]

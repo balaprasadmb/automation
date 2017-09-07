@@ -1,0 +1,496 @@
+upload_flights:
+    url: ''
+    browse_file:
+        value: 'flight_setup_spreadsheet_file'
+    upload_flight_sections:
+        value: 'reference_data_outer'
+    upload_file:
+        by: 'css selector'
+        value: '.primary'
+    flight_uploads:
+        value: 'bulk-create-view'
+    cancel:
+        value: 'cancel'
+    flight_submit:
+        value: 'submit'
+    wait:
+        by: 'css selector'
+        value: '#container3>div>div>img'
+    upload_form:
+        value: 'form'
+    create_link:
+        value: 'create_manually'
+    first_tab:
+        by: 'link text'
+        value: 'Flight Details & Inventory'
+    second_tab:
+        by: 'link text'
+        value: 'Channels & Languages'
+    third_tab:
+        by: 'link text'
+        value: 'Geographic Targeting'
+    fourth_tab:
+        by: 'link text'
+        value: 'Creative Assignment'
+    fifth_tab:
+        by: 'link text'
+        value: 'Audience Targeting'
+    errors:
+        by: 'css selector'
+        value: '.flash.error'
+#flight_details_inventory_section
+    frequency_cap:
+        value: 'flight_impressions_cap'
+    frequency:
+        value: 'flight_impressions_cap_frequency'
+    frequency_type:
+        value: 'flight_impressions_cap_frequency_type'
+    flight_type:
+        value: 'flight_types_filtered'
+    media_type:
+        value: 'flight_creative_media_type_id'
+    algorithm:
+        value: 'standard_exchange_algorithms'
+    fbx_algorithm:
+        value: 'fbx_algorithms'
+    placement_standard:
+        by: 'css selector'
+        value: '#details_and_inventory>div>div:nth-child(3)>div:nth-child(2)>div>div:nth-child(1)>select'
+    placement_fbx:
+        by: 'css selector'
+        value: '#details_and_inventory>div>div:nth-child(3)>div:nth-child(2)>div>div:nth-child(2)>select'
+    placement_tracking:
+        by: 'css selector'
+        value: '#details_and_inventory>div>div:nth-child(3)>div:nth-child(2)>div>div:nth-child(3)>select'
+    viewability:
+        value: 'flight_viewability_vendor_id'
+    selections:
+        value: 'flight_viewability_pct'
+    use_grid:
+        by: 'link text'
+        value: 'Use the 24-7 grid to filter by hours'
+    dayparting_sunday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_0.radioCheck'
+    dayparting_monday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_1.radioCheck'
+    dayparting_tuesday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_2.radioCheck'
+    dayparting_wednesday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_3.radioCheck'
+    dayparting_thursday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_4.radioCheck'
+    dayparting_friday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_5.radioCheck'
+    dayparting_saturday:
+        by: 'css selector'
+        value: '#flight_targeting_attributes_week_6.radioCheck'
+    select_all:
+        by: 'css selector'
+        value: '#details_and_inventory>div>div>div>div>.inventory_suppliers_for_flight_type:nth-child(4)>p>input'
+    select_first:
+        by: 'css selector'
+        value: 'input[data-inventory_supplier_name="adConductor"]'
+    select_all_tracking_inventory:
+        by: 'css selector'
+        value: '#details_and_inventory>div>div>div>div>.inventory_suppliers_for_flight_type:nth-child(6)>p>input'
+    inventory_avail:
+        by: 'css selector'
+        value: "input[data-inventory_supplier_name='{0}']"
+    frequency_cap_values:
+        by: 'css selector'
+        value: 'input[name="frequency_cap"]'
+    flight_type_values:
+        by: 'css selector'
+        value: 'input[name="flight_type_filtered"]'
+    media_type_values:
+        by: 'css selector'
+        value: 'input[name="creative_media_type"]'
+    algorithm_values:
+        by: 'css selector'
+        value: 'input[name="algorithm_uid"]'
+    viewability_values:
+        by: 'css selector'
+        value: '.viewability>input'
+    placement_values:
+        by: 'css selector'
+        value: 'input[name="visibility"]'
+    dayparting_values:
+        by: 'css selector'
+        value: 'input[name="dayparting"]'
+    suppliers_values:
+        by: 'css selector'
+        value: 'input[name="inventory_suppliers"]'
+    one_view_section:
+        by: 'css selector'
+        value: '.oneview'
+    single_device_policy:
+        value: 'oneview_policy_1'
+    high_precision_policy:
+        value: 'oneview_policy_2'
+    broad_reach_policy:
+        value: 'oneview_policy_3'
+    one_view_policy_values:
+        by: 'css selector'
+        value: 'input[name="oneview_policy"]'
+#channel_langs_section
+    avail_channels:
+        value: 'content_channels_all'
+    selected_channels:
+        value: 'content_channels_selected'
+    select_channels:
+        value: 'mv_sel_content_channels'
+    remove_channels:
+        value: 'rm_sel_content_channels'
+    select_all_channels:
+        value: 'mv_all_sel_content_channels'
+    remove_all_channels:
+        value: 'rm_all_sel_content_channels'
+    channel_count:
+        value: '_available_options_count'
+    inherit_lang_targeting:
+        value: 'flight_inherit_language_targeting_true'
+    separate_lang_targeting:
+        value: 'flight_inherit_language_targeting_false'
+    lang_targeting_section:
+        by: 'css selector'
+        value: '.language_targeting_fields'
+    avail_langs:
+        value: 'target_languages_target_languages_all'
+    selected_langs:
+        value: 'target_languages_target_languages_selected'
+    select_langs:
+        value: 'mv_sel_target_languages_target_languages'
+    remove_langs:
+        value: 'rm_sel_target_languages_target_languages'
+    select_all_langs:
+        value: 'mv_all_sel_target_languages_target_languages'
+    remove_all_langs:
+        value: 'rm_all_sel_target_languages_target_languages'
+    lang_count:
+        value: 'target_languages__available_options_count'
+    channels_values:
+        by: 'css selector'
+        value: 'input[name="content_channels"]'
+    langs_values:
+        by: 'css selector'
+        value: 'input[name="languages"]'
+#geo_targeting_section
+    inherit_geo_targeting:
+        value: 'flight_inherit_geo_targeting_true'
+    separate_geo_targeting:
+        value: 'flight_inherit_geo_targeting_false'
+    geo_target_type:
+        value: 'geo_target_type'
+    search_countries:
+        value: 'country__available_search'
+    avail_countries:
+        value: 'country_countries_all'
+    selected_countries:
+        value: 'country_countries_selected'
+    select_countries:
+        value: 'mv_sel_country_countries'
+    remove_countries:
+        value: 'rm_sel_country_countries'
+    select_all_countries:
+        value: 'mv_all_sel_country_countries'
+    remove_all_countries:
+        value: 'rm_all_sel_country_countries'
+    geofenced_search_countries:
+        value: '_available_search'
+    geofenced_avail_countries:
+        value: 'geohash_groups_all'
+    geofenced_selected_countries:
+        value: 'geohash_groups_selected'
+    geofenced_select_countries:
+        value: 'mv_sel_geohash_groups'
+    geofenced_remove_countries:
+        value: 'rm_sel_geohash_groups'
+    geofenced_select_all_countries:
+        value: 'mv_all_sel_geohash_groups'
+    geofenced_remove_all_countries:
+        value: 'rm_all_sel_geohash_groups'
+    geofenced_browse_file:
+        value: 'geohash_group_file'
+    geofenced_name:
+        value: 'geohash_group_name'
+    geofenced_group_submit:
+        value: 'campaign_geohash_submit'
+    geotargeting_upload_error:
+        by: 'css selector'
+        value: '.upload_error_message'
+    geohash_upload_successfully:
+        by: 'css selector'
+        value: '#geohash_group_upload_status > span'
+    country:
+        value: 'flight_geo_target_country_id'
+    area_type:
+        value: 'flight_geo_target_area_type'
+    region_search:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_available>.search_controls>.dualselect_available_search'
+    avail_region:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_available>select'
+    selected_region:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_applied>select'
+    select_region:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_buttons>div>.dualselect_move_selected'
+    remove_region:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_buttons>div>.dualselect_remove_selected'
+    select_all_regions:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_buttons>div>.dualselect_move_all'
+    remove_all_regions:
+        by: 'css selector'
+        value: '#flight_regions_input>.dualselect_buttons>div>.dualselect_remove_all'
+    search_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_available>.search_controls>.dualselect_available_search'
+    avail_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_available>select'
+    selected_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_applied>select'
+    select_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_buttons>div>.dualselect_move_selected'
+    remove_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_buttons>div>.dualselect_remove_selected'
+    select_all_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_buttons>div>.dualselect_move_all'
+    remove_all_metrocodes:
+        by: 'css selector'
+        value: '#flight_dmas_input>.dualselect_buttons>div>.dualselect_remove_all'
+    postal_codes_search:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_available>.search_controls>.dualselect_available_search'
+    avail_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_available>select'
+    selected_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_applied>select'
+    select_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_buttons>div>.dualselect_move_selected'
+    remove_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_buttons>div>.dualselect_remove_selected'
+    select_all_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_buttons>div>.dualselect_move_all'
+    remove_all_postal_codes:
+        by: 'css selector'
+        value: '#flight_postal_code_groups_input>.dualselect_buttons>div>.dualselect_remove_all'
+    browse_postal_codes_file:
+        value: 'postal_code_group_file'
+    postal_codes_group_name:
+        value: 'postal_code_group_name'
+    submit_postal_codes:
+        value: 'flight_submit'
+    geo_target_type_values:
+        by: 'css selector'
+        value: 'input[name="geo_target_area_type"]'
+    geo_target_values:
+        by: 'css selector'
+        value: 'input[name="geo_targets"]'
+#creatives_section
+    creative_search:
+        by: 'css selector'
+        value: '#creative_assignment>div>div>.table_view_header>div>div>.search'
+    master_select:
+        by: 'css selector'
+        value: '.select_all'
+    first_select:
+        by: 'css selector'
+        value: '#available_creatives_table>table.scrollable>tbody>tr:nth-child(1)>.selectable>input'
+    first_creative:
+        by: 'css selector'
+        value: '#available_creatives_table > table > tbody > tr:nth-child(1) > td.name_formatted'
+    creative_values:
+        by: 'css selector'
+        value: 'input[name="creatives"]'
+#audience_targeting_section
+    avail_audience:
+        value: 'segments_all'
+    included_audience:
+        value: 'included_segments_selected'
+    excluded_audience:
+        value: 'excluded_segments_selected'
+    move_included_audience:
+        value: 'mv_sel_included_segments'
+    move_all_included_audience:
+        value: 'mv_all_sel_included_segments'
+    remove_audience:
+        value: 'rm_sel_segments'
+    remove_all_audience:
+        value: 'rm_all_sel_segments'
+    move_excluded_audience:
+        value: 'mv_sel_excluded_segments'
+    move_all_excluded_audience:
+        value: 'mv_all_sel_excluded_segments'
+    included_audience_values:
+        by: 'css selector'
+        value: 'input[name="included_audiences"]'
+    excluded_audience_values:
+        by: 'css selector'
+        value: 'input[name="excluded_audiences"]'
+#environment_devices_section
+    wifi:
+        value: 'flight_mobile_connection_type_ids_0'
+    carrier:
+        value: 'flight_mobile_connection_type_ids_1'
+    other:
+        value: 'flight_mobile_connection_type_ids_2'
+    environment_websites:
+        value: 'flight_mobile_client_ids_0'
+    environment_apps:
+        value: 'flight_mobile_client_ids_1'
+    environment_other:
+        value: 'flight_mobile_client_ids_2'
+    mobile_carrier_avail:
+        value: 'mobile_carriers_mobile_carriers_all'
+    mobile_carrier_applied:
+        value: 'mobile_carriers_mobile_carriers_selected'
+    move_mobile_carrier:
+        value: 'mv_sel_mobile_carriers_mobile_carriers'
+    remove_mobile_carrier:
+        value: 'rm_sel_mobile_carriers_mobile_carriers'
+    move_all_mobile_carrier:
+        value: 'mv_all_sel_mobile_carriers_mobile_carriers'
+    remove_all_mobile_carrier:
+        value: 'rm_all_sel_mobile_carriers_mobile_carriers'
+    carrier_count:
+        value: 'mobile_carriers__available_options_count'
+    mobile_platform_avail:
+        value: 'mobile_platforms_mobile_platforms_all'
+    mobile_platform_applied:
+        value: 'mobile_platforms_mobile_platforms_selected'
+    move_mobile_platform:
+        value: 'mv_sel_mobile_platforms_mobile_platforms'
+    remove_mobile_platform:
+        value: 'rm_sel_mobile_platforms_mobile_platforms'
+    move_all_mobile_platform:
+        value: 'mv_all_sel_mobile_platforms_mobile_platforms'
+    remove_all_mobile_platform:
+        value: 'rm_all_sel_mobile_platforms_mobile_platforms'
+    platform_count:
+        value: 'mobile_platforms__available_options_count'
+    devices_filter:
+        value: 'filter_mobile_devices'
+    designation_filter:
+        value: 'filter_designations'
+    all_tabs:
+        value: 'all-tablets'
+    all_smartphones:
+        value: 'all-smartphones'
+    all_feature_phones:
+        value: 'all-feature-phones'
+    master_select_devices:
+        by: 'css selector'
+        value: '.select_all'
+    first_manufacturer:
+        by: 'css selector'
+        value: '.tablescroll_body>tbody>tr:nth-child(1)>.selectable>input'
+    expand_first_model:
+        by: 'css selector'
+        value: '.tablescroll_body>tbody>tr:nth-child(1)>.name>img'
+    first_model:
+        by: 'css selector'
+        value: '.tablescroll_body>tbody>tr:nth-child(2)>.selectable>input'
+    inherit_device_types:
+        value: 'flight_inherit_device_types_true'
+    device_types_message:
+        by: 'css selector'
+        value: 'span.flight_inherit_device_types_true'
+    override_device_types:
+        value: 'flight_inherit_device_types_false'
+    device_types_avail:
+        value: 'device_types_device_types_all'
+    device_types_applied:
+        value: 'device_types_device_types_selected'
+    move_device_types:
+        value: 'mv_sel_device_types_device_types'
+    remove_device_types:
+        value: 'rm_sel_device_types_device_types'
+    move_all_device_types:
+        value: 'mv_all_sel_device_types_device_types'
+    remove_all_device_types:
+        value: 'rm_all_sel_device_types_device_types'
+    device_types_count:
+        value: 'device_types__available_options_count'
+    connection_types_values:
+        by: 'css selector'
+        value: 'input[name="mobile_connection_types"]'
+    mobile_options_values:
+        by: 'css selector'
+        value: 'input[name="mobile_clients"]'
+    carrier_values:
+        by: 'css selector'
+        value: 'input[name="mobile_carriers"]'
+    platform_values:
+        by: 'css selector'
+        value: 'input[name="mobile_platforms"]'
+    devices_values:
+        by: 'css selector'
+        value: 'input[name="mobile_devices"]'
+    devices_types_values:
+        by: 'css selector'
+        value: 'input[name="device_types"]'
+    devices_td:
+        by: 'css selector'
+        value: '.tablescroll_body > tbody tr:nth-child(1) > td:nth-child(2) > div'
+    hover_td:
+        by: 'css selector'
+        value: '#bulk-create-view>.group>.pinned>table>tbody>tr:nth-child(1)>.error'
+    sections:
+        flight_details_inventory: 'Flight Details & Inventory'
+        channels_languages: 'Channels & Languages'
+        geographic_targeting: 'Geographic Targeting'
+        creatives: 'Creative Assignment'
+        audience_targeting: 'Audience Targeting'
+        environment_devices: 'Environment & Devices'
+    flights: 'Add Flights'
+    messages:
+        invalid_data: 'Once you fix the errors in your spreadsheet, please re-upload it.'
+        blank_file: "Data can't be blank"
+        invalid_format: 'Filetype is not supported. Supported filetypes are: xls, ods, csv'
+        blank_description: "Description can't be blank"
+        overflow: 'Description is too long (maximum is 100 characters)'
+        inheritance: 'You have not specified any device types for targeting! At least one must be selected.'
+        geo_targeting: 'You have not specified any geographic regions for targeting!  Targeting will default to the entire country unless otherwise specified.'
+    inputs:
+        day_parting: 'Sunday: All. Monday: All. Tuesday: All. Wednesday: All. Thursday: All. Friday: All. Saturday: All'
+        algorithms: 'DX-100'
+        placement: 'Above the fold'
+        suppliers: 'adConductor'
+        channels: 'IAB1'
+        lang_targeting: 'bg|nl|en|fr|de|it|ko|pl|es|th'
+        creative: '728x90'
+        audience: '3M Adhesives 3rd Party Data'
+        gateway: 'WiFi'
+        options: 'Applications'
+        carrier: 'AT&T'
+        platform: 'Android'
+        devices: 'smartphones'
+        search: 'Galaxy'
+    one_view_policies_flight_upload: ['high_precision_policy', 'single_device_policy', 'broad_reach_policy']
+    flight_upload_page_title: 'Upload Flights for'
+    channels: ['Arts & Entertainment', 'Automotive', 'Business', 'Careers', 'Education', 'Science', 'News', 'Travel']
+    languages: ['Bulgarian', 'Dutch', 'English', 'French', 'German', 'Italian', 'Korean', 'Polish', 'Spanish', 'Thai']
+    countries: ['United States', 'Brazil', 'Canada', 'France', 'Germany', 'Great Britain', 'Ireland', 'Italy', 'Poland', 'Spain']
+    geofenced_msgs:
+        without_header_error: "Failure to upload GeoFence groups. The provided CSV has an invalid header! Expected Header: 'latitude, longitude, precision'"
+        valid: '110 recognized.'

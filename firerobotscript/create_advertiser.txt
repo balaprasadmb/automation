@@ -1,0 +1,35 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${email}				demo_email@sample.com
+${contact-name} 		demo name
+${advertiser_name}		regression_advertiser
+${advertiser-domain}	www.dataxu.com
+
+*** Test Cases ***
+
+Create Advertiser
+	Go To			http://${app_link}/advertisers/new?locale=en
+	${agency_group}=	Get Agency Group
+	${agency}=			Get Agency
+	${uid}=				Get Uid
+	${advertiser}			Catenate    SEPARATOR=-	${advertiser_name}	${uid}
+	Select From List By Label	agency_group_id	${agency_group}
+	Select From List By Label	agency_id	${agency}	
+	Input Text   	advertiser_name   	${advertiser}
+	Input Text   	advertiser_organization_attributes_email   	${email}
+	Input Text   	advertiser_organization_attributes_contact_name   	${contact-name}
+	Input Text		advertiser_primary_domain	${advertiser-domain}
+	Wait Until Page Contains Element	select_all
+	Write To File	advertiser=${advertiser}
+	Click Element	select_all
+	Click Element   inherit_licensing
+	Click Element   advertiser_organization_attributes_global_geo_targeting
+	Click Button   	advertiser_submit
+        Page should Contain		  Advertiser ‘${advertiser}’ was successfully created.

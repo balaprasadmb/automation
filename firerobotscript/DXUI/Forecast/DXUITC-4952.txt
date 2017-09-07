@@ -1,0 +1,63 @@
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Forecast_variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-4952:To check Forecasting value gets updated after updating Date Bid & Budget
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+    Click Link  	xpath=(.//a[contains(normalize-space(.), 'New Campaign')])[1]
+    Input Text  	advertiser  	${advertiser}
+    Click Element  	ui-dialog-title-dataxu_dialog
+    Select From List By Value   	campaign_currency_id   	${campaign-currency}
+    Select From List By Value   	pick_media_type   	${campaign-channel}
+    Select From List By Value   	pick_inventory_type   	${campaign-currency}
+    Click Button  	campaign_submit
+    Page Should Contain   	Add dates & target CPM to see forecast. Note: forecasting is for planning purposes – start date must be in the future. 
+    Input Text  	campaign[name]  	${campaign-name}
+    Input Text  	campaign[start_date]  	${mmddyyyy}
+    Input Text  	campaign[end_date]  	${mmddyyyy-2}
+    Input Text  	campaign[io_number]  	${optional}
+    Select From List By Index  	campaign[campaign_cost_model_type_id]  	${cost-model}
+    Input Text  	campaign[cog_attributes][cpa_goal]  	${cpa}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Input Text  	campaign[cog_attributes][cpm]  	${cpm}
+    Input Text  	campaign[cog_attributes][cogs]  	${cogs}
+    Input Text  	campaign[cog_attributes][margin]  	${margin}
+
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Sleep                5s
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+    Input Text   	campaign_start_date   	${mmddyyyy-3}
+    Input Text   	campaign_end_date   	${mmddyyyy-4}
+    Click Element   	xpath=.//label[contains(normalize-space(.), 'End Date')]
+    Sleep                5s
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+    Input Text   	campaign_cog_attributes_insertion_order_budget   	${budget-2}
+    Click Element   	xpath=.//label[contains(normalize-space(.), 'Budget ($)*')]
+    Sleep                5s
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+    Input Text   	campaign_cog_attributes_cpm   	${cpm-2}
+    Click Element   	xpath=.//label[contains(normalize-space(.), 'Budget ($)*')]
+    Sleep                5s
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+

@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-3592: "Show All" dropdown search functionality from Audience Marketplace table
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Create New Audience
+    Wait Until Page Contains         Create a Composed Audience
+    Select From List By Label    css=select[id='limit']    Show All
+    Page Should Contain Element    css=div[id='third_party_segments_table'] > div > div

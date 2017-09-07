@@ -1,0 +1,51 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-706:Functionality of contents in campaign list page
+    Go To    	http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Page Should Contain Element    css=.chzn-single
+    Click Link    Export All Flights
+    Page Should Contain    Flight Export
+    Click Link    Campaigns
+    Click Link    Upload Attribution Data
+    Page Should Contain    Attributed Data
+    Page Should Contain Link    View Upload History
+    Click Link    drop1
+    Click Element    css=li[class='pipelast']
+    Click Link    Upload New Flight(s)
+    Page Should Contain    Upload Flights
+    Page Should Contain    Spreadsheet Values
+    Page Should Contain    Upload Flights for
+    Click Link    Campaigns
+    Click Element    css=li[class='pipelast']
+    Click Link    New Campaign
+    Page Should Contain Element    ui-dialog-title-dataxu_dialog
+    Page Should Contain Element    campaign_submit
+    Click Link    close
+    Click Link    New Media Plan
+    Page Should Contain    New Media Plan
+    Page Should Contain Element    new_media_plan
+    Click Link    Campaigns
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Element    css=li[class='pipelast']
+    Input Text    filter    invalid
+    Selenium2Library.Press Key    filter    \\13
+    Page Should Contain    Showing 0 campaigns and 0 media plans
+    Input Text    filter    ${EMPTY}
+    Selenium2Library.Press Key    filter    \\13
+    Click Element    css=li[class='pipelast']
+    Click Image    css=span.gear_box_outer>img
+    Click Link    Edit
+    Page Should Contain    Edit campaign
+    Page Should Contain    Campaign Details

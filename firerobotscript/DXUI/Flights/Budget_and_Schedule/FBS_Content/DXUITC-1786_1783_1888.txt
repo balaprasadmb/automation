@@ -1,0 +1,64 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-1786: To check working of "filter by decision algorithm" 
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+    Click Element   css=div.filter-algorithm > select 
+	Page Should Contain   	Filter by decision algorithm
+    Page Should Contain   	Facebook Flat Bid - DX-001
+    Page Should Contain   	Distribution - DX-100
+    Page Should Contain   	Maximize Clicks - DX-201
+    Page Should Contain   	Maximize Clicks (Tightly Constrained Targeting) - DX-202
+    Page Should Contain   	Maximize Clicks in Target Geo - DX-203
+    Page Should Contain   	Maximize Clicks in Target Geo (Tightly Constrained Targeting) - DX-204
+    Page Should Contain   	Maximize Actions - DX-301
+    Page Should Contain   	Maximize Actions (Tightly Constrained Targeting) - DX-302
+    Page Should Contain   	Maximize Actions in Target Geo - DX-303
+    Page Should Contain   	Maximize Actions in Target Geo (Tightly Constrained Targeting) - DX-304
+    Page Should Contain   	Video Completion - DX-401
+    Page Should Contain   	Video Completion (Tightly Constrained Targeting) - DX-402
+    Page Should Contain   	Video Completions in Target Geo - DX-403
+    Page Should Contain   	Video Completions in Target Geo (Tightly Constrained Targeting) - DX-404
+    Page Should Contain   	Dynamic Retargeting - DX-501
+    Page Should Contain   	Dynamic Retargeting (Tightly Constrained Targeting) - DX-502
+    Page Should Contain   	Dynamic Retargeting in Target Geo - DX-503
+    Page Should Contain   	Dynamic Retargeting in Target Geo (Tightly Constrained Targeting) - DX-504
+    Page Should Contain   	Guaranteed Media - DX-601
+    Page Should Contain   	Guaranteed Media - Video Completion - DX-602
+    Page Should Contain   	Guaranteed Media - Click Optimized - DX-603
+	
+DXUITC-1888:TO check Contents of 'Flight Budget & Schedule Set up' page
+    Page Should Contain   	Cancel
+    Page Should Contain   	Save & Exit
+    Page Should Contain   	Save & Continue
+    Page Should Contain   	Download Flight Template
+    Page Should Contain   	Upload Flights
+	Page Should Contain   	Description
+    Page Should Contain   	Tactic
+    Page Should Contain   	Flight Type
+    Page Should Contain   	Status
+	
+DXUITC-1783: To check working of "filter by description" search box for invalid data
+    Input Text   	css=div.cols2.filter-description>input.ember-view.ember-text-field   	${filter-by-description}
+	Sleep           2s 
+    Page Should Contain   	No flights to browse.
+	
+
+    
+
+
+

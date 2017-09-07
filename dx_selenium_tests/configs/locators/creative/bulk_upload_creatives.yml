@@ -1,0 +1,39 @@
+#default by: 'id'
+bulk_upload_creatives:
+    url: 'advertisers/161/creatives/batch_upload'
+    creatives_file:
+        value: 'advertiser_creatives'
+    start_date:
+        value: 'start_date_visible'
+    end_date:
+        value: 'end_date_visible'
+    concept:
+        value: 'concept'
+    is_flash:
+        value: 'is_flash'
+    submit:
+        by: 'css selector'
+        value: 'input[value="Save & Continue"]'
+    use_assets:
+        by: 'link text'
+        value: 'upload assets instead'
+    setup_creatives:
+        by: 'link text'
+        value: 'Set up creatives one at a time'
+    download_example:
+        by: 'link text'
+        value: 'Download Example'
+    creative_attributes_section:
+        value: 'creative_attributes'
+    errors:
+        value: 'errorExplanation'
+    page_contents: ['creatives_file', 'start_date', 'end_date', 'concept', 'is_flash', 'submit', 'setup_creatives']
+    creative_bulk_upload_page_title: 'Upload creatives for'
+    accepted_file_formats_list:
+        - Atlas - XLSX
+        - DFA - XLS
+        - DFA - XLSX
+        - MediaMind - txt
+        - PointRoll - zip
+        - Facebook
+        - VAST 2.0 for video campaigns only

@@ -1,0 +1,33 @@
+#default by: 'id'
+bulk_upload_assets:
+    url: 'advertisers/161/assets/batch_upload'
+    browse_asset_file_button:
+        value: 'assets_asset_file'
+    more_assets_button:
+        value: 'more_assets'
+    upload_assets_button:
+        by: 'css selector'
+        value: 'input[value="Upload assets"]'
+    generate_creatives_checkbox:
+        value: 'generate_creatives'
+    upload_html5_assets_checkbox:
+        value: 'is_html5'
+    use_creatives_instead_link:
+        by: 'link text'
+        value: 'use creatives instead'
+    upload_asset_page_title: 'Generating creatives for'
+    accepted_file_formats_list:
+        - jpg
+        - jpeg
+        - png
+        - gif
+        - 3gp
+        - avi
+        - f4v
+        - flv
+        - mov
+        - mp4
+        - wmv
+        - webm
+        - swf
+        - zip

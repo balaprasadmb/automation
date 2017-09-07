@@ -1,0 +1,24 @@
+#default by: 'id'
+bi_report_create_page:
+    back_to_bi_reports_link:
+        by: 'link text'
+        value: 'Back to Business Intelligence Reports'
+    bi_report_name_textbox:
+        value: 'business_intelligence_report_name'
+    bi_report_path_textbox:
+        value: 'business_intelligence_report_path'
+    bi_report_browse_screenshot:
+        value: 'business_intelligence_report_screenshot'
+    remove_screenshot_checkbox:
+        value: 'business_intelligence_report_remove_screenshot'
+    bi_report_description_textbox:
+        value: 'business_intelligence_report_description'
+    bi_report_cancel_button:
+        by: 'css selector'
+        value: 'input[value="Cancel"]'
+    bi_create_report_button:
+        value: 'business_intelligence_report_submit'
+    bi_report_create_page_title: 'New Business Intelligence Report'
+    blank_report_path_error: "Path can't be blank"
+    duplicate_report_name_error: 'Name has already been taken'
+    duplicate_report_path_error: 'Path has already been taken'

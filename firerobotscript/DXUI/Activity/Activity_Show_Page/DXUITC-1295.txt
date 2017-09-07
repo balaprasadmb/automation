@@ -1,0 +1,51 @@
+*** Settings ***
+
+Documentation	     	Test suite created with FireRobot.
+Library	   		        Selenium2Library   15.0   5.0
+Resource                Common_Variables.txt
+Library			        ${EXECDIR}/python/setup.py
+Force Tags		        tags.regression.ACT
+
+*** Variables ***
+${activity-name}		regression-activity
+    
+*** Test Cases ***
+
+DXUITC-1295:Functionality of 'Activities' link from activity show page
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	Click Link   	Activities
+	{advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    ${activity}		Get Activity
+	Click Element 	css=td.name_link > a
+	Click Link              Activities
+	Page Should Contain   	Organization:
+	
+DXUITC-1298:Functionality of 'Edit' link from activity show page
+    Click Element 			    css=td.name_link > a
+	Click Link                  Edit
+	Page Should Contain   	    Edit activity
+	
+DXUITC-1314:Functionality of cancel button from edit page
+    Click Button		Cancel
+	
+DXUITC-1300:To check 'Pixel tag' when secure check box is checked
+    Click Link   	Activities
+    Click Link		Create Activity
+	Wait Until Page Contains Element	css=#activities_list > .activity_fields > .cols3 > input[id$= '_name']
+	${uid}=			Get Uid
+	${secureactivity}		Catenate    SEPARATOR=-	${activity-name}	${uid}
+	Input Text		css=#activities_list > .activity_fields > .cols3 > input[id$= '_name']	${secureactivity}
+	Click Element    css=div[id$='_source_chzn'] > .chzn-single
+	Input Text    	 css=div[id$='_source_chzn'] > div.chzn-drop > div.chzn-search>input    DFA
+    Selenium2Library.Press Key    css=div[id$='_source_chzn'] > div.chzn-drop > div.chzn-search>input    \\13
+	#Input Text        css=input[id$='_external_id']		${dfa} 
+	Click Element		css=input[id$='_secure']
+	Click Button   	 activity_submit
+	Wait Until Page Contains   	Organization: 
+	Page Should Contain		Activity successfully created:
+	Click Element 		${secureactivity}
+	Page Should Contain		<img src="https: 
+			

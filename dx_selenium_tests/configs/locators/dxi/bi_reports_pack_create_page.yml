@@ -1,0 +1,29 @@
+#default by: 'id'
+bi_reports_pack_create_page:
+    back_to_bi_reports_link:
+        by: 'link text'
+        value: 'Back to Business Intelligence Reports'
+    bi_report_pack_name_textbox:
+        value: 'business_intelligence_report_group_name'
+    bi_report_pack_description_textbox:
+        value: 'business_intelligence_report_group_description'
+    add_report_link:
+        by: 'css selector'
+        value: '.add_report'
+    add_organization_link:
+        by: 'css selector'
+        value: '.add_organization'
+    bi_report_pack_create_button:
+        value: 'business_intelligence_report_group_submit'
+    organization_dropdown:
+        by: 'css selector'
+        value: 'a.chzn-single'
+    organization_dropdown_input:
+        by: 'css selector'
+        value: '.chzn-search > input'
+    bi_report_pack_cancel_button:
+        by: 'css selector'
+        value: 'input[value="Cancel"]'
+    bi_report_pack_create_page_title: 'New Business Intelligence Report Pack'
+    bi_report_pack_edit_page_title: 'Edit Business Intelligence Report Pack'
+    duplicate_report_pack_name_error: 'Name has already been taken'

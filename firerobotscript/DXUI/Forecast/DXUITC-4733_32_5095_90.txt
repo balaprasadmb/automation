@@ -1,0 +1,119 @@
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Forecast_variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}	Campaign
+
+*** Test Cases ***
+
+DXUITC-4733/32 :Check working of include/exclude audience drop down
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  	css=a.add.button.new_campaign_top
+    Input Text  	advertiser  	${advertiser}
+    Click Element  	ui-dialog-title-dataxu_dialog
+    Select From List By Label   	campaign_currency_id   	${campaign-currency}
+    Select From List By Value   	pick_media_type   	    ${campaign-channel}
+    Select From List By Value   	pick_inventory_type   	${campaign-currency}
+    Click Button  	campaign_submit
+  
+    Input Text  	campaign[name]  	${campaign-name}
+    Input Text  	campaign[start_date]  	${mmddyyyy}
+    Input Text  	campaign[end_date]  	${mmddyyyy-2}
+    Input Text  	campaign[io_number]  	${optional}
+    Select From List By Index  	campaign[campaign_cost_model_type_id]  	${cost-model}
+    Input Text  	campaign[cog_attributes][cpa_goal]  	${cpa}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Input Text  	campaign[cog_attributes][cpm]  	${cpm}
+    Input Text  	campaign[cog_attributes][cogs]  	${cogs}
+    Input Text  	campaign[cog_attributes][margin]  	${margin}
+
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Click Element  	xpath=(.//div[contains(normalize-space(.),concat('Maximize Distribution Maximize your campaign', "'", 's reach across selected campaign inventory and within y'))])[last()]/child::input[@type='radio']
+    Sleep                5s
+    Click Element   	css=i.fa.fa-cog.fa-lg.pull-left
+    Click Link          css=ul.nav.nav-pills.nav-compact.tab-list>li~li>a
+    Click Element   	xpath=(.//span[contains(normalize-space(.),'Include')]/following::b)[1]
+    Click Element   	xpath=(.//li[contains(normalize-space(.), '3M Auto Window Film Data Segment')])[1]
+    Click Element   	xpath=.//span[contains(normalize-space(.),'Exclude')]/following::b 
+    Click Element   	xpath=(.//li[contains(normalize-space(.), '3M Buy It Now Dental 2013 Data')])[last()]
+
+DXUITC-5095 :To Check size gets calculated after selecting audiences from include/Exclude audience drop down
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Estimate Audience Size')][@type='button']
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Apply to Forecast')][@type='button']
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+    Click Button   	xpath=.//button[contains(normalize-space(.), '×Close')][@type='button']
+
+DXUITC-5090:Check audience size updated
+    Click Element   	css=i.fa.fa-cog.fa-lg.pull-left
+    Click Link          css=ul.nav.nav-pills.nav-compact.tab-list>li~li>a
+    Click Element   	xpath=(.//span[contains(normalize-space(.),'Include')]/following::b)[1]
+    Click Element   	xpath=(.//li[contains(normalize-space(.), '3M Commmercial Window Film Exelate Aud')])[1]
+    Click Button   	css=button.btn.btn-default.btn-xs
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Apply to Forecast')][@type='button']
+    #Click Button   	css=button.btn.btn-default.btn-xs
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+    Click Button   	xpath=.//button[contains(normalize-space(.), '×Close')][@type='button']
+
+    Click Button   	xpath=.//input[@value='Create Campaign & Continue »'][@type='submit']
+
+DXUITC-4734_35:Check working of include and exclude audience drop down
+    Input Text   	xpath=.//input[@id=//label[contains(normalize-space(.),'Description')]/@for][@type='text']   	${description-3}
+    Input Text   	xpath=(.//label[contains(normalize-space(.),'Bid ($)')]/following::input[@type='text'])[1]   	${bid}
+    Input Text   	xpath=(.//label[contains(normalize-space(.),'Budget ($)')]/following::input[@type='text'])[1]   	${budget-4}
+    Click Element   	xpath=.//input[@placeholder='Filter by description'][@type='text']
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+
+    Click Element   	css=i.fa.fa-cog.fa-lg.pull-left
+    Click Link          css=ul.nav.nav-pills.nav-compact.tab-list>li~li>a
+    Click Element   	xpath=(.//span[contains(normalize-space(.),'Include')]/following::b)[1]
+    Click Element   	xpath=(.//li[contains(normalize-space(.), '3M Auto Window Film Data Segment')])[1]
+    Click Element   	xpath=.//span[contains(normalize-space(.),'Exclude')]/following::b 
+    Click Element   	xpath=(.//li[contains(normalize-space(.), '3M Buy It Now Dental 2013 Data')])[last()]
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Estimate Audience Size')][@type='button']
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Apply to Forecast')][@type='button']
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+    Click Button    	xpath=.//button[contains(normalize-space(.), '×Close')][@type='button']
+
+DXUITC-4839: Updation of Forecast after adding/updating Audience
+    Click Button   	xpath=.//button[contains(normalize-space(.), 'Save & Continue')][@type='button']
+    Sleep                5s
+    Click Element   	xpath=(.//span[contains(normalize-space(.), '►')])[last()]
+    Click Element   	xpath=(.//span[contains(normalize-space(.), '►')])[last()]
+    Click Button   	xpath=(.//input[@value='>>'][@type='submit'])[4]
+    Click Button   	xpath=(.//button[contains(normalize-space(.), 'Estimate Audience Size')][@type='button'])[1]
+    Click Button   	xpath=(.//button[contains(normalize-space(.), 'Apply to Forecast')][@type='button'])[1]
+    Page Should Contain   	FLIGHT SETTINGS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	CAMPAIGN DETAILS
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	(1 flights)
+
+
+

@@ -1,0 +1,39 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Test Cases ***
+DXUITC-982:To verify only active segments are listed on Segment page load
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+    Click Link    Segments
+    ${selected}    Get Selected List Value    first_party_segment_active_filter
+    Should Be Equal    ${selected}    true
+
+#DXUITC-1022:To verify the 'Go to page' text box functionality
+#    Input Text    page    10
+#    Selenium2Library.Press Key    page    \\13
+#   Page Should Contain    11 - 20 of
+
+DXUITC-946:To verify the contents of the segments list page
+   	Page Should Contain Element    //div[@id='first_party_segments_table_view']/div[1]/h1
+    Page Should Contain Element    first_party_segment_name_filter
+    Page Should Contain List    first_party_segment_active_filter
+    Page Should Contain Element    composite_segments_table
+    Page Should Contain Element    //nav[@class='pagination']
+
+DXUITC-980:To verify the functionality of 'Filter by Name' search box on segments list page if no result found
+    Input Text    first_party_segment_name_filter    asdfgh
+    Selenium2Library.Press Key    first_party_segment_name_filter    \\13
+    Page Should Contain    No segments match the applied filters.
+    Clear Element Text    first_party_segment_name_filter
+    Selenium2Library.Press Key    first_party_segment_name_filter    \\13
+    Page Should Contain Element    css=table#composite_segments_table > tbody >tr > td >a[href*='/segments/']
+
+#DXUITC-977:To verify the functionality of 'Filter by Name' search box on segments list page
+#	${search}		Get Text 	css=table#composite_segments_table > tbody >tr > td >a[href*='/segments/']
+#    Input Text    first_party_segment_name_filter    ${search}
+#    Selenium2Library.Press Key    first_party_segment_name_filter    \\13
+#    Page Should Contain Link    ${search}

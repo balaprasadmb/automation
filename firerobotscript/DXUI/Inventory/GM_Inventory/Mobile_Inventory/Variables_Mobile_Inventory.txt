@@ -1,0 +1,5 @@
+***Variables***
+
+${publisher-1}      Mobile Inventory
+${media-type}		1
+${budgetcost}		5.32

@@ -1,0 +1,64 @@
+#default by: 'id'
+campaign_dashboard_page:
+    reports_button:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > button > i'
+    report_builder_link:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > .menu > ul > li:nth-child(1) > a'
+    report_audience_link:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > .menu > ul > li:nth-child(3) > a'
+    report_advanced_insights_link:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > .menu > ul > li:nth-child(4) > a'
+    report_intelligence_link:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > .menu > ul > li:nth-child(5) > a'
+    report_custom_query_link:
+        by: 'css selector'
+        value: '.campaign-controls > div:nth-child(2) > .dropdown > .menu > ul > li:nth-child(6) > a'
+    flights_button:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > button > i'
+    edit_flights_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(1) > a'
+    flight_creatives_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(5) > a'
+    flight_domains_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(7) > a'
+    add_flights_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(10) > a'
+    bulk_upload_flights_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(11) > a'
+    bulk_edit_via_csv_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(12) > a'
+    export_flights_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(13) > a'
+    flight_domain_list_management_link:
+        by: 'css selector'
+        value: '#edit-flights-dropdown > .menu > ul > li:nth-child(15) > a'
+    campaign_button:
+        by: 'css selector'
+        value: '#edit-campaign-dropdown > .dropdown > button > i'
+    edit_campaign_link:
+        by: 'css selector'
+        value: '#edit-campaign-dropdown > .dropdown > .menu > ul > li:nth-child(1) > a'
+    campaign_domains_link:
+        by: 'css selector'
+        value: '#edit-campaign-dropdown > .dropdown > .menu > ul > li:nth-child(5) > a'
+    cruise_control_link:
+        by: 'css selector'
+        value: '#edit-campaign-dropdown > .dropdown > .menu > ul > li:nth-child(7) > a'
+    campaign_domain_list_management_link:
+        by: 'css selector'
+        value: '#edit-campaign-dropdown > .dropdown > .menu > ul > li:nth-child(9) > a'
+    page_footer:
+        value: 'footer1'

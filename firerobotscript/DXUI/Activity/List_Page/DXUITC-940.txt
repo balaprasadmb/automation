@@ -1,0 +1,92 @@
+*** Settings ***
+
+Documentation	     	Test suite created with FireRobot.
+Library	   		        Selenium2Library   15.0   5.0
+Resource                Common_Variables.txt
+Library			        ${EXECDIR}/python/setup.py
+Force Tags		        tags.regression.ACT
+
+*** Test Cases ***
+
+DXUITC-940 :To check contents of activity list page for user who has 'Activity sharing' permission
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    Click Link   			Activities
+    Page Should Contain		   	Organization
+    Page Should Contain   		Create Activity
+    Page Should Contain   		Activities
+    Page Should Contain Element     css=input#name_filter
+    Page Should Contain Checkbox   	css=.select_all
+    Page Should Contain   		Name
+    Page Should Contain   		Pixel ID
+    Page Should Contain   		Pixel Type
+    Page Should Contain   		Last Fired
+    Page Should Contain   		30 Day Activity
+    Page Should Contain   		Secure
+    Page Should Contain   		RMX
+    Page Should Contain   		Shared
+    Page Should Contain   		Last Updated
+    Page Should Contain Image   css=.gear_box
+    Page Should Contain Button		css=#display-checked-activities
+    Page Should Contain Button   	css=#export-selected-activities
+    Page Should Contain Button   	css=#share-activities
+    Page Should Contain   		 Show rows:
+    Page Should Contain   		 10
+    Page Should Contain   		 50
+    Page Should Contain   		 250
+    Page Should Contain   	 	1000
+
+DXUITC-944 : To verify the functionality of advertiser drop down
+    ${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+
+DXUITC-988 : To check functionality of 'Master check box' from activity list table
+    Click Element   			    css=.select_all
+    Page Should Contain Element		css=input[id^='activity_'][checked='checked']
+    Click Element   			    css=.select_all
+
+DXUITC-1036 : To check functionality of 'Activity Name'
+    ${activity}		Get Activity
+	Input Text   	css=#name_filter   	${activity}
+	#Click Element		${activity}	
+    Click Element 			    css=td.name_link > a
+    Page Should Contain   		Activities
+    Page Should Contain   		Edit
+    Page Should Contain   		Activity Type
+    Page Should Contain   		Secure
+    Page Should Contain   		RMX
+    Page Should Contain   		Shared
+    Page Should Contain   		DataXu pixel ID
+    Page Should Contain   		Last Fired On
+    Page Should Contain   		Pixel Tag
+    Page Should Contain   		Including Segments
+   
+DXUITC-1039:To check contents of gear icon
+   Click Link   			Activities
+   Click Image              css=.gear_box
+   Page Should Contain   	Actions
+   Page Should Contain   	Edit Activity
+   Page Should Contain   	View Activity
+ 
+DXUITC-1042:To check functionality of 'Edit Activity' link from gear icon
+   Click Link               Edit Activity
+   Wait Until Page Contains   	Edit activity
+   Page Should Contain   	Edit activity
+   
+DXUITC-1045:To check functionality of 'View Activity' link from gear icon
+   Click Link   			Activities
+   Click Image              css=.gear_box
+   Click Link               View Activity
+   Page Should Contain   	Activities
+   Page Should Contain   	Edit
+   Page Should Contain   	Activity Type
+   Page Should Contain   	Secure
+   Page Should Contain   	RMX
+   Page Should Contain   	Shared
+   Page Should Contain   	DataXu pixel ID
+   Page Should Contain   	Last Fired On
+   Page Should Contain   	3rd Party Tag Server
+   Page Should Contain   	Pixel Tag
+   Page Should Contain   	Including Segments
+   

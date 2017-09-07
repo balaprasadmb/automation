@@ -1,0 +1,55 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3121:To check if campaign currency sign is inherited in budget field and remains as it is while entering
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	Input Text       css=#flight_description    ${description}
+	Input Text   	 css=#flight_default_bid   	${default-bid-usd-5}
+	Page Should Contain   	Budget (
+    Page Should Contain   	USD
+    Page Should Contain   	)
+	
+DXUITC-3122:To check if flight is created when Budget is kept blank
+   Input Text   	 css=#flight_default_bid   	${default-bid-usd-5}
+   Input Text        css=#flight_io_budget      ${empty}  
+   Click Button        css=input.primary
+   Page Should Contain   Io budget is not a number
+   
+DXUITC-3123:To check if flight is created when alphabetical characters are entered
+   Input Text        css=#flight_io_budget      ${budget-usd-1}
+   Click Button        css=input.primary
+   Page Should Contain   Io budget is not a number 
+   
+DXUITC-3124:To check if flight is created when special characters are entered
+   Input Text        css=#flight_io_budget      ${budget-usd-2}
+   Click Button        css=input.primary
+   Page Should Contain   Io budget is not a number 
+   
+DXUITC-3125:To check if flight is created when negative numbers are entered
+   Input Text        css=#flight_io_budget      ${budget-usd-3}
+   Click Button        css=input.primary
+   Page Should Contain   Io budget must be greater than or equal to 0
+   
+DXUITC-3128:To check if flight is created when flight budget is entered more than that of campaign budget
+   Input Text        css=#flight_io_budget      ${budget-usd-4}
+   Click Button        css=input.primary
+   Page Should Contain   Upload File
+  

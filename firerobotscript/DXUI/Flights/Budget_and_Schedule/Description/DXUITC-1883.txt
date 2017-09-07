@@ -1,0 +1,29 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-1883: To check if flight is created when both the flight dates are out of range of campaign running dates
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Input Text   	css=input.ember-view.ember-text-field.flight_name.text    	${description}
+	Click Element   css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker
+	Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   ${past_start_date}
+	Click Element   css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker 
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker    	${past_end_date}
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+	

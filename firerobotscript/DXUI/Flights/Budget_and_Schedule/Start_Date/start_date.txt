@@ -1,0 +1,60 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-1874:To check working of start date calender
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker
+	Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${start_date}
+	Click Element   css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker   	${end_date}
+	
+DXUITC-1890: To check if valid start date can be put manually
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${start_date}
+	Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker   	${end_date}
+	
+DXUITC-1881: To check if flight is created when flight start date is before campaign start date
+    Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${past_end_date}
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker   	${end_date}
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget}
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+	
+DXUITC-1886: To check if start date when we put invalid date in start date
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${invalid_date}
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+	
+DXUITC-1878: To check if flight is created when start date field is kept blank
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${empty}
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+	
+DXUITC-1880:To check if flight is created when both the date fields are kept blank
+   Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${empty}
+   Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker   	${empty}
+   Page Should Contain   	Start date will cause flight "Test" to be running outside of the campaign start and end dates
+
+DXUITC-1898:To check if special characters can be put in start date field manually	
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${special_char}
+	# Should not except special characters
+	
+DXUITC-1893: To check if characters can be put in start date field manually
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker   	${char_date}
+	# Should not except characters
+	

@@ -1,0 +1,7 @@
+***Variables***
+
+${publisher-1}		Billable_Budget01
+${publisher-2}		Non Billable_Budget01
+${publisher-3}		Blank Budget Cost01
+${media-type}		1
+${budgetcost}		5.32

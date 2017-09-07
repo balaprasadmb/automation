@@ -1,0 +1,49 @@
+#default by: 'id'
+domain_list_management_page:
+    domain_list_checked_checkbox:
+        by: 'css selector'
+        value: "input[checked='checked']"
+    domain_list_search_textbox:
+        by: 'css selector'
+        value: '.ui-grid-filter-input'
+    new_list_button:
+        by: 'css selector'
+        value: '.btn-primary > .fa-plus'
+    domain_list_name_textbox:
+        by: 'css selector'
+        value: "input[placeholder='List Name']"
+    domain_list_name_submit_button:
+        by: 'css selector'
+        value: "button[type='submit']"
+    edit_button:
+        by: 'css selector'
+        value: '.btn-black'
+    domains_input_text_area:
+        by: 'css selector'
+        value: '.modal-body > .row > div > textarea'
+    domain_list_submit_button:
+        by: 'css selector'
+        value: '.modal-footer > button.btn-primary'
+    file_upload_area:
+        by: 'css selector'
+        value: '.drop-zone-content'
+    domain_list_remove_button_column:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='SetItem'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           .ui-grid-pinned-container-right > .right > .ui-grid-viewport > .ui-grid-canvas"
+    back_button:
+        by: 'css selector'
+        value: '.flex-end > span:nth-child(1) > a'
+    whitelist_domains:
+        - www.whitelist01.com
+        - www.whitelist02.com
+        - www.whitelist03.com
+        - www.whitelist04.com
+        - www.whitelist05.com
+    blacklist_domains:
+        - www.blacklist01.com
+        - www.blacklist02.com
+        - www.blacklist03.com
+        - www.blacklist04.com
+        - www.blacklist05.com

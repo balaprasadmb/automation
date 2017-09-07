@@ -1,0 +1,41 @@
+***Settings***
+
+Documentation	  Test suite created with FireRobot.
+Library	  Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+***Test Cases***
+
+DXUITC-2144:To verify the contents of the Audiences list page
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Page Should Contain Element  	composite_segment_name_filter
+    Page Should Contain Element  	toggle_hide_unused_composite_segments
+    Page Should Contain List  	currency_switcher
+    Page Should Contain  	Audience Name
+    Page Should Contain  	Audience Size Uniques
+    Page Should Contain  	Impressions
+    Page Should Contain  	Daily Freq
+    Page Should Contain  	Conv
+    Page Should Contain  	Conv %
+    Page Should Contain  	Media Spend
+    Page Should Contain  	CPA
+    Page Should Contain  	CPM
+    Page Should Contain  	Last Updated
+    Page Should Contain  	Actions
+    Page Should Contain  	Show rows:
+    Page Should Contain  	10
+    Page Should Contain  	50
+    Page Should Contain  	250
+    Page Should Contain  	1000
+    Page Should Contain  	Go to page:
+    	
+DXUITC-2170: To verify the functionality of " Create New Audience" button
+    Click Link          Create New Audience
+    Wait Until Page Contains  Create a Composed Audience
+    Page Should Contain  	Create a Composed Audience

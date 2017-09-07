@@ -1,0 +1,15 @@
+*** Variables ***
+
+${budget-usd} 	    40000.00
+${daily-cap-usd} 	10.00
+${bid-usd} 	        30.00
+${filter-on}        online
+${filter-on-2}      mobile
+${filter-on-3}      video
+${filter-on} 	
+${sort-by} 	    ctr
+${data-source} 	dataxu
+${date-range} 	month_to_date
+${filter-on1} 	3M
+${filter-on2} 	abc*12
+

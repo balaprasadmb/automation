@@ -1,0 +1,130 @@
+ ***Settings***
+Resource          Budget_and_Spending_variables.txt
+Documentation	  Test suite created with FireRobot.
+Library	          Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign-name}		CampaignForecast
+
+***Test Cases***
+
+DXUITC-4547: Negative Budget Test Case
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link		${campaign}	
+    Click Link      Edit
+    Input Text   	campaign_name  	                               ${campaign-name}
+    Input Text  	campaign_start_date  	                       ${start_date}
+    Input Text  	campaign_end_date  	                           ${end_date}
+    Input Text  	campaign_io_number  	                       ${optional}
+    Select From List By Index  	campaign_campaign_cost_model_type_id  	   ${cost-model}
+    Input Text  	campaign_cog_attributes_cpa_goal  	           ${cpa}
+    Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget}
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	               ${cogs}
+    Input Text  	campaign_cog_attributes_margin  	           ${margin}
+    Wait Until Page Contains Element	css=.alert.alert-danger.small
+    Page Should Contain    The budget should be a non-negative number.
+
+DXUITC-4547: Negative CPM Test Case
+	Go Back
+	Click Link		${campaign}	
+    Click Link      Edit
+	Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget-2}
+    Clear Element Text          campaign_cog_attributes_cpm
+    Input Text  	campaign_cog_attributes_cpm                ${cpm-2}
+    Click Element   	campaign_cog_attributes_cogs
+    Wait Until Page Contains Element	css=.alert.alert-danger.small
+    Page Should Contain  The CPM should be a non-negative number.
+	
+DXUITC-4545 :CPM mandatory for forecasting sidecar Test case
+	Go Back
+	Click Link		${campaign}	
+    Click Link      Edit
+    Input Text  	campaign_cog_attributes_cpm                ${EMPTY}
+    Click Element  	campaign_cog_attributes_cogs
+    Wait Until Page Contains		Add dates & target CPM to see forecast.
+    Page Should Contain		Add dates & target CPM to see forecast.
+    Input Text  	campaign_cog_attributes_cpm                ${cpm}
+    Click Element  	campaign_cog_attributes_cogs
+    Wait Until Page Contains Element	forecast-campaign-bid
+    Page Should Contain		Target CPM:
+    Page Should Contain		$${cpm}.00
+
+DXUITC-4545:Valid Budget & CPM Test case
+	Go Back
+	Click Link		${campaign}	
+    Click Link      Edit
+    Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget-2}
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	           		 ${cogs}
+	Wait Until Page Contains Element	forecast-campaign-bid
+    Page Should Contain		Target CPM:
+    Page Should Contain		$${cpm}.00
+    Page Should Contain		 Budget 		
+
+DXUITC-4876 :Check Forecast Sidecar on entering large CPM value
+	Go Back
+	Click Link		${campaign}	
+    Click Link      Edit
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm-4}
+    Click Element	campaign_cog_attributes_cogs
+    Wait Until Page Contains 		The bid value you have selected is much higher than the average market price.
+    Page Should Contain  The bid value you have selected is much higher than the average market price.
+  
+DXUITC-4830 :To verify Impressions budget update Forecasting sidecar
+    Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget-2}
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm}
+    Click Element	xpath=.//*[@id='impression_caps']/div[1]/h1/div[1]/span
+    Input Text   	campaign_impression_cap   	                   ${bid}
+    Page Should Contain Element   	xpath=.//strong[contains(normalize-space(.), 'IMPRESSIONS')]
+
+DXUITC-4872 :Invalid data in Budget & CPM Test case
+	Go Back
+	Click Link		${campaign}	
+    Click Link      Edit
+    Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget-4}
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm-3}
+    Input Text  	campaign_cog_attributes_cogs  	           ${cogs}
+    Page Should Contain  The CPM should be a non-negative number.
+	
+DXUITC-4547: To verify Impressions budget update Forecasting sidecar
+    Select From List By Index  	campaign_campaign_cost_model_type_id  	   ${cost-model}
+    Input Text  	campaign_cog_attributes_cpa_goal   	           ${cpa}
+    Input Text  	campaign_cog_attributes_insertion_order_budget   ${budget-2}
+    Input Text  	campaign_cog_attributes_cpm                      ${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	           ${cogs}
+    Input Text  	campaign_cog_attributes_margin   	           ${margin}
+    Click Element	campaign_objective_Distribution
+	click Element   css=div#impression_caps>div.section_header.contain_cols9>h1>div.section_title.cols4
+    Input Text   	campaign_impression_cap   	                   ${bid}
+	Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	FLIGHT ALLOCATION
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+	
+DXUITC-4946 :To check "Creatives & Audience - Forecast" popup
+    Click Element   	    css=div>i.fa.fa-cog.fa-lg.pull-left
+    Page Should Contain 	Creatives & Audience - Forecast Assumptions 
+
+DXUITC-4573 :To check "Apply to Forecast" button test case
+    Click Element   	160x600
+    Click Element   	css=span.btn.btn-default.btn-xs
+    #creatives values should be updated
+    Click Element   	xpath=.//*[@id='new-campaign-forecast-app']/div/forecast-wrapper/div/div/div[2]/div[2]/div[3]/div[2]/div/div/i
+
+DXUITC-4584: To check "Audience Size" edit functionality test case
+    Click Element       css=div.ng-scope>em
+	Input Text   	    css=input[ng-model='audienceInput']  	${audience-size}
+    Click Element	    css=.fa.fa-check.fa-btn
+    Page Should Contain   	 Audience Size	${audience-size}
+   

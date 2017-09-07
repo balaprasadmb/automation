@@ -1,0 +1,27 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.SA
+
+*** Variables ***
+${segments}        shared
+
+*** Test Cases ***
+DXUITC-4521:DXUI-6824 Shared organizations names are not getting displayed on Segment show page & Edit page
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+	${uid}=			Get Uid
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Click Link    Create First Party Segment
+	${segment}		Catenate    SEPARATOR=-	${segments}	${uid}
+    Input Text    segment_name    ${segment}
+    Click Element    segment_sharing_enabled
+    Click Element    //input[@value='0GUXmLlKVD']
+    Click Element    segment_submit
+    Page Should Contain    Shared With
+    Page Should Contain    DataXu Managed Services

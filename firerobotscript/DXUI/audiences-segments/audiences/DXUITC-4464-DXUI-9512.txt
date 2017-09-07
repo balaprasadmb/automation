@@ -1,0 +1,20 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Test Cases ***
+DXUITC-4464:DXUI-9512 To verify currecny symbol for Cost & Rate Card column under Composed Audience table
+    Go To          	http://${app_link}/advertisers/1/segments?locale=en
+    ${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Create New Audience
+    Click Element    css=.select_all
+    Select From List By Value    currency_switcher    1
+    Page Should Contain    $
+    Select From List By Value    currency_switcher    3
+    Page Should Contain    €

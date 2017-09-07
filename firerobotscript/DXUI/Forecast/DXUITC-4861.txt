@@ -1,0 +1,46 @@
+*** Settings ***
+
+Documentation	     Test suite created with FireRobot.
+Library	             Selenium2Library   15.0   5.0
+Resource             Common_Variables.txt
+Resource             Forecast_variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+${campaign}		Campaign	
+
+*** Test Cases ***
+
+DXUITC-4861:Forecast section should not be disappeared after invalid attempt of campaign creation
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  					css=a.add.button.new_campaign_top
+    Input Text  					advertiser  														${advertiser}
+    Click Element  					ui-dialog-title-dataxu_dialog
+    Select From List By Value   	pick_media_type   													${campaign-channel}
+    Click Button  					campaign_submit
+    Input Text  	campaign[name]  	${campaign-name}
+    Input Text  	campaign[start_date]  	${mmddyyyy}
+    Input Text  	campaign[end_date]  	${mmddyyyy-2}
+    Input Text  	campaign[io_number]  	${optional}
+    Select From List By Index  	campaign[campaign_cost_model_type_id]  	${cost-model}
+    Input Text  	campaign[cog_attributes][cpa_goal]  	${cpa}
+    Input Text  	campaign[cog_attributes][insertion_order_budget]  	${budget}
+    Input Text  	campaign[cog_attributes][cpm]  	${cpm}
+    Input Text  	campaign[cog_attributes][cogs]  	${cogs}
+    Input Text  	campaign[cog_attributes][margin]  	${margin}
+    Click Button                    xpath=.//input[@type='radio' and (@value='Distribution' and @id='campaign_objective_Distribution')]
+    Click Element                   id=campaign_objective_Distribution
+    Click Element   	xpath=(.//span[contains(normalize-space(.), '►')])[4]
+    Click Element   	xpath=(.//span[contains(normalize-space(.), '►')])[4]
+    Click Button   	add_new_add_on_cost
+    Select From List By Label   css=li.custom_select.input.required>select.custom_select     Custom...
+    Click Button  	campaign_submit
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+

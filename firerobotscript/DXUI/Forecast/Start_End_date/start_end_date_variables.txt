@@ -1,0 +1,22 @@
+
+***Variables***
+
+${advertiser} 	21st Century
+${campaign-currency} 	1
+${campaign-channel} 	online
+${mmddyyyy} 	
+${mmddyyyy-2} 
+${mmddyyyy-3} 	01/21/2015
+${mmddyyyy-4}	01/21/2015
+${mmddyyyy-5}   12/28/2014
+${mmddyyyy-6}   03/20/2015
+${mmddyyyy-7}   04/01/2015
+${optional} 	21
+${cost-model} 	0
+${cpa} 	6
+${budget} 	5600
+${cpm} 	25
+${cogs} 	0.19
+${margin} 	51.0
+${description} 	Test Flight01
+${app_link}	           stg-ui-app05.sldc.dataxu.net

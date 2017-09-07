@@ -1,0 +1,58 @@
+*** Settings ***
+
+Documentation	Test suite created with FireRobot.
+Library	        Selenium2Library   15.0   5.0
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.mandatory
+
+*** Variables ***
+${publisher}		Test
+${inventory-name}	regression-inventory
+${deal-name}		regression-deal
+${deal-value}		12300
+
+*** Test Cases ***
+
+Create Guaranteed Media
+	Go To			http://${app_link}/inventory_sources?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${inventory}	Catenate    SEPARATOR=-	${inventory-name}	${uid}
+	Click Link		Guaranteed Media
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link		New Guaranteed Media
+	Input Text		guaranteed_inventory_publisher_domains		${publisher}
+	Input Text		id=guaranteed_inventory_name	${inventory}
+	Click Element	guaranteed_inventory_active
+	Write To File	inventory=${inventory}
+	Click Element   	guaranteed_inventory_submit
+
+Create Deal
+	Wait Until Page Contains Element	css=a[href='#ui-tabs-2']
+	Click Link		Deals
+	${uid}=			Get Uid
+	${deal}		Catenate    SEPARATOR=-	${deal-name}	${uid}
+	Wait Until Page Contains Element		css=.add.button.new_source
+	Click Link		New Deal
+	Input Text		deal_inventory_name		${deal}	
+	Select From List By Index		deal_inventory_inventory_supplier_id	2
+	${id}=			Convert To String		${uid}		
+	Input Text		deal_inventory_external_id		${id}
+	Select From List By Index		deal_inventory_deal_type		2
+	Input Text		deal_inventory_cost_value		${deal-value}
+	Input Text		deal_inventory_start_at			${start_date}
+	Input Text		deal_inventory_end_at			${end_date}
+	${agency_group}=	Get Agency Group
+	${agency}=			Get Agency
+	${advertiser}=		Get Advertiser
+	Input Text		css=#agency_groups_chzn> .chzn-choices > li > input		${agency_group}
+	Selenium2Library.Press Key    css=#agency_groups_chzn> .chzn-choices > li > input    \\13
+	Input Text		css=#agencies_chzn>.chzn-choices > li > input		${agency}
+	Selenium2Library.Press Key    css=#agencies_chzn>.chzn-choices > li > input    \\13
+	Input Text		css=#advertisers_chzn>.chzn-choices > li > input		${advertiser}
+	Selenium2Library.Press Key    css=#advertisers_chzn>.chzn-choices > li > input	   \\13
+	Click Element		deal_inventory_submit
+	Write To File	deal=${deal}

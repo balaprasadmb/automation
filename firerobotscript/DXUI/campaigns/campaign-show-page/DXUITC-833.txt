@@ -1,0 +1,32 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-833:Contents of Show page
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link       ${campaign}
+    Page Should Contain Link    ${advertiser}
+    Page Should Contain Link    Edit
+    Page Should Contain Link    View All Campaigns
+    Page Should Contain Link    Switch to Campaign Dashboard
+    Page Should Contain    Cost Model
+    Page Should Contain    CPA Goal
+    Page Should Contain    IO Budget
+    Page Should Contain    CPM
+    Page Should Contain    COGS
+    Page Should Contain    Insertion Order #
+    Page Should Contain    Currency
+    Page Should Contain Element    //*[@id='container3']/div[4]
+    Page Should Contain Link    Add Flights
+    Page Should Contain Link    Edit Budgets and Schedules
+    Page Should Contain Link    Bulk Upload Flights
+    

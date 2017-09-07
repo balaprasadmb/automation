@@ -1,0 +1,72 @@
+#default by: 'id'
+creative_assign_dashboard_page:
+    page_loading_div:
+        by: 'css selector'
+        value: '.load-state.ng-scope > h2'
+    flight_filter_box:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='InsertionOrderUnit'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           div[role='grid'] > .ui-grid-header > .ui-grid-top-panel > .ui-grid-header-viewport > .ui-grid-header-canvas > .ui-grid-header-cell-wrapper >
+            .ui-grid-header-cell-row > .ui-grid-coluiGrid-0009 > .sortable > div[ui-grid-filter=''] > .ui-grid-filter-container > div > .ui-grid-filter-input"
+    first_flight_checkbox:
+        by: 'css selector'
+        value: "div[container-id='side'] > .ui-grid-viewport > .ui-grid-canvas > .ui-grid-row:nth-child(1) > div > div > div > div > input[type='checkbox']"
+    creative_loading_spinner:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='AssignedCreative'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           div[ng-transclude=''] > dx-overlay-spinner > dx-overlay > .dx-overlay > ng-transclude > .dx-overlay-spinner > .fa-spin"
+    creatives_available_button:
+        by: 'css selector'
+        value: '.btn-group > button:nth-child(2)'
+    creative_filter_box:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='AssignedCreative'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           div[role='grid'] > .ui-grid-header > .ui-grid-top-panel > .ui-grid-header-viewport > .ui-grid-header-canvas > .ui-grid-header-cell-wrapper >
+            .ui-grid-header-cell-row > .ui-grid-coluiGrid-003C > .sortable > div[ui-grid-filter=''] > .ui-grid-filter-container > div > .ui-grid-filter-input"
+    first_creative_add_button:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='Creative'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           .ui-grid-pinned-container > .right > .ui-grid-viewport > .ui-grid-canvas > div:nth-child(1) > div[role='row'] > .ui-grid-cell > .ui-grid-cell-contents >
+            dx-action-button > .btn-primary > .fa-plus"
+    first_creative_remove_button:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='Creative'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           .ui-grid-pinned-container > .right > .ui-grid-viewport > .ui-grid-canvas > div:nth-child(1) > div[role='row'] > .ui-grid-cell > .ui-grid-cell-contents >
+            dx-action-button > .btn-danger > .fa-minus"
+    message_div_close_button:
+        by: 'css selector'
+        value: '.close'
+    blacklist_inherit_slider:
+        by: 'css selector'
+        value: ".js-included > dx-term-assignment-component > dx-assignment-component > .assignment-component > .assignment-component-header > div > .pull-right >
+                .dx-ui-switch > .dx-ui-switch-control"
+    blacklist_search_available_domain_lists_link:
+        by: 'css selector'
+        value: ".js-included > dx-term-assignment-component > dx-assignment-component > .assignment-component > dx-resource-table > .dx-resource-table > dx-table >
+                .dx-table > .dx-table-contents > .ui-grid-contents-wrapper > div[ng-transclude=''] > .placeholder > div > div > a"
+    domains_available_button:
+        by: 'css selector'
+        value:
+          '.js-included > dx-term-assignment-component > dx-assignment-component > .assignment-component > .assignment-component-header > div >
+           .btn-group > button:nth-child(2) > span'
+    blacklist_domain_list_panel:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='Set'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           .ui-grid-render-container-body > .ui-grid-viewport"
+    blacklist_domain_list_name_row:
+        by: 'css selector'
+        value:
+          "dx-resource-table[resource-class='Set'] > .dx-resource-table > dx-table > .dx-table > .dx-table-contents > .ui-grid-contents-wrapper >
+           .ui-grid-render-container-body > .ui-grid-viewport > .ui-grid-canvas > .ui-grid-row > div[role='row'] > .ui-grid-cell > .ui-grid-cell-contents > a"
+    create_domains_list_link:
+        by: 'css selector'
+        value: '.placeholder > div > span > a'
+    edit_flight_button:
+        by: 'css selector'
+        value: '.flex-end > span:nth-child(3) > a'

@@ -1,0 +1,74 @@
+#default by: 'id'
+campaign_list:
+    url: 'advertisers/6396/campaigns'
+    campaign_list_table:
+        value: 'media_plan_campaign_table'
+    campaign_link:
+        value: 'drop1'
+    search_box:
+        value: 'filter'
+    select_org:
+        by: 'css selector'
+        value: '.chzn-single'
+    org_dropdown:
+        by: 'css selector'
+        value: '.chzn-drop'
+    search_org:
+        by: 'css selector'
+        value: 'div.chzn-search>input'
+    upload_new_flights:
+        by: 'css selector'
+        value: '.rbox > a:nth-child(1)'
+    upload_attribution_data:
+        by: 'css selector'
+        value: '.rbox > a:nth-child(2)'
+    export_all_flights:
+        by: 'css selector'
+        value: '.rbox > a:nth-child(3)'
+    campaign_filter:
+        value: 'filter'
+    reports_button:
+        by: 'css selector'
+        value: '.well-top > .group > div:nth-child(2) > a:nth-child(1)'
+    new_campaign_link:
+        by: 'link text'
+        value: 'New Campaign'
+    new_campaign_button:
+        by: 'css selector'
+        value: '.new_campaign_top'
+    new_media_plan_link:
+        by: 'link text'
+        value: 'New Media Plan'
+    first_campaign_link:
+        by: 'css selector'
+        value: 'tr.campaign_row>.first>a'
+    first_actions:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>img'
+    first_actions_box:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>div'
+    first_actions_box_close:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>div>img'
+    first_edit:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>div>ol>li:nth-child(1)>a'
+    first_copy:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>div>ol>li:nth-child(2)>a'
+    first_export_flights:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>.icon>div>ol>li:nth-child(1)>a'
+    first_status:
+        by: 'css selector'
+        value: 'tr.campaign_row:nth-child(2)>td:nth-child(7)>img'
+    first_media_plan_actions:
+        by: 'css selector'
+        value: 'tr.media_plan_row:nth-child(1)>td:nth-child(7)>.icon>img'
+    first_media_edit:
+        by: 'css selector'
+        value: 'tr.media_plan_row:nth-child(1)>td:nth-child(7)>.icon>div>ol>li>a'
+    advertiser: 'regression_advertiser-0ddb8f45-b801-4a94-877b-067ce22db863'
+    show_page: 'Media Plans & Campaigns'
+    campaign_list_page_element: ['select_org', 'upload_new_flights', 'upload_attribution_data', 'export_all_flights', 'campaign_filter', 'reports_button', 'new_campaign_button', 'new_media_plan_link']

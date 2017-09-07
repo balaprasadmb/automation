@@ -1,0 +1,20 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Force Tags		  tags.regression.DIGC
+
+*** Variables ***
+${advertiser}     21st Century
+
+*** Test Cases ***
+DXUITC-838:Functionality of 'Delete' link from sprocket icon with cancel button.
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}	Get Advertiser
+	Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Element    css=li[class='pipelast']
+    Click Link    css=a[data-method='delete']
+    Choose Cancel On Next Confirmation
+    Confirm Action

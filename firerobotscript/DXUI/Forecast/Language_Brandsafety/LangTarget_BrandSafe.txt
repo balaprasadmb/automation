@@ -1,0 +1,153 @@
+***Settings***
+
+Resource          LangTarget_BrandSafe_variables.txt
+Resource          Common_Variables.txt
+Documentation	  Test suite created with FireRobot.
+Library	          Selenium2Library   15.0   5.0
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}		Campaign
+
+***Test Cases***
+
+DXUITC-4672 :Forcasting sidecar should be updated while selecting Language Targetting
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  	css=a.add.button.new_campaign_top
+    Input Text  	campaign[advertiser][name]  	                ${advertiser}
+    Submit Form         id= pick_advertiser
+    Input Text  	campaign_name                                   ${campaign-name}
+    Input Text  	campaign_start_date                       	${mmddyyyy}
+    Input Text  	campaign_end_date  	                        ${mmddyyyy-2}
+    Select From List By Label  	campaign_campaign_cost_model_type_id  	${cost-model}
+    Input Text  	campaign_cog_attributes_cpa_goal  	        ${cpa}
+    Input Text  	campaign_cog_attributes_insertion_order_budget  ${budget}
+    Input Text  	campaign_cog_attributes_cpm  	                ${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	                ${cogs}
+    Input Text  	campaign_cog_attributes_margin  	        ${margin}
+    Click Element  	campaign_objective_Distribution
+    Click Element  	campaign_objective_Distribution
+    Sleep     		5s
+    Click Element  	css=div#language_targeting>div.section_header.contain_cols9>h1>div.section_title.cols4
+    Sleep            5s
+    Select From List By Label  	    id=target_languages_all  	                        ${29}
+    Select From List By Label  	    id=target_languages_all  	                        ${-2}
+	Click Element                   css=#target_languages_all>option
+    Click Button  	css=input#mv_sel_target_languages
+    Sleep        5s
+
+   #Forecast sidecar should get update.
+    Page Should Contain  	Forecast
+    Page Should Contain  	Campaign Duration:
+    Page Should Contain  	INVESTMENT
+    Page Should Contain  	IMPRESSIONS
+    Page Should Contain  	CREATIVES & AUDIENCE
+    Page Should Contain  	INVENTORY UTILIZATION
+    
+Forecasting side-car should be updated while deselecting Language Targeting
+    Select From List By Label  	id=target_languages_all              	${29}
+    Select From List By Label  	id=target_languages_all    	${-2}
+    Click Button  	css=input#rm_sel_target_languages
+    Sleep        5s
+    #Forecast sidecar should get update.
+    Page Should Contain  	Forecast
+    Page Should Contain  	Campaign Duration:
+    Page Should Contain  	INVESTMENT
+    Page Should Contain  	IMPRESSIONS
+    Page Should Contain  	CREATIVES & AUDIENCE
+    Page Should Contain  	INVENTORY UTILIZATION
+	
+DXUITC-4548:To check forecasting sidecar for Brand Safety
+    Click Element    css=div#brand_safety>div.section_header.contain_cols9>h1>div.section_title.cols4
+    Click Element    css=input#campaign_brand_safety_level_1
+    Click Element    css=input#campaign_brand_safety_level_1
+    Sleep                5s
+	Page Should Contain   	Forecast
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+	
+To check Forecasting sidecar should update for Level Two Brand Safety
+	Click Element    css=input#campaign_brand_safety_level_2
+    Click Element    css=input#campaign_brand_safety_level_2
+    Sleep                5s
+	Page Should Contain   	Forecast
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+	
+To check Forecasting sidecar should update for Level Three Brand Safety
+	Click Element    css=input#campaign_brand_safety_level_3
+    Click Element    css=input#campaign_brand_safety_level_3
+    Sleep                5s
+	Page Should Contain   	Forecast
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+	
+To check Forecasting sidecar should update for Level Four Brand Safety
+	Click Element    css=input#campaign_brand_safety_level_4
+    Click Element    css=input#campaign_brand_safety_level_4
+    Sleep                5s
+	Page Should Contain   	Forecast
+    Page Should Contain   	INVESTMENT
+    Page Should Contain   	IMPRESSIONS
+    Page Should Contain   	CREATIVES & AUDIENCE
+    Page Should Contain   	INVENTORY UTILIZATION
+	
+To check Forecast after updating 'Geo-graphic' section on SF page.
+    Click Element    css=input#campaign_brand_safety_level_1
+    Click Element    css=input#campaign_brand_safety_level_1
+    Click Button  	campaign_submit
+    Sleep     		5s
+    Input Text  	css=input.ember-view.ember-text-field.flight_name.text  	${description}
+    Input Text  	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field  	${bid}
+    Input Text  	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-2}
+    Click Element  	css=button.ember-view.ember-button.primary.save-and-continue
+    Sleep         	5s
+    Click Button  	xpath=.//button[contains(normalize-space(.), 'Save & Continue')][@type='button']
+    Click Button  	xpath=.//button[contains(normalize-space(.), 'Save & Continue')][@type='button']
+    Sleep               5s
+    Click Element  	xpath=(.//div[contains(normalize-space(.), '►Geographic Targeting')])[last()]
+    Click Element  	flight_inherit_geo_targeting_false
+    Click Element  	flight_inherit_geo_targeting_false
+
+To check after selecting/deselecting All 'Countries'    
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]    
+    Sleep               5s
+#Forecast sidecar should get update.
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    Sleep               5s
+#Forecast sidecar should get update.
+    
+To check after selecting/deselecting all 'State & Territories'
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'Target the entirety of one or more countries Specify regions within...')]  	${separate-geotargeting-for-this-flight}
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'States & Territories Metrocodes Postal Codes')]  	${vietnam}
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]
+    Sleep               5s
+#Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 35%')])[last()]
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    Sleep               5s
+#Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 100%')])[last()]
+
+To check after selecting/deselecting all 'Metrocodes'
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'Target the entirety of one or more countries Specify regions within...')]  	${separate-geotargeting-for-this-flight}
+    Select From List By Label  	xpath=.//select[contains(normalize-space(.), 'States & Territories Metrocodes Postal Codes')]  	${vietnam-2}
+    Click Button  	xpath=(.//input[@value='>>'][@type='submit'])[3]
+    Sleep               5s
+#Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 40%')])[last()]
+    Click Button  	xpath=(.//input[@value='<<'][@type='submit'])[3]
+    Sleep               5s
+#Forecast sidecar should get update.
+    #Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Geography 100%')])[last()]

@@ -1,0 +1,54 @@
+*** Settings ***
+
+Resource           dashboard_variables.txt 
+Documentation	   Test suite created with FireRobot.
+Library	           Selenium2Library   15.0   5.0
+Resource           Common_Variables.txt    
+Force Tags		   tags.regression.DIGC
+
+*** Test Cases ***
+
+DXUITC-1231: Functionality of "Play" button
+   Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+   Click Link        Dashboard
+   Click Image       css=img.toggle_dx_status
+   
+DXUITC-1237:Functionality of "Pause" button
+   Click Image       css=img.toggle_dx_status
+   
+DXUITC-1232: Functionality of "Play/Pause" button for online Campaign
+   Input Text   	 form_hash_wrapper_name_filter   	${filter-on}
+   Click Button   	 form_hash_wrapper_submit
+   Wait Until Page Contains Element		css=img.toggle_dx_status
+   #Click Image   	 xpath=(.//img[@alt='Icon_pause'])[1]
+   Click Image       css=img.toggle_dx_status
+   
+DXUITC-1230:DXUI-8654 : Functionality of "Play/Pause" button for Mobile Campaign
+   Input Text   	 form_hash_wrapper_name_filter   	${filter-on-2}
+   Click Button   	 form_hash_wrapper_submit
+   Wait Until Page Contains Element		css=img.toggle_dx_status
+   #Click Image   	 xpath=(.//img[@alt='Icon_pause'])[1]
+   Click Image       css=img.toggle_dx_status
+
+DXUITC-1238:Functionality of "Play/Pause" button for Video Campaign
+   Input Text   	 form_hash_wrapper_name_filter   	${filter-on-3}
+   Click Button   	 form_hash_wrapper_submit
+   Wait Until Page Contains Element		css=img.toggle_dx_status
+   Click Image       css=img.toggle_dx_status
+   
+DXUITC-1251: Functionality of "Play" button for tactics
+  Click Image   	 xpath=(.//img[@alt='Icon_toggle'])[1]
+  Click Image   	 xpath=(.//img[@alt='Icon_pause'])[2]
+  Wait Until Page Contains Element		xpath=(.//img[@alt='Icon_pause'])[2]
+
+DXUITC-1233: Functionality of "Paused" button for tactics 
+  Click Image   	 xpath=(.//img[@alt='Icon_pause'])[2]
+  
+DXUITC-1240:Functionality of "Play/Pause" button for flights
+  Click Image   	xpath=(.//img[@alt='Icon_toggle'])[2]
+  Wait Until Page Contains Element	xpath=(.//img[@alt='Icon_play'])[3]	
+  Click Image   	xpath=(.//img[@alt='Icon_play'])[3]
+
+
+
+

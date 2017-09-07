@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20161101 18:29:27.328" generator="Robot 3.0 (Python 2.7.6 on darwin)">
+<suite source="/Users/ghanshyamrajpurohit/NewWS/Flights/aurus-testing/dx_selenium_tests/test_suites/scripts/campaigns/campaigns.rst" id="s1" name="Campaigns">
+<test id="s1-t1" name="DXUITC-1514:To verify Campaign Name can not be blank">
+<kw name="Login As Campaign Manager">
+<msg timestamp="20161101 18:30:00.057" level="FAIL">No keyword with name 'Login As Campaign Manager' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.057" starttime="20161101 18:30:00.057"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.058" critical="yes" starttime="20161101 18:30:00.052">No keyword with name 'Login As Campaign Manager' found.</status>
+</test>
+<test id="s1-t2" name="DXUITC-1543:To verify Campaign Start Date can not be blank">
+<kw name="Blank Start Date">
+<msg timestamp="20161101 18:30:00.064" level="FAIL">No keyword with name 'Blank Start Date' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.064" starttime="20161101 18:30:00.064"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.065" critical="yes" starttime="20161101 18:30:00.058">No keyword with name 'Blank Start Date' found.</status>
+</test>
+<test id="s1-t3" name="DXUITC-1564:To verify Campaign End Date can not be blank">
+<kw name="Blank End Date">
+<msg timestamp="20161101 18:30:00.070" level="FAIL">No keyword with name 'Blank End Date' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.070" starttime="20161101 18:30:00.069"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.070" critical="yes" starttime="20161101 18:30:00.065">No keyword with name 'Blank End Date' found.</status>
+</test>
+<test id="s1-t4" name="DXUITC-995:To verify is select in tactics cannot be blank">
+<kw name="Blank Tactics">
+<msg timestamp="20161101 18:30:00.075" level="FAIL">No keyword with name 'Blank Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.075" starttime="20161101 18:30:00.075"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.076" critical="yes" starttime="20161101 18:30:00.071">No keyword with name 'Blank Tactics' found.</status>
+</test>
+<test id="s1-t5" name="DXUITC-1389:To verify name as blank for 'Add On Costs' section">
+<kw name="Blank Add On Costs">
+<msg timestamp="20161101 18:30:00.080" level="FAIL">No keyword with name 'Blank Add On Costs' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.080" starttime="20161101 18:30:00.080"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.081" critical="yes" starttime="20161101 18:30:00.076">No keyword with name 'Blank Add On Costs' found.</status>
+</test>
+<test id="s1-t6" name="DXUITC-890:To verify that CPA should not be blank">
+<kw name="Blank Cpa">
+<msg timestamp="20161101 18:30:00.086" level="FAIL">No keyword with name 'Blank Cpa' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.086" starttime="20161101 18:30:00.086"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.087" critical="yes" starttime="20161101 18:30:00.081">No keyword with name 'Blank Cpa' found.</status>
+</test>
+<test id="s1-t7" name="DXUITC-893:To verify that IO Budget should not be blank">
+<kw name="Blank Io Budget">
+<msg timestamp="20161101 18:30:00.093" level="FAIL">No keyword with name 'Blank Io Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.093" starttime="20161101 18:30:00.093"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.094" critical="yes" starttime="20161101 18:30:00.088">No keyword with name 'Blank Io Budget' found.</status>
+</test>
+<test id="s1-t8" name="DXUITC-896:To verify that COGS should not be blank">
+<kw name="Blank Cogs">
+<msg timestamp="20161101 18:30:00.100" level="FAIL">No keyword with name 'Blank Cogs' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.100" starttime="20161101 18:30:00.100"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.101" critical="yes" starttime="20161101 18:30:00.094">No keyword with name 'Blank Cogs' found.</status>
+</test>
+<test id="s1-t9" name="DXUITC-899:To verify that Margin should not be blank">
+<kw name="Blank Io Margin">
+<msg timestamp="20161101 18:30:00.107" level="FAIL">No keyword with name 'Blank Io Margin' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.107" starttime="20161101 18:30:00.107"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.108" critical="yes" starttime="20161101 18:30:00.102">No keyword with name 'Blank Io Margin' found.</status>
+</test>
+<test id="s1-t10" name="DXUITC-1810:To check 'Value' field as blank">
+<kw name="Blank Activity Type">
+<msg timestamp="20161101 18:30:00.113" level="FAIL">No keyword with name 'Blank Activity Type' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.114" starttime="20161101 18:30:00.113"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.114" critical="yes" starttime="20161101 18:30:00.109">No keyword with name 'Blank Activity Type' found.</status>
+</test>
+<test id="s1-t11" name="DXUITC-1410:To verify 'CPM' field as blank">
+<kw name="Blank Cpm">
+<msg timestamp="20161101 18:30:00.119" level="FAIL">No keyword with name 'Blank Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.119" starttime="20161101 18:30:00.119"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.120" critical="yes" starttime="20161101 18:30:00.115">No keyword with name 'Blank Cpm' found.</status>
+</test>
+<test id="s1-t12" name="DXUITC-894:To verify that CPM should not be blank">
+<kw name="Blank Cpm">
+<msg timestamp="20161101 18:30:00.127" level="FAIL">No keyword with name 'Blank Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.128" starttime="20161101 18:30:00.127"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.128" critical="yes" starttime="20161101 18:30:00.121">No keyword with name 'Blank Cpm' found.</status>
+</test>
+<test id="s1-t13" name="DXUITC-1528:To verify Campaign Start Date accepts numbers in mm/dd/yyyy">
+<kw name="Complete Flow With Distribution">
+<msg timestamp="20161101 18:30:00.133" level="FAIL">No keyword with name 'Complete Flow With Distribution' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.134" starttime="20161101 18:30:00.133"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.138" critical="yes" starttime="20161101 18:30:00.129">No keyword with name 'Complete Flow With Distribution' found.</status>
+</test>
+<test id="s1-t14" name="DXUITC-1560:To verify Campaign End Date accepts numbers in mm/dd/yyyy">
+<kw name="Assert End Date">
+<msg timestamp="20161101 18:30:00.143" level="FAIL">No keyword with name 'Assert End Date' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.143" starttime="20161101 18:30:00.142"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.143" critical="yes" starttime="20161101 18:30:00.138">No keyword with name 'Assert End Date' found.</status>
+</test>
+<test id="s1-t15" name="DXUITC-1520: To verify Campaign Name accepts numbers">
+<kw name="Assert Campaign Name">
+<msg timestamp="20161101 18:30:00.148" level="FAIL">No keyword with name 'Assert Campaign Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.148" starttime="20161101 18:30:00.148"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.148" critical="yes" starttime="20161101 18:30:00.144">No keyword with name 'Assert Campaign Name' found.</status>
+</test>
+<test id="s1-t16" name="DXUITC-1534:To verify correct insertion order">
+<kw name="Assert Entered Value">
+<msg timestamp="20161101 18:30:00.152" level="FAIL">No keyword with name 'Assert Entered Value' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.153" starttime="20161101 18:30:00.152"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.153" critical="yes" starttime="20161101 18:30:00.148">No keyword with name 'Assert Entered Value' found.</status>
+</test>
+<test id="s1-t17" name="DXUITC-879:Maximize Distribution">
+<kw name="Assert Objective">
+<msg timestamp="20161101 18:30:00.160" level="FAIL">No keyword with name 'Assert Objective' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.160" starttime="20161101 18:30:00.160"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.161" critical="yes" starttime="20161101 18:30:00.153">No keyword with name 'Assert Objective' found.</status>
+</test>
+<test id="s1-t18" name="DXUITC-987:To verify that the new text box appear when custom is select in tactics">
+<kw name="Assert Tactics">
+<msg timestamp="20161101 18:30:00.167" level="FAIL">No keyword with name 'Assert Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.167" starttime="20161101 18:30:00.167"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.171" critical="yes" starttime="20161101 18:30:00.161">No keyword with name 'Assert Tactics' found.</status>
+</test>
+<test id="s1-t19" name="DXUITC-1057:To verify that Custom tactic is present with default">
+<kw name="Assert Tactics">
+<msg timestamp="20161101 18:30:00.176" level="FAIL">No keyword with name 'Assert Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.176" starttime="20161101 18:30:00.176"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.177" critical="yes" starttime="20161101 18:30:00.172">No keyword with name 'Assert Tactics' found.</status>
+</test>
+<test id="s1-t20" name="DXUITC-1068:The new custom text box appeared in tactics accepts characters">
+<kw name="Assert Tactics">
+<msg timestamp="20161101 18:30:00.181" level="FAIL">No keyword with name 'Assert Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.182" starttime="20161101 18:30:00.181"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.182" critical="yes" starttime="20161101 18:30:00.177">No keyword with name 'Assert Tactics' found.</status>
+</test>
+<test id="s1-t21" name="DXUITC-1075:To verify that the budget in tactic section accepts numbers">
+<kw name="Assert Tactics Budget">
+<msg timestamp="20161101 18:30:00.187" level="FAIL">No keyword with name 'Assert Tactics Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.187" starttime="20161101 18:30:00.187"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.188" critical="yes" starttime="20161101 18:30:00.182">No keyword with name 'Assert Tactics Budget' found.</status>
+</test>
+<test id="s1-t22" name="DXUITC-1078:To verify that the impression in tactic section accepts numbers">
+<kw name="Assert Tactics Impression Cap">
+<msg timestamp="20161101 18:30:00.190" level="FAIL">No keyword with name 'Assert Tactics Impression Cap' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.190" starttime="20161101 18:30:00.190"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.191" critical="yes" starttime="20161101 18:30:00.188">No keyword with name 'Assert Tactics Impression Cap' found.</status>
+</test>
+<test id="s1-t23" name="DXUITC-1006:Add RMX External IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.194" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.194" starttime="20161101 18:30:00.194"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.194" critical="yes" starttime="20161101 18:30:00.191">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t24" name="DXUITC-1376:To verify that the campaign is created with Brand Safety level 4">
+<kw name="Assert Brand Safety">
+<msg timestamp="20161101 18:30:00.198" level="FAIL">No keyword with name 'Assert Brand Safety' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.198" starttime="20161101 18:30:00.198"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.198" critical="yes" starttime="20161101 18:30:00.194">No keyword with name 'Assert Brand Safety' found.</status>
+</test>
+<test id="s1-t25" name="DXUITC-1381:The Whitelist section is observed for Brand Safety level 4">
+<kw name="Assert Brand Safety">
+<msg timestamp="20161101 18:30:00.202" level="FAIL">No keyword with name 'Assert Brand Safety' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.202" starttime="20161101 18:30:00.202"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.203" critical="yes" starttime="20161101 18:30:00.198">No keyword with name 'Assert Brand Safety' found.</status>
+</test>
+<test id="s1-t26" name="DXUITC-1391:To verify that the manualy entered whiltelist is present">
+<kw name="Assert Whitelist">
+<msg timestamp="20161101 18:30:00.208" level="FAIL">No keyword with name 'Assert Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.208" starttime="20161101 18:30:00.207"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.208" critical="yes" starttime="20161101 18:30:00.203">No keyword with name 'Assert Whitelist' found.</status>
+</test>
+<test id="s1-t27" name="DXUITC-1416:To verify that the manualy entered blacklist is present">
+<kw name="Assert Blacklist">
+<msg timestamp="20161101 18:30:00.214" level="FAIL">No keyword with name 'Assert Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.214" starttime="20161101 18:30:00.214"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.215" critical="yes" starttime="20161101 18:30:00.209">No keyword with name 'Assert Blacklist' found.</status>
+</test>
+<test id="s1-t28" name="DXUITC-1382:To enter valid name for 'Add On Costs' section">
+<kw name="Go To Campaign Edit">
+<msg timestamp="20161101 18:30:00.222" level="FAIL">No keyword with name 'Go To Campaign Edit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.222" starttime="20161101 18:30:00.222"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.223" critical="yes" starttime="20161101 18:30:00.215">No keyword with name 'Go To Campaign Edit' found.</status>
+</test>
+<test id="s1-t29" name="DXUITC-1400:To enter valid value for CPM field under 'Add On Costs' section">
+<kw name="Assert Aoc Cpm Value">
+<msg timestamp="20161101 18:30:00.229" level="FAIL">No keyword with name 'Assert Aoc Cpm Value' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.229" starttime="20161101 18:30:00.229"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.229" critical="yes" starttime="20161101 18:30:00.224">No keyword with name 'Assert Aoc Cpm Value' found.</status>
+</test>
+<test id="s1-t30" name="DXUITC-341:Allow fractional percentages in margin field">
+<kw name="Assert Margin">
+<msg timestamp="20161101 18:30:00.234" level="FAIL">No keyword with name 'Assert Margin' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.234" starttime="20161101 18:30:00.234"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.235" critical="yes" starttime="20161101 18:30:00.230">No keyword with name 'Assert Margin' found.</status>
+</test>
+<test id="s1-t31" name="DXUITC-1535:To verify Campaign Start Date accepts date as past date">
+<kw name="Complete Flow With Ctr">
+<msg timestamp="20161101 18:30:00.240" level="FAIL">No keyword with name 'Complete Flow With Ctr' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.240" starttime="20161101 18:30:00.240"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.240" critical="yes" starttime="20161101 18:30:00.236">No keyword with name 'Complete Flow With Ctr' found.</status>
+</test>
+<test id="s1-t32" name="DXUITC-1562:To verify Campaign End Date accepts date as past date">
+<kw name="Assert End Date">
+<msg timestamp="20161101 18:30:00.243" level="FAIL">No keyword with name 'Assert End Date' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.243" starttime="20161101 18:30:00.243"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.243" critical="yes" starttime="20161101 18:30:00.240">No keyword with name 'Assert End Date' found.</status>
+</test>
+<test id="s1-t33" name="DXUITC-1518:To verify Campaign Name accepts characters">
+<kw name="Assert Campaign Name">
+<msg timestamp="20161101 18:30:00.246" level="FAIL">No keyword with name 'Assert Campaign Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.246" starttime="20161101 18:30:00.246"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.246" critical="yes" starttime="20161101 18:30:00.243">No keyword with name 'Assert Campaign Name' found.</status>
+</test>
+<test id="s1-t34" name="DXUITC-1549:To verify Insertion Order accepts characters">
+<kw name="Assert Insertion Order">
+<msg timestamp="20161101 18:30:00.249" level="FAIL">No keyword with name 'Assert Insertion Order' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.249" starttime="20161101 18:30:00.249"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.249" critical="yes" starttime="20161101 18:30:00.246">No keyword with name 'Assert Insertion Order' found.</status>
+</test>
+<test id="s1-t35" name="DXUITC-1855:To check valid values for Campaign Objective i.e. Maximize CTR">
+<kw name="Assert Objective">
+<msg timestamp="20161101 18:30:00.255" level="FAIL">No keyword with name 'Assert Objective' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.255" starttime="20161101 18:30:00.254"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.256" critical="yes" starttime="20161101 18:30:00.250">No keyword with name 'Assert Objective' found.</status>
+</test>
+<test id="s1-t36" name="DXUITC-875:Maximize CTR">
+<kw name="Assert Objective">
+<msg timestamp="20161101 18:30:00.260" level="FAIL">No keyword with name 'Assert Objective' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.260" starttime="20161101 18:30:00.260"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.261" critical="yes" starttime="20161101 18:30:00.256">No keyword with name 'Assert Objective' found.</status>
+</test>
+<test id="s1-t37" name="DXUITC-1071:The new custom text box appeared in tactics accepts numbers">
+<kw name="Assert Tactics">
+<msg timestamp="20161101 18:30:00.271" level="FAIL">No keyword with name 'Assert Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.272" starttime="20161101 18:30:00.271"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.272" critical="yes" starttime="20161101 18:30:00.262">No keyword with name 'Assert Tactics' found.</status>
+</test>
+<test id="s1-t38" name="DXUITC-1018:Add AtlasExternal IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.277" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.277" starttime="20161101 18:30:00.277"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.278" critical="yes" starttime="20161101 18:30:00.273">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t39" name="DXUITC-1384:To verify that the exported blacklist is present for the campaign">
+<kw name="Assert Uploaded Blacklist">
+<msg timestamp="20161101 18:30:00.283" level="FAIL">No keyword with name 'Assert Uploaded Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.283" starttime="20161101 18:30:00.282"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.283" critical="yes" starttime="20161101 18:30:00.278">No keyword with name 'Assert Uploaded Blacklist' found.</status>
+</test>
+<test id="s1-t40" name="DXUITC-1418:To verify that the exported whitelist is present for the campaign">
+<kw name="Assert Uploaded Whitelist">
+<msg timestamp="20161101 18:30:00.291" level="FAIL">No keyword with name 'Assert Uploaded Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.291" starttime="20161101 18:30:00.291"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.291" critical="yes" starttime="20161101 18:30:00.287">No keyword with name 'Assert Uploaded Whitelist' found.</status>
+</test>
+<test id="s1-t41" name="DXUITC-1533:To verify Campaign Start Date accepts date in future">
+<kw name="Complete Flow With Future Dates">
+<msg timestamp="20161101 18:30:00.294" level="FAIL">No keyword with name 'Complete Flow With Future Dates' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.294" starttime="20161101 18:30:00.294"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.295" critical="yes" starttime="20161101 18:30:00.292">No keyword with name 'Complete Flow With Future Dates' found.</status>
+</test>
+<test id="s1-t42" name="DXUITC-1561:To verify Campaign End Date accepts date in future">
+<kw name="Assert End Date">
+<msg timestamp="20161101 18:30:00.299" level="FAIL">No keyword with name 'Assert End Date' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.299" starttime="20161101 18:30:00.299"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.299" critical="yes" starttime="20161101 18:30:00.295">No keyword with name 'Assert End Date' found.</status>
+</test>
+<test id="s1-t43" name="DXUITC-1516:To verify Campaign Name accepts special characters">
+<kw name="Assert Campaign Name">
+<msg timestamp="20161101 18:30:00.307" level="FAIL">No keyword with name 'Assert Campaign Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.307" starttime="20161101 18:30:00.307"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.308" critical="yes" starttime="20161101 18:30:00.300">No keyword with name 'Assert Campaign Name' found.</status>
+</test>
+<test id="s1-t44" name="DXUITC-1553:To verify Insertion Order accepts Alphanumeric values">
+<kw name="Assert Insertion Order">
+<msg timestamp="20161101 18:30:00.313" level="FAIL">No keyword with name 'Assert Insertion Order' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.314" starttime="20161101 18:30:00.313"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.314" critical="yes" starttime="20161101 18:30:00.309">No keyword with name 'Assert Insertion Order' found.</status>
+</test>
+<test id="s1-t45" name="DXUITC-1073:The new custom text box appeared in tactics accepts spcl char">
+<kw name="Assert Tactics">
+<msg timestamp="20161101 18:30:00.319" level="FAIL">No keyword with name 'Assert Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.319" starttime="20161101 18:30:00.319"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.319" critical="yes" starttime="20161101 18:30:00.315">No keyword with name 'Assert Tactics' found.</status>
+</test>
+<test id="s1-t46" name="DXUITC-1020:Add WURFL External IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.323" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.323" starttime="20161101 18:30:00.323"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.324" critical="yes" starttime="20161101 18:30:00.320">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t47" name="DXUITC-1452:To verify that the .txt exported whitelist is present for the campaign">
+<kw name="Assert Uploaded Whitelist">
+<msg timestamp="20161101 18:30:00.329" level="FAIL">No keyword with name 'Assert Uploaded Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.329" starttime="20161101 18:30:00.329"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.330" critical="yes" starttime="20161101 18:30:00.324">No keyword with name 'Assert Uploaded Whitelist' found.</status>
+</test>
+<test id="s1-t48" name="DXUITC-1429:To verify that the .txt exported blacklist is present for the campaign">
+<kw name="Assert Uploaded Blacklist">
+<msg timestamp="20161101 18:30:00.335" level="FAIL">No keyword with name 'Assert Uploaded Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.338" starttime="20161101 18:30:00.335"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.338" critical="yes" starttime="20161101 18:30:00.330">No keyword with name 'Assert Uploaded Blacklist' found.</status>
+</test>
+<test id="s1-t49" name="DXUITC-1052:To verify that retargeting tactic is present with default">
+<kw name="Complete Flow With Retargeting Xls">
+<msg timestamp="20161101 18:30:00.342" level="FAIL">No keyword with name 'Complete Flow With Retargeting Xls' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.342" starttime="20161101 18:30:00.342"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.342" critical="yes" starttime="20161101 18:30:00.338">No keyword with name 'Complete Flow With Retargeting Xls' found.</status>
+</test>
+<test id="s1-t50" name="DXUITC-1510:To verify Campaign Name accepts alphanumric characters">
+<kw name="Assert Campaign Name">
+<msg timestamp="20161101 18:30:00.348" level="FAIL">No keyword with name 'Assert Campaign Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.348" starttime="20161101 18:30:00.348"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.349" critical="yes" starttime="20161101 18:30:00.343">No keyword with name 'Assert Campaign Name' found.</status>
+</test>
+<test id="s1-t51" name="DXUITC-1023:Add Bluekai External IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.354" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.354" starttime="20161101 18:30:00.353"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.354" critical="yes" starttime="20161101 18:30:00.349">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t52" name="DXUITC-1431:To verify that the .xls exported blacklist is present for the campaign">
+<kw name="Assert Uploaded Blacklist">
+<msg timestamp="20161101 18:30:00.360" level="FAIL">No keyword with name 'Assert Uploaded Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.360" starttime="20161101 18:30:00.359"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.360" critical="yes" starttime="20161101 18:30:00.355">No keyword with name 'Assert Uploaded Blacklist' found.</status>
+</test>
+<test id="s1-t53" name="DXUITC-1454:To verify that the .xls exported whitelist is present for the campaign">
+<kw name="Assert Uploaded Whitelist">
+<msg timestamp="20161101 18:30:00.363" level="FAIL">No keyword with name 'Assert Uploaded Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.363" starttime="20161101 18:30:00.362"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.363" critical="yes" starttime="20161101 18:30:00.360">No keyword with name 'Assert Uploaded Whitelist' found.</status>
+</test>
+<test id="s1-t54" name="DXUITC-1054:To verify that Optimized tactic is present with default">
+<kw name="Complete Flow With Optimized Xlsx">
+<msg timestamp="20161101 18:30:00.370" level="FAIL">No keyword with name 'Complete Flow With Optimized Xlsx' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.371" starttime="20161101 18:30:00.370"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.372" critical="yes" starttime="20161101 18:30:00.363">No keyword with name 'Complete Flow With Optimized Xlsx' found.</status>
+</test>
+<test id="s1-t55" name="DXUITC-1511:To verify Campaign Name accepts 255 characters">
+<kw name="Assert Campaign Name">
+<msg timestamp="20161101 18:30:00.378" level="FAIL">No keyword with name 'Assert Campaign Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.378" starttime="20161101 18:30:00.378"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.378" critical="yes" starttime="20161101 18:30:00.373">No keyword with name 'Assert Campaign Name' found.</status>
+</test>
+<test id="s1-t56" name="DXUITC-1542:To verify Insertion Order accepts 255 charactets">
+<kw name="Assert Insertion Order">
+<msg timestamp="20161101 18:30:00.381" level="FAIL">No keyword with name 'Assert Insertion Order' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.381" starttime="20161101 18:30:00.381"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.381" critical="yes" starttime="20161101 18:30:00.379">No keyword with name 'Assert Insertion Order' found.</status>
+</test>
+<test id="s1-t57" name="DXUITC-1024:Add MediaMind External IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.384" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.384" starttime="20161101 18:30:00.384"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.386" critical="yes" starttime="20161101 18:30:00.382">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t58" name="DXUITC-1432:To verify that the .xlxs exported blacklist is present for the campaign">
+<kw name="Assert Uploaded Blacklist">
+<msg timestamp="20161101 18:30:00.392" level="FAIL">No keyword with name 'Assert Uploaded Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.392" starttime="20161101 18:30:00.392"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.393" critical="yes" starttime="20161101 18:30:00.386">No keyword with name 'Assert Uploaded Blacklist' found.</status>
+</test>
+<test id="s1-t59" name="DXUITC-1455:To verify that the .xlxs exported whitelist is present for the campaign">
+<kw name="Assert Uploaded Whitelist">
+<msg timestamp="20161101 18:30:00.398" level="FAIL">No keyword with name 'Assert Uploaded Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.398" starttime="20161101 18:30:00.397"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.398" critical="yes" starttime="20161101 18:30:00.393">No keyword with name 'Assert Uploaded Whitelist' found.</status>
+</test>
+<test id="s1-t60" name="DXUITC-1056:To verify that Channel tactic is present with default">
+<kw name="Complete Flow With Channel Xlsx">
+<msg timestamp="20161101 18:30:00.406" level="FAIL">No keyword with name 'Complete Flow With Channel Xlsx' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.406" starttime="20161101 18:30:00.406"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.407" critical="yes" starttime="20161101 18:30:00.399">No keyword with name 'Complete Flow With Channel Xlsx' found.</status>
+</test>
+<test id="s1-t61" name="DXUITC-1025:Add Facebook External IDs">
+<kw name="Assert External Id Source">
+<msg timestamp="20161101 18:30:00.409" level="FAIL">No keyword with name 'Assert External Id Source' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.409" starttime="20161101 18:30:00.409"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.410" critical="yes" starttime="20161101 18:30:00.407">No keyword with name 'Assert External Id Source' found.</status>
+</test>
+<test id="s1-t62" name="DXUITC-1474:To verify that the blacklist and whitelist are present for campaign">
+<kw name="Assert Uploaded Blacklist">
+<msg timestamp="20161101 18:30:00.412" level="FAIL">No keyword with name 'Assert Uploaded Blacklist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.413" starttime="20161101 18:30:00.412"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.413" critical="yes" starttime="20161101 18:30:00.410">No keyword with name 'Assert Uploaded Blacklist' found.</status>
+</test>
+<test id="s1-t63" name="DXUITC-1537:To verify Campaign Start Date value can not exceeds end date value">
+<kw name="Date Ahead">
+<msg timestamp="20161101 18:30:00.425" level="FAIL">No keyword with name 'Date Ahead' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.427" starttime="20161101 18:30:00.425"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.429" critical="yes" starttime="20161101 18:30:00.413">No keyword with name 'Date Ahead' found.</status>
+</test>
+<test id="s1-t64" name="DXUITC-1563:To verify Campaign End Date value can not be before start date value">
+<kw name="End Date Before">
+<msg timestamp="20161101 18:30:00.433" level="FAIL">No keyword with name 'End Date Before' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.433" starttime="20161101 18:30:00.433"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.434" critical="yes" starttime="20161101 18:30:00.430">No keyword with name 'End Date Before' found.</status>
+</test>
+<test id="s1-t65" name="DXUITC-4617:To verify that Bulk Assign pixel button is available">
+<kw name="Create Campaign Page">
+<msg timestamp="20161101 18:30:00.438" level="FAIL">No keyword with name 'Create Campaign Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.438" starttime="20161101 18:30:00.438"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.438" critical="yes" starttime="20161101 18:30:00.434">No keyword with name 'Create Campaign Page' found.</status>
+</test>
+<test id="s1-t66" name="DXUITC-4618:To verify that Bulk Assign pixel button functionality">
+<kw name="Verify Bulk Assign Pixels Contents">
+<msg timestamp="20161101 18:30:00.440" level="FAIL">No keyword with name 'Verify Bulk Assign Pixels Contents' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.441" starttime="20161101 18:30:00.440"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.441" critical="yes" starttime="20161101 18:30:00.438">No keyword with name 'Verify Bulk Assign Pixels Contents' found.</status>
+</test>
+<test id="s1-t67" name="DXUITC-4619:To verify that &quot;Pixel Type&quot; drop down on popup">
+<kw name="Verify Bulk Pixel Type">
+<msg timestamp="20161101 18:30:00.446" level="FAIL">No keyword with name 'Verify Bulk Pixel Type' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.446" starttime="20161101 18:30:00.446"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.446" critical="yes" starttime="20161101 18:30:00.441">No keyword with name 'Verify Bulk Pixel Type' found.</status>
+</test>
+<test id="s1-t68" name="DXUITC-4620:To verify selecting &quot;Pixel Type&quot; as &quot;Learning Pixles&quot; no text box appear">
+<kw name="Verify No New Textbox Appear">
+<msg timestamp="20161101 18:30:00.451" level="FAIL">No keyword with name 'Verify No New Textbox Appear' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.451" starttime="20161101 18:30:00.451"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.452" critical="yes" starttime="20161101 18:30:00.447">No keyword with name 'Verify No New Textbox Appear' found.</status>
+</test>
+<test id="s1-t69" name="DXUITC-4621:To verify selecting &quot;Pixel Type&quot; as &quot;Conversion Pixel&quot; Value text box">
+<kw name="Verify New Textbox Appear">
+<msg timestamp="20161101 18:30:00.458" level="FAIL">No keyword with name 'Verify New Textbox Appear' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.458" starttime="20161101 18:30:00.457"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.458" critical="yes" starttime="20161101 18:30:00.453">No keyword with name 'Verify New Textbox Appear' found.</status>
+</test>
+<test id="s1-t70" name="DXUITC-4624:To verify Search functionality on Bulk Assign Pixels pop up">
+<kw name="Verify Search Activities">
+<msg timestamp="20161101 18:30:00.461" level="FAIL">No keyword with name 'Verify Search Activities' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.461" starttime="20161101 18:30:00.461"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.461" critical="yes" starttime="20161101 18:30:00.459">No keyword with name 'Verify Search Activities' found.</status>
+</test>
+<test id="s1-t71" name="DXUITC-4626:To verify pixels are not saved with invalid data">
+<kw name="Verify Conversion Value Char Data">
+<msg timestamp="20161101 18:30:00.464" level="FAIL">No keyword with name 'Verify Conversion Value Char Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.464" starttime="20161101 18:30:00.463"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.464" critical="yes" starttime="20161101 18:30:00.462">No keyword with name 'Verify Conversion Value Char Data' found.</status>
+</test>
+<test id="s1-t72" name="DXUITC-4627:To verify pixels are not saved with invalid data">
+<kw name="Verify Conversion Value Special Chars">
+<msg timestamp="20161101 18:30:00.467" level="FAIL">No keyword with name 'Verify Conversion Value Special Chars' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.467" starttime="20161101 18:30:00.467"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.467" critical="yes" starttime="20161101 18:30:00.464">No keyword with name 'Verify Conversion Value Special Chars' found.</status>
+</test>
+<test id="s1-t73" name="DXUITC-4625:To verify Close( X ) button functionality of &quot;Bulk Assign Pixel&quot; Pop up">
+<kw name="Popup Should Close">
+<msg timestamp="20161101 18:30:00.471" level="FAIL">No keyword with name 'Popup Should Close' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.471" starttime="20161101 18:30:00.470"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.472" critical="yes" starttime="20161101 18:30:00.468">No keyword with name 'Popup Should Close' found.</status>
+</test>
+<test id="s1-t74" name="DXUITC-1134:To verify the content of Geographic Targeting section">
+<kw name="Geo Target Section">
+<msg timestamp="20161101 18:30:00.478" level="FAIL">No keyword with name 'Geo Target Section' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.478" starttime="20161101 18:30:00.478"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.478" critical="yes" starttime="20161101 18:30:00.472">No keyword with name 'Geo Target Section' found.</status>
+</test>
+<test id="s1-t75" name="DXUITC-1140:To verify that the region list is shown for United states">
+<kw name="Select Region Us">
+<msg timestamp="20161101 18:30:00.481" level="FAIL">No keyword with name 'Select Region Us' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.481" starttime="20161101 18:30:00.481"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.481" critical="yes" starttime="20161101 18:30:00.478">No keyword with name 'Select Region Us' found.</status>
+</test>
+<test id="s1-t76" name="DXUITC-1165:To verify that the region list is shown for Brazil">
+<kw name="Select Region Brazil">
+<msg timestamp="20161101 18:30:00.485" level="FAIL">No keyword with name 'Select Region Brazil' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.485" starttime="20161101 18:30:00.484"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.485" critical="yes" starttime="20161101 18:30:00.481">No keyword with name 'Select Region Brazil' found.</status>
+</test>
+<test id="s1-t77" name="DXUITC-1169:To verify that the region list is shown for Canada">
+<kw name="Select Region Canada">
+<msg timestamp="20161101 18:30:00.489" level="FAIL">No keyword with name 'Select Region Canada' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.489" starttime="20161101 18:30:00.489"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.489" critical="yes" starttime="20161101 18:30:00.486">No keyword with name 'Select Region Canada' found.</status>
+</test>
+<test id="s1-t78" name="DXUITC-1172:To verify that the region list is shown for France">
+<kw name="Select Region France">
+<msg timestamp="20161101 18:30:00.492" level="FAIL">No keyword with name 'Select Region France' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.492" starttime="20161101 18:30:00.492"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.493" critical="yes" starttime="20161101 18:30:00.490">No keyword with name 'Select Region France' found.</status>
+</test>
+<test id="s1-t79" name="DXUITC-1173:To verify that the region list is shown for Germany">
+<kw name="Select Region Germany">
+<msg timestamp="20161101 18:30:00.498" level="FAIL">No keyword with name 'Select Region Germany' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.498" starttime="20161101 18:30:00.498"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.498" critical="yes" starttime="20161101 18:30:00.493">No keyword with name 'Select Region Germany' found.</status>
+</test>
+<test id="s1-t80" name="DXUITC-1174:To verify that the region list is shown for Great Britain">
+<kw name="Select Region Gb">
+<msg timestamp="20161101 18:30:00.507" level="FAIL">No keyword with name 'Select Region Gb' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.508" starttime="20161101 18:30:00.507"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.508" critical="yes" starttime="20161101 18:30:00.499">No keyword with name 'Select Region Gb' found.</status>
+</test>
+<test id="s1-t81" name="DXUITC-1175:To verify that the region list is shown for Ireland">
+<kw name="Select Region Ireland">
+<msg timestamp="20161101 18:30:00.512" level="FAIL">No keyword with name 'Select Region Ireland' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.512" starttime="20161101 18:30:00.512"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.512" critical="yes" starttime="20161101 18:30:00.509">No keyword with name 'Select Region Ireland' found.</status>
+</test>
+<test id="s1-t82" name="DXUITC-1176:To verify that the region list is shown for Italy">
+<kw name="Select Region Italy">
+<msg timestamp="20161101 18:30:00.515" level="FAIL">No keyword with name 'Select Region Italy' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.515" starttime="20161101 18:30:00.514"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.515" critical="yes" starttime="20161101 18:30:00.512">No keyword with name 'Select Region Italy' found.</status>
+</test>
+<test id="s1-t83" name="DXUITC-1177:To verify that the region list is shown for Poland">
+<kw name="Select Region Poland">
+<msg timestamp="20161101 18:30:00.518" level="FAIL">No keyword with name 'Select Region Poland' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.518" starttime="20161101 18:30:00.518"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.518" critical="yes" starttime="20161101 18:30:00.515">No keyword with name 'Select Region Poland' found.</status>
+</test>
+<test id="s1-t84" name="DXUITC-1179:To verify that the region list is shown for Spain">
+<kw name="Select Region Spain">
+<msg timestamp="20161101 18:30:00.522" level="FAIL">No keyword with name 'Select Region Spain' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.522" starttime="20161101 18:30:00.522"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.523" critical="yes" starttime="20161101 18:30:00.519">No keyword with name 'Select Region Spain' found.</status>
+</test>
+<test id="s1-t85" name="DXUITC-1296:To verify the content of Metrocodes in specify regions">
+<kw name="Geo Target Section Metrocodes">
+<msg timestamp="20161101 18:30:00.528" level="FAIL">No keyword with name 'Geo Target Section Metrocodes' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.528" starttime="20161101 18:30:00.528"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.528" critical="yes" starttime="20161101 18:30:00.524">No keyword with name 'Geo Target Section Metrocodes' found.</status>
+</test>
+<test id="s1-t86" name="DXUITC-1313:To verify that the Metrocode option is not shown for Brazil">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Brazil</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.531" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.531" starttime="20161101 18:30:00.531"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.531" critical="yes" starttime="20161101 18:30:00.528">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t87" name="DXUITC-1315:To verify that the Metrocode option is not shown for Canada">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Canada</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.534" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.534" starttime="20161101 18:30:00.534"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.535" critical="yes" starttime="20161101 18:30:00.531">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t88" name="DXUITC-1316:To verify that the Metrocode option is not shown for France">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>France</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.539" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.539" starttime="20161101 18:30:00.539"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.539" critical="yes" starttime="20161101 18:30:00.536">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t89" name="DXUITC-1317:To verify that the Metrocode option is not shown for Germany">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Germany</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.542" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.542" starttime="20161101 18:30:00.542"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.543" critical="yes" starttime="20161101 18:30:00.540">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t90" name="DXUITC-1318:To verify that the Metrocode option is not shown for Great Britain">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Great Britain</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.546" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.547" starttime="20161101 18:30:00.546"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.548" critical="yes" starttime="20161101 18:30:00.543">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t91" name="DXUITC-1319:To verify that the Metrocode option is not shown for Ireland">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Ireland</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.555" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.556" starttime="20161101 18:30:00.555"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.556" critical="yes" starttime="20161101 18:30:00.548">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t92" name="DXUITC-1320:To verify that the Metrocode option is not shown for Italy">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Italy</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.561" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.561" starttime="20161101 18:30:00.561"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.561" critical="yes" starttime="20161101 18:30:00.557">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t93" name="DXUITC-1321:To verify that the Metrocode option is not shown for Poland">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Poland</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.565" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.565" starttime="20161101 18:30:00.564"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.565" critical="yes" starttime="20161101 18:30:00.562">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t94" name="DXUITC-1322:To verify that the Metrocode option is not shown for Spain">
+<kw name="Metrocodes Not Shown For Others">
+<arguments>
+<arg>Spain</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.568" level="FAIL">No keyword with name 'Metrocodes Not Shown For Others' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.568" starttime="20161101 18:30:00.568"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.569" critical="yes" starttime="20161101 18:30:00.565">No keyword with name 'Metrocodes Not Shown For Others' found.</status>
+</test>
+<test id="s1-t95" name="DXUITC-1101:To verify that applied country United states is present">
+<kw name="Verify Applied Country">
+<msg timestamp="20161101 18:30:00.574" level="FAIL">No keyword with name 'Verify Applied Country' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.575" starttime="20161101 18:30:00.574"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.575" critical="yes" starttime="20161101 18:30:00.570">No keyword with name 'Verify Applied Country' found.</status>
+</test>
+<test id="s1-t96" name="DXUITC-1105:To verify that applied country Brazil is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Brazil</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.579" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.579" starttime="20161101 18:30:00.579"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.579" critical="yes" starttime="20161101 18:30:00.576">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t97" name="DXUITC-1107:To verify that applied country Canada is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Canada</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.582" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.582" starttime="20161101 18:30:00.582"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.583" critical="yes" starttime="20161101 18:30:00.580">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t98" name="DXUITC-1108:To verify that applied country France is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>France</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.587" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.587" starttime="20161101 18:30:00.586"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.587" critical="yes" starttime="20161101 18:30:00.583">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t99" name="DXUITC-1111:To verify that applied country Germany is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Germany</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.590" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.590" starttime="20161101 18:30:00.590"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.590" critical="yes" starttime="20161101 18:30:00.588">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t100" name="DXUITC-1116:To verify that applied country Great Britain is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Great Britain</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.596" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.596" starttime="20161101 18:30:00.596"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.597" critical="yes" starttime="20161101 18:30:00.591">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t101" name="DXUITC-1117:To verify that applied country Ireland is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Ireland</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.602" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.602" starttime="20161101 18:30:00.602"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.603" critical="yes" starttime="20161101 18:30:00.598">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t102" name="DXUITC-1118:To verify that applied country Italy is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Italy</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.607" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.607" starttime="20161101 18:30:00.606"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.607" critical="yes" starttime="20161101 18:30:00.603">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t103" name="DXUITC-1118:To verify that applied country Poland is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Poland</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.685" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.685" starttime="20161101 18:30:00.684"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.686" critical="yes" starttime="20161101 18:30:00.608">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t104" name="DXUITC-1118:To verify that applied country Spain is present">
+<kw name="Verify Applied Country On Edit Page">
+<arguments>
+<arg>Spain</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.693" level="FAIL">No keyword with name 'Verify Applied Country On Edit Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.694" starttime="20161101 18:30:00.693"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.694" critical="yes" starttime="20161101 18:30:00.686">No keyword with name 'Verify Applied Country On Edit Page' found.</status>
+</test>
+<test id="s1-t105" name="DXUITC-1790:To verify 3rd party tag id not accepts negative ID">
+<kw name="Fill Fields With Negative Values">
+<msg timestamp="20161101 18:30:00.700" level="FAIL">No keyword with name 'Fill Fields With Negative Values' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.700" starttime="20161101 18:30:00.700"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.701" critical="yes" starttime="20161101 18:30:00.695">No keyword with name 'Fill Fields With Negative Values' found.</status>
+</test>
+<test id="s1-t106" name="DXUITC-1814:To verify 'Value' field not accepts negative value">
+<kw name="Negative value Filter Values">
+<msg timestamp="20161101 18:30:00.706" level="FAIL">No keyword with name 'Negative value Filter Values' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.707" starttime="20161101 18:30:00.706"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.707" critical="yes" starttime="20161101 18:30:00.702">No keyword with name 'Negative value Filter Values' found.</status>
+</test>
+<test id="s1-t107" name="DXUITC-1417:To verify 'CPM' field not accepts Negative Value">
+<kw name="Negative Value Cpm">
+<msg timestamp="20161101 18:30:00.714" level="FAIL">No keyword with name 'Negative Value Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.715" starttime="20161101 18:30:00.714"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.715" critical="yes" starttime="20161101 18:30:00.708">No keyword with name 'Negative Value Cpm' found.</status>
+</test>
+<test id="s1-t108" name="DXUITC-1866:To verify CTR Goal not accepts Negative value">
+<kw name="Negative Value Ctr Goal">
+<msg timestamp="20161101 18:30:00.722" level="FAIL">No keyword with name 'Negative Value Ctr Goal' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.722" starttime="20161101 18:30:00.722"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.723" critical="yes" starttime="20161101 18:30:00.716">No keyword with name 'Negative Value Ctr Goal' found.</status>
+</test>
+<test id="s1-t109" name="DXUITC-1808:To verify Value field not accepts alphanumeric values">
+<kw name="Fill Fields With Alphanumeric Values">
+<msg timestamp="20161101 18:30:00.730" level="FAIL">No keyword with name 'Fill Fields With Alphanumeric Values' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.730" starttime="20161101 18:30:00.730"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.731" critical="yes" starttime="20161101 18:30:00.723">No keyword with name 'Fill Fields With Alphanumeric Values' found.</status>
+</test>
+<test id="s1-t110" name="DXUITC-1760:To verify 3rd party tag id not accepts alphanumeric values">
+<kw name="Alphanumeric Value Filter Values">
+<msg timestamp="20161101 18:30:00.737" level="FAIL">No keyword with name 'Alphanumeric Value Filter Values' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.737" starttime="20161101 18:30:00.736"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.737" critical="yes" starttime="20161101 18:30:00.732">No keyword with name 'Alphanumeric Value Filter Values' found.</status>
+</test>
+<test id="s1-t111" name="DXUITC-1080:To verify language targeting page content">
+<kw name="Language Targeting Page Content">
+<msg timestamp="20161101 18:30:00.746" level="FAIL">No keyword with name 'Language Targeting Page Content' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.746" starttime="20161101 18:30:00.746"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.747" critical="yes" starttime="20161101 18:30:00.738">No keyword with name 'Language Targeting Page Content' found.</status>
+</test>
+<test id="s1-t112" name="DXUITC-1088:To verify select button functionality">
+<kw name="Select Button Functionality">
+<msg timestamp="20161101 18:30:00.752" level="FAIL">No keyword with name 'Select Button Functionality' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.752" starttime="20161101 18:30:00.752"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.753" critical="yes" starttime="20161101 18:30:00.747">No keyword with name 'Select Button Functionality' found.</status>
+</test>
+<test id="s1-t113" name="DXUITC-935:To verify that CPA should not be accept special characters">
+<kw name="Fill Fields With Special Character Data">
+<msg timestamp="20161101 18:30:00.759" level="FAIL">No keyword with name 'Fill Fields With Special Character Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.759" starttime="20161101 18:30:00.758"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.760" critical="yes" starttime="20161101 18:30:00.754">No keyword with name 'Fill Fields With Special Character Data' found.</status>
+</test>
+<test id="s1-t114" name="DXUITC-1415:To verify 'CPM' field not accepts Special characters">
+<kw name="Special Char Cpm">
+<msg timestamp="20161101 18:30:00.764" level="FAIL">No keyword with name 'Special Char Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.764" starttime="20161101 18:30:00.764"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.765" critical="yes" starttime="20161101 18:30:00.760">No keyword with name 'Special Char Cpm' found.</status>
+</test>
+<test id="s1-t115" name="DXUITC-936:To verify that IO Budget should not accept special characters">
+<kw name="Special Char Io Budget">
+<msg timestamp="20161101 18:30:00.769" level="FAIL">No keyword with name 'Special Char Io Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.769" starttime="20161101 18:30:00.768"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.769" critical="yes" starttime="20161101 18:30:00.765">No keyword with name 'Special Char Io Budget' found.</status>
+</test>
+<test id="s1-t116" name="DXUITC-938:To verify that COGS should not accept special characters">
+<kw name="Special Char Cog">
+<msg timestamp="20161101 18:30:00.776" level="FAIL">No keyword with name 'Special Char Cog' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.777" starttime="20161101 18:30:00.775"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.777" critical="yes" starttime="20161101 18:30:00.770">No keyword with name 'Special Char Cog' found.</status>
+</test>
+<test id="s1-t117" name="DXUITC-924:To verify that CPA should not be accept characters">
+<kw name="Fill Fields With String Data">
+<msg timestamp="20161101 18:30:00.782" level="FAIL">No keyword with name 'Fill Fields With String Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.782" starttime="20161101 18:30:00.782"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.783" critical="yes" starttime="20161101 18:30:00.778">No keyword with name 'Fill Fields With String Data' found.</status>
+</test>
+<test id="s1-t118" name="DXUITC-926:To verify that IO Budget should not accept characters">
+<kw name="String Io Budget">
+<msg timestamp="20161101 18:30:00.810" level="FAIL">No keyword with name 'String Io Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.810" starttime="20161101 18:30:00.809"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.810" critical="yes" starttime="20161101 18:30:00.792">No keyword with name 'String Io Budget' found.</status>
+</test>
+<test id="s1-t119" name="DXUITC-929:To verify that CPM should not accept characters">
+<kw name="String Cpm">
+<msg timestamp="20161101 18:30:00.816" level="FAIL">No keyword with name 'String Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.816" starttime="20161101 18:30:00.815"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.816" critical="yes" starttime="20161101 18:30:00.811">No keyword with name 'String Cpm' found.</status>
+</test>
+<test id="s1-t120" name="DXUITC-930:To verify that COGS should not accept characters">
+<kw name="String Cog">
+<msg timestamp="20161101 18:30:00.821" level="FAIL">No keyword with name 'String Cog' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.821" starttime="20161101 18:30:00.821"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.822" critical="yes" starttime="20161101 18:30:00.817">No keyword with name 'String Cog' found.</status>
+</test>
+<test id="s1-t121" name="DXUITC-1076:To verify that the budget in tactic section do not accepts chars">
+<kw name="String Budget">
+<msg timestamp="20161101 18:30:00.829" level="FAIL">No keyword with name 'String Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.829" starttime="20161101 18:30:00.828"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.829" critical="yes" starttime="20161101 18:30:00.824">No keyword with name 'String Budget' found.</status>
+</test>
+<test id="s1-t122" name="DXUITC-1079:To verify that the impression in tactic section do not accepts chars">
+<kw name="String Impression">
+<msg timestamp="20161101 18:30:00.835" level="FAIL">No keyword with name 'String Impression' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.835" starttime="20161101 18:30:00.835"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.835" critical="yes" starttime="20161101 18:30:00.830">No keyword with name 'String Impression' found.</status>
+</test>
+<test id="s1-t123" name="DXUITC-1540:To verify calendar appears when clicked on start date text box">
+<kw name="Datepicker Should Visible">
+<arguments>
+<arg>start</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.840" level="FAIL">No keyword with name 'Datepicker Should Visible' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.840" starttime="20161101 18:30:00.840"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.841" critical="yes" starttime="20161101 18:30:00.836">No keyword with name 'Datepicker Should Visible' found.</status>
+</test>
+<test id="s1-t124" name="DXUITC-1559:To verify calendar appears when clicked on end date text box">
+<kw name="Datepicker Should Visible">
+<arguments>
+<arg>end</arg>
+</arguments>
+<msg timestamp="20161101 18:30:00.844" level="FAIL">No keyword with name 'Datepicker Should Visible' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.844" starttime="20161101 18:30:00.843"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.844" critical="yes" starttime="20161101 18:30:00.841">No keyword with name 'Datepicker Should Visible' found.</status>
+</test>
+<test id="s1-t125" name="DXUITC-891:To verify that CPA should accept value between 0.01 to 10000">
+<kw name="Fill Fields With Max Range Data">
+<msg timestamp="20161101 18:30:00.846" level="FAIL">No keyword with name 'Fill Fields With Max Range Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.847" starttime="20161101 18:30:00.846"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.847" critical="yes" starttime="20161101 18:30:00.844">No keyword with name 'Fill Fields With Max Range Data' found.</status>
+</test>
+<test id="s1-t126" name="DXUITC-892:To verify that IO Budget should accept value between 0.01 to max limit">
+<kw name="Range Io Budget">
+<msg timestamp="20161101 18:30:00.850" level="FAIL">No keyword with name 'Range Io Budget' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.850" starttime="20161101 18:30:00.849"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.850" critical="yes" starttime="20161101 18:30:00.847">No keyword with name 'Range Io Budget' found.</status>
+</test>
+<test id="s1-t127" name="DXUITC-895:To verify that CPM should accept value between 0.01 to 100">
+<kw name="Range Cpm">
+<msg timestamp="20161101 18:30:00.859" level="FAIL">No keyword with name 'Range Cpm' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.859" starttime="20161101 18:30:00.859"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.860" critical="yes" starttime="20161101 18:30:00.851">No keyword with name 'Range Cpm' found.</status>
+</test>
+<test id="s1-t128" name="DXUITC-1869:To check CTR Goal not accepts value more than 100">
+<kw name="Range Goal Ctr">
+<msg timestamp="20161101 18:30:00.865" level="FAIL">No keyword with name 'Range Goal Ctr' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.865" starttime="20161101 18:30:00.865"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.866" critical="yes" starttime="20161101 18:30:00.861">No keyword with name 'Range Goal Ctr' found.</status>
+</test>
+<test id="s1-t129" name="DXUITC-1864:To check CTR Goal not accepts Special Characters">
+<kw name="Special Chars Ctr Goal">
+<msg timestamp="20161101 18:30:00.871" level="FAIL">No keyword with name 'Special Chars Ctr Goal' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.871" starttime="20161101 18:30:00.871"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.871" critical="yes" starttime="20161101 18:30:00.866">No keyword with name 'Special Chars Ctr Goal' found.</status>
+</test>
+<test id="s1-t130" name="DXUITC-1578:To verify Campaign Name accepts html script">
+<kw name="Campaign Name With Script">
+<msg timestamp="20161101 18:30:00.876" level="FAIL">No keyword with name 'Campaign Name With Script' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.876" starttime="20161101 18:30:00.876"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.877" critical="yes" starttime="20161101 18:30:00.872">No keyword with name 'Campaign Name With Script' found.</status>
+</test>
+<test id="s1-t131" name="DXUITC-1859:To check CTR Goal as blank">
+<kw name="Blank Ctr Goal">
+<msg timestamp="20161101 18:30:00.880" level="FAIL">No keyword with name 'Blank Ctr Goal' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.880" starttime="20161101 18:30:00.880"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.881" critical="yes" starttime="20161101 18:30:00.877">No keyword with name 'Blank Ctr Goal' found.</status>
+</test>
+<test id="s1-t132" name="DXUITC-1779:To check 3rd party tag id value as 4 digit">
+<kw name="Fill Fields With Limit Data">
+<msg timestamp="20161101 18:30:00.884" level="FAIL">No keyword with name 'Fill Fields With Limit Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.884" starttime="20161101 18:30:00.884"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.885" critical="yes" starttime="20161101 18:30:00.881">No keyword with name 'Fill Fields With Limit Data' found.</status>
+</test>
+<test id="s1-t133" name="DXUITC-1395:To verify name fields accepts 255 characters">
+<kw name="Fill Activity With Max Limit">
+<msg timestamp="20161101 18:30:00.892" level="FAIL">No keyword with name 'Fill Activity With Max Limit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.892" starttime="20161101 18:30:00.892"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.892" critical="yes" starttime="20161101 18:30:00.886">No keyword with name 'Fill Activity With Max Limit' found.</status>
+</test>
+<test id="s1-t134" name="DXUITC-1397:To verify name fields not accepts more than 255 characters">
+<kw name="Aoc Name Exceeding Limit">
+<msg timestamp="20161101 18:30:00.896" level="FAIL">No keyword with name 'Aoc Name Exceeding Limit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.896" starttime="20161101 18:30:00.896"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.896" critical="yes" starttime="20161101 18:30:00.893">No keyword with name 'Aoc Name Exceeding Limit' found.</status>
+</test>
+<test id="s1-t135" name="DXUITC-1513:To verify Campaign Name do not accepts 260 characters">
+<kw name="Campaign Name Exceeding Limit">
+<msg timestamp="20161101 18:30:00.901" level="FAIL">No keyword with name 'Campaign Name Exceeding Limit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.901" starttime="20161101 18:30:00.901"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.901" critical="yes" starttime="20161101 18:30:00.897">No keyword with name 'Campaign Name Exceeding Limit' found.</status>
+</test>
+<test id="s1-t136" name="DXUITC-1547:To verify Insertion Order not accepts more than 255 charactets">
+<kw name="Insertion Order Exceeding Limit">
+<msg timestamp="20161101 18:30:00.906" level="FAIL">No keyword with name 'Insertion Order Exceeding Limit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.906" starttime="20161101 18:30:00.905"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.906" critical="yes" starttime="20161101 18:30:00.902">No keyword with name 'Insertion Order Exceeding Limit' found.</status>
+</test>
+<test id="s1-t137" name="DXUITC-1414:To verify 'CPM' field not accepts Alphanumeruc value">
+<kw name="Fill Cpm Alphanumeric Value">
+<msg timestamp="20161101 18:30:00.910" level="FAIL">No keyword with name 'Fill Cpm Alphanumeric Value' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.910" starttime="20161101 18:30:00.910"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.911" critical="yes" starttime="20161101 18:30:00.906">No keyword with name 'Fill Cpm Alphanumeric Value' found.</status>
+</test>
+<test id="s1-t138" name="DXUITC-1067:To verify that the tactics not accepts not more than 255 characters">
+<kw name="Fill Tactics Name With Limit">
+<msg timestamp="20161101 18:30:00.915" level="FAIL">No keyword with name 'Fill Tactics Name With Limit' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.915" starttime="20161101 18:30:00.915"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.915" critical="yes" starttime="20161101 18:30:00.911">No keyword with name 'Fill Tactics Name With Limit' found.</status>
+</test>
+<test id="s1-t139" name="DXUITC-996:To verify that the tactics accepts 255 characters">
+<kw name="Fill Tactics Name With Limit Data">
+<msg timestamp="20161101 18:30:00.921" level="FAIL">No keyword with name 'Fill Tactics Name With Limit Data' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.922" starttime="20161101 18:30:00.921"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.922" critical="yes" starttime="20161101 18:30:00.916">No keyword with name 'Fill Tactics Name With Limit Data' found.</status>
+</test>
+<test id="s1-t140" name="DXUITC-1026:Add Facebook campaign External IDs">
+<kw name="Fill Fields With Facebook Campaign">
+<msg timestamp="20161101 18:30:00.940" level="FAIL">No keyword with name 'Fill Fields With Facebook Campaign' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.940" starttime="20161101 18:30:00.940"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.942" critical="yes" starttime="20161101 18:30:00.933">No keyword with name 'Fill Fields With Facebook Campaign' found.</status>
+</test>
+<test id="s1-t141" name="DXUITC-1344:To verify that the default level of Brand Safety is level 2">
+<kw name="Assert Brand Safety">
+<msg timestamp="20161101 18:30:00.947" level="FAIL">No keyword with name 'Assert Brand Safety' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.947" starttime="20161101 18:30:00.947"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.948" critical="yes" starttime="20161101 18:30:00.942">No keyword with name 'Assert Brand Safety' found.</status>
+</test>
+<test id="s1-t142" name="DXUITC-1028:Add Facebook Page Post Ad External IDs">
+<kw name="Fill Fields With Brand Safety One">
+<msg timestamp="20161101 18:30:00.951" level="FAIL">No keyword with name 'Fill Fields With Brand Safety One' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.951" starttime="20161101 18:30:00.951"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.952" critical="yes" starttime="20161101 18:30:00.948">No keyword with name 'Fill Fields With Brand Safety One' found.</status>
+</test>
+<test id="s1-t143" name="DXUITC-1346:To verify that the campaign is created with Brand Safety level 1">
+<kw name="Assert Brand Safety">
+<msg timestamp="20161101 18:30:00.959" level="FAIL">No keyword with name 'Assert Brand Safety' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.959" starttime="20161101 18:30:00.959"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.960" critical="yes" starttime="20161101 18:30:00.953">No keyword with name 'Assert Brand Safety' found.</status>
+</test>
+<test id="s1-t144" name="DXUITC-4622:To verify pixels are assign to campaign with Learning Pixel">
+<kw name="Create Campaign Page">
+<msg timestamp="20161101 18:30:00.965" level="FAIL">No keyword with name 'Create Campaign Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.965" starttime="20161101 18:30:00.965"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.965" critical="yes" starttime="20161101 18:30:00.960">No keyword with name 'Create Campaign Page' found.</status>
+</test>
+<test id="s1-t145" name="DXUITC-4623:To verify pixels are assign to campaign with Conversion Pixels">
+<kw name="Create Campaign Page">
+<msg timestamp="20161101 18:30:00.970" level="FAIL">No keyword with name 'Create Campaign Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.971" starttime="20161101 18:30:00.970"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.971" critical="yes" starttime="20161101 18:30:00.966">No keyword with name 'Create Campaign Page' found.</status>
+</test>
+<test id="s1-t146" name="DXUITC-1029:Add External IDs without value">
+<kw name="External Id Value Blank">
+<msg timestamp="20161101 18:30:00.974" level="FAIL">No keyword with name 'External Id Value Blank' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.974" starttime="20161101 18:30:00.974"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.975" critical="yes" starttime="20161101 18:30:00.972">No keyword with name 'External Id Value Blank' found.</status>
+</test>
+<test id="s1-t147" name="DXUITC-1066:Edit External IDs">
+<kw name="Edit External Id Value">
+<msg timestamp="20161101 18:30:00.977" level="FAIL">No keyword with name 'Edit External Id Value' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.977" starttime="20161101 18:30:00.977"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.978" critical="yes" starttime="20161101 18:30:00.975">No keyword with name 'Edit External Id Value' found.</status>
+</test>
+<test id="s1-t148" name="DXUITC-1072:External ID button functionality">
+<kw name="Create Campaign Page">
+<msg timestamp="20161101 18:30:00.983" level="FAIL">No keyword with name 'Create Campaign Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.984" starttime="20161101 18:30:00.983"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.985" critical="yes" starttime="20161101 18:30:00.978">No keyword with name 'Create Campaign Page' found.</status>
+</test>
+<test id="s1-t149" name="DXUITC-5173:To verify the GeoFenced regions accept only CSV file">
+<kw name="Geofenced Region Valid File">
+<msg timestamp="20161101 18:30:00.991" level="FAIL">No keyword with name 'Geofenced Region Valid File' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.991" starttime="20161101 18:30:00.991"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:00.992" critical="yes" starttime="20161101 18:30:00.986">No keyword with name 'Geofenced Region Valid File' found.</status>
+</test>
+<test id="s1-t150" name="DXUITC-5174:To verify the GeoFenced regions name accept less than 255 characters">
+<kw name="Geofenced Invalid Name">
+<msg timestamp="20161101 18:30:00.999" level="FAIL">No keyword with name 'Geofenced Invalid Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:00.999" starttime="20161101 18:30:00.999"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.000" critical="yes" starttime="20161101 18:30:00.993">No keyword with name 'Geofenced Invalid Name' found.</status>
+</test>
+<test id="s1-t151" name="DXUITC-5176:To verify the GeoFenced regions does not accept invalid file">
+<kw name="Geofenced Region Invalid File">
+<msg timestamp="20161101 18:30:01.007" level="FAIL">No keyword with name 'Geofenced Region Invalid File' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.007" starttime="20161101 18:30:01.007"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.008" critical="yes" starttime="20161101 18:30:01.000">No keyword with name 'Geofenced Region Invalid File' found.</status>
+</test>
+<test id="s1-t152" name="DXUITC-5175:To verify GeoFenced regions name accept alphanumeric characters">
+<kw name="Geofenced Region Alphanumeric Name">
+<msg timestamp="20161101 18:30:01.010" level="FAIL">No keyword with name 'Geofenced Region Alphanumeric Name' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.010" starttime="20161101 18:30:01.010"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.010" critical="yes" starttime="20161101 18:30:01.008">No keyword with name 'Geofenced Region Alphanumeric Name' found.</status>
+</test>
+<test id="s1-t153" name="DXUITC-1460:To verify the functionality of Info Icon on blacklist section">
+<kw name="Blacklist Info Icon">
+<msg timestamp="20161101 18:30:01.014" level="FAIL">No keyword with name 'Blacklist Info Icon' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.015" starttime="20161101 18:30:01.014"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.015" critical="yes" starttime="20161101 18:30:01.011">No keyword with name 'Blacklist Info Icon' found.</status>
+</test>
+<test id="s1-t154" name="DXUITC-1461:To verify the functionality of Info Icon on Whitelist section">
+<kw name="Whitelist Info Icon">
+<msg timestamp="20161101 18:30:01.021" level="FAIL">No keyword with name 'Whitelist Info Icon' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.021" starttime="20161101 18:30:01.021"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.022" critical="yes" starttime="20161101 18:30:01.016">No keyword with name 'Whitelist Info Icon' found.</status>
+</test>
+<test id="s1-t155" name="DXUITC-1424:To verify that the blank .csv exported blacklist is present">
+<kw name="Campaign With Brand Safety Three">
+<msg timestamp="20161101 18:30:01.025" level="FAIL">No keyword with name 'Campaign With Brand Safety Three' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.025" starttime="20161101 18:30:01.025"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.026" critical="yes" starttime="20161101 18:30:01.022">No keyword with name 'Campaign With Brand Safety Three' found.</status>
+</test>
+<test id="s1-t156" name="DXUITC-1375:To verify that the campaign is created with Brand Safety level 3">
+<kw name="Assert Brand Safety">
+<msg timestamp="20161101 18:30:01.028" level="FAIL">No keyword with name 'Assert Brand Safety' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.029" starttime="20161101 18:30:01.028"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.029" critical="yes" starttime="20161101 18:30:01.026">No keyword with name 'Assert Brand Safety' found.</status>
+</test>
+<test id="s1-t157" name="DXUITC-1476:To verify that the updated blacklist and whitelist are present">
+<kw name="Updated Blacklist Whitelist">
+<msg timestamp="20161101 18:30:01.032" level="FAIL">No keyword with name 'Updated Blacklist Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.032" starttime="20161101 18:30:01.032"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.032" critical="yes" starttime="20161101 18:30:01.029">No keyword with name 'Updated Blacklist Whitelist' found.</status>
+</test>
+<test id="s1-t158" name="DXUITC-5013:Blacklist/whitelist should get override with new domains">
+<kw name="Override Blacklist Whitelist">
+<msg timestamp="20161101 18:30:01.035" level="FAIL">No keyword with name 'Override Blacklist Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.035" starttime="20161101 18:30:01.035"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.035" critical="yes" starttime="20161101 18:30:01.032">No keyword with name 'Override Blacklist Whitelist' found.</status>
+</test>
+<test id="s1-t159" name="DXUITC-1477:To verify that the deleted blacklist and whitelist are not present">
+<kw name="Deleted Blacklist Whitelist">
+<msg timestamp="20161101 18:30:01.038" level="FAIL">No keyword with name 'Deleted Blacklist Whitelist' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.038" starttime="20161101 18:30:01.038"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.038" critical="yes" starttime="20161101 18:30:01.036">No keyword with name 'Deleted Blacklist Whitelist' found.</status>
+</test>
+<test id="s1-t160" name="DXUITC-1094:Browser Setting">
+<kw name="Lang Target Base Settings">
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20161101 18:30:01.041" level="FAIL">No keyword with name 'Lang Target Base Settings' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.041" starttime="20161101 18:30:01.041"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.041" critical="yes" starttime="20161101 18:30:01.039">No keyword with name 'Lang Target Base Settings' found.</status>
+</test>
+<test id="s1-t161" name="DXUITC-1125:Content Language">
+<kw name="Lang Target Base Settings">
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20161101 18:30:01.044" level="FAIL">No keyword with name 'Lang Target Base Settings' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.044" starttime="20161101 18:30:01.044"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.044" critical="yes" starttime="20161101 18:30:01.042">No keyword with name 'Lang Target Base Settings' found.</status>
+</test>
+<test id="s1-t162" name="DXUITC-1128:Either Browse or Content">
+<kw name="Lang Target Base Settings">
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20161101 18:30:01.047" level="FAIL">No keyword with name 'Lang Target Base Settings' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.048" starttime="20161101 18:30:01.047"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.048" critical="yes" starttime="20161101 18:30:01.044">No keyword with name 'Lang Target Base Settings' found.</status>
+</test>
+<test id="s1-t163" name="DXUITC-1149:Edit Language targeting">
+<kw name="Edit Lang Target Base Settings">
+<msg timestamp="20161101 18:30:01.052" level="FAIL">No keyword with name 'Edit Lang Target Base Settings' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.052" starttime="20161101 18:30:01.052"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.053" critical="yes" starttime="20161101 18:30:01.048">No keyword with name 'Edit Lang Target Base Settings' found.</status>
+</test>
+<test id="s1-t164" name="DXUITC-1751:To check contents of Maximize Performance and Distribution">
+<kw name="Create Campaign Page">
+<msg timestamp="20161101 18:30:01.055" level="FAIL">No keyword with name 'Create Campaign Page' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.055" starttime="20161101 18:30:01.055"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.056" critical="yes" starttime="20161101 18:30:01.053">No keyword with name 'Create Campaign Page' found.</status>
+</test>
+<test id="s1-t165" name="DXUITC-1823:To check contents of Campaign Objective i.e. Maximize CTR">
+<kw name="Verify Max Ctr">
+<msg timestamp="20161101 18:30:01.061" level="FAIL">No keyword with name 'Verify Max Ctr' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.061" starttime="20161101 18:30:01.061"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.062" critical="yes" starttime="20161101 18:30:01.057">No keyword with name 'Verify Max Ctr' found.</status>
+</test>
+<test id="s1-t166" name="DXUITC-876:Online Campaign">
+<kw name="Verify Campaign Objective">
+<msg timestamp="20161101 18:30:01.065" level="FAIL">No keyword with name 'Verify Campaign Objective' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.066" starttime="20161101 18:30:01.065"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.066" critical="yes" starttime="20161101 18:30:01.062">No keyword with name 'Verify Campaign Objective' found.</status>
+</test>
+<test id="s1-t167" name="DXUITC-1343:To check contents of Add On Costs section">
+<kw name="Verify Add On Cost Contents">
+<msg timestamp="20161101 18:30:01.070" level="FAIL">No keyword with name 'Verify Add On Cost Contents' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.070" starttime="20161101 18:30:01.070"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.070" critical="yes" starttime="20161101 18:30:01.066">No keyword with name 'Verify Add On Cost Contents' found.</status>
+</test>
+<test id="s1-t168" name="DXUITC-887:To verify the content of Budget and Spending Setup section">
+<kw name="Verify Budget Spending">
+<msg timestamp="20161101 18:30:01.074" level="FAIL">No keyword with name 'Verify Budget Spending' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.074" starttime="20161101 18:30:01.074"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.075" critical="yes" starttime="20161101 18:30:01.070">No keyword with name 'Verify Budget Spending' found.</status>
+</test>
+<test id="s1-t169" name="DXUITC-888:To verify the CPA is present uder cost model drop down">
+<kw name="Verify Cost Model">
+<msg timestamp="20161101 18:30:01.079" level="FAIL">No keyword with name 'Verify Cost Model' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.079" starttime="20161101 18:30:01.079"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.080" critical="yes" starttime="20161101 18:30:01.075">No keyword with name 'Verify Cost Model' found.</status>
+</test>
+<test id="s1-t170" name="DXUITC-966:To verify the content of Tactics">
+<kw name="Verify Tactics">
+<msg timestamp="20161101 18:30:01.083" level="FAIL">No keyword with name 'Verify Tactics' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.083" starttime="20161101 18:30:01.083"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.084" critical="yes" starttime="20161101 18:30:01.080">No keyword with name 'Verify Tactics' found.</status>
+</test>
+<test id="s1-t171" name="DXUITC-979:To verify the content of Tactics when expanded">
+<kw name="Verify Tactics Contents">
+<msg timestamp="20161101 18:30:01.092" level="FAIL">No keyword with name 'Verify Tactics Contents' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.093" starttime="20161101 18:30:01.092"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.093" critical="yes" starttime="20161101 18:30:01.084">No keyword with name 'Verify Tactics Contents' found.</status>
+</test>
+<test id="s1-t172" name="DXUITC-984:To verify the content of Tactics name drop down">
+<kw name="Verify Tactics Name Contents">
+<msg timestamp="20161101 18:30:01.095" level="FAIL">No keyword with name 'Verify Tactics Name Contents' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.095" starttime="20161101 18:30:01.095"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.096" critical="yes" starttime="20161101 18:30:01.093">No keyword with name 'Verify Tactics Name Contents' found.</status>
+</test>
+<test id="s1-t173" name="DXUITC-978:External IDs">
+<kw name="Verify External Ids Contents">
+<msg timestamp="20161101 18:30:01.098" level="FAIL">No keyword with name 'Verify External Ids Contents' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.099" starttime="20161101 18:30:01.098"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.099" critical="yes" starttime="20161101 18:30:01.096">No keyword with name 'Verify External Ids Contents' found.</status>
+</test>
+<test id="s1-t174" name="DXUITC-1090:To verify the content of Geographic Targeting section">
+<kw name="Verify Geographic Targeting Section">
+<msg timestamp="20161101 18:30:01.102" level="FAIL">No keyword with name 'Verify Geographic Targeting Section' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.102" starttime="20161101 18:30:01.102"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.102" critical="yes" starttime="20161101 18:30:01.099">No keyword with name 'Verify Geographic Targeting Section' found.</status>
+</test>
+<test id="s1-t175" name="DXUITC-1095:To verify the functionality of '&gt;', '&gt;&gt;', '&lt;&lt;', '&lt;' buttons">
+<kw name="Verify Buttons In Geographic Targeting">
+<msg timestamp="20161101 18:30:01.105" level="FAIL">No keyword with name 'Verify Buttons In Geographic Targeting' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.105" starttime="20161101 18:30:01.104"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.105" critical="yes" starttime="20161101 18:30:01.102">No keyword with name 'Verify Buttons In Geographic Targeting' found.</status>
+</test>
+<test id="s1-t176" name="DXUITC-1150:To verify the functionality of serach box in geotargeting sections">
+<kw name="Verify Search In Geographic Targeting">
+<msg timestamp="20161101 18:30:01.107" level="FAIL">No keyword with name 'Verify Search In Geographic Targeting' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.107" starttime="20161101 18:30:01.107"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.107" critical="yes" starttime="20161101 18:30:01.105">No keyword with name 'Verify Search In Geographic Targeting' found.</status>
+</test>
+<test id="s1-t177" name="DXUITC-1182:To verify the functionality of serach box in geotargeting sections">
+<kw name="Verify Search In Geographic Targeting">
+<msg timestamp="20161101 18:30:01.110" level="FAIL">No keyword with name 'Verify Search In Geographic Targeting' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.110" starttime="20161101 18:30:01.110"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.111" critical="yes" starttime="20161101 18:30:01.108">No keyword with name 'Verify Search In Geographic Targeting' found.</status>
+</test>
+<test id="s1-t178" name="DXUITC-1258:To verify the content of specify regions within postal code">
+<kw name="Verify Postal Codes In Geo Target">
+<msg timestamp="20161101 18:30:01.113" level="FAIL">No keyword with name 'Verify Postal Codes In Geo Target' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.113" starttime="20161101 18:30:01.113"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.114" critical="yes" starttime="20161101 18:30:01.111">No keyword with name 'Verify Postal Codes In Geo Target' found.</status>
+</test>
+<test id="s1-t179" name="DXUITC-5172:To verify the content of Geographic Targeting section Geofenced regions">
+<kw name="Verify Geofenced In Geo Target">
+<msg timestamp="20161101 18:30:01.116" level="FAIL">No keyword with name 'Verify Geofenced In Geo Target' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.116" starttime="20161101 18:30:01.116"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.117" critical="yes" starttime="20161101 18:30:01.114">No keyword with name 'Verify Geofenced In Geo Target' found.</status>
+</test>
+<test id="s1-t180" name="DXUITC-1378:To verify the content of Blacklist">
+<kw name="Verify Blacklist Section">
+<msg timestamp="20161101 18:30:01.120" level="FAIL">No keyword with name 'Verify Blacklist Section' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.120" starttime="20161101 18:30:01.119"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.120" critical="yes" starttime="20161101 18:30:01.117">No keyword with name 'Verify Blacklist Section' found.</status>
+</test>
+<test id="s1-t181" name="DXUITC-1379:To verify the content of Whiltelist">
+<kw name="Verify Whitelist Section">
+<msg timestamp="20161101 18:30:01.123" level="FAIL">No keyword with name 'Verify Whitelist Section' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.123" starttime="20161101 18:30:01.123"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.123" critical="yes" starttime="20161101 18:30:01.120">No keyword with name 'Verify Whitelist Section' found.</status>
+</test>
+<test id="s1-t182" name="DXUITC-1164:Brand Safety contents">
+<kw name="Verify Brandsafety Section">
+<msg timestamp="20161101 18:30:01.127" level="FAIL">No keyword with name 'Verify Brandsafety Section' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.128" starttime="20161101 18:30:01.127"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.128" critical="yes" starttime="20161101 18:30:01.124">No keyword with name 'Verify Brandsafety Section' found.</status>
+</test>
+<test id="s1-t183" name="DXUITC-880:Maximize Completed Ad Views">
+<kw name="Create Campaign With Completed Ad Views">
+<msg timestamp="20161101 18:30:01.133" level="FAIL">No keyword with name 'Create Campaign With Completed Ad Views' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.133" starttime="20161101 18:30:01.133"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.133" critical="yes" starttime="20161101 18:30:01.129">No keyword with name 'Create Campaign With Completed Ad Views' found.</status>
+</test>
+<test id="s1-t184" name="DXUITC-877:Mobile Campaign">
+<kw name="Verify Campaign Objective Under Mobile">
+<msg timestamp="20161101 18:30:01.138" level="FAIL">No keyword with name 'Verify Campaign Objective Under Mobile' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.138" starttime="20161101 18:30:01.137"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.138" critical="yes" starttime="20161101 18:30:01.134">No keyword with name 'Verify Campaign Objective Under Mobile' found.</status>
+</test>
+<test id="s1-t185" name="DXUITC-878:Video Campaign">
+<kw name="Verify Campaign Objective Under Video">
+<msg timestamp="20161101 18:30:01.142" level="FAIL">No keyword with name 'Verify Campaign Objective Under Video' found.</msg>
+<status status="FAIL" endtime="20161101 18:30:01.142" starttime="20161101 18:30:01.142"></status>
+</kw>
+<tags>
+<tag>campaigns</tag>
+</tags>
+<status status="FAIL" endtime="20161101 18:30:01.143" critical="yes" starttime="20161101 18:30:01.139">No keyword with name 'Verify Campaign Objective Under Video' found.</status>
+</test>
+<status status="FAIL" endtime="20161101 18:30:01.150" starttime="20161101 18:29:27.329"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="185" pass="0">Critical Tests</stat>
+<stat fail="185" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="185" pass="0">campaigns</stat>
+</tag>
+<suite>
+<stat fail="185" id="s1" name="Campaigns" pass="0">Campaigns</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20161101 18:30:00.046" level="ERROR">Error in file '/Users/ghanshyamrajpurohit/NewWS/Flights/aurus-testing/dx_selenium_tests/test_suites/scripts/campaigns/campaigns.rst': Initializing test library 'campaign_test.CampaignTest' with no arguments failed: WebDriverException: Message: Can't load the profile. Profile Dir: /var/folders/p6/tp454cpx48g1ygnf7jjs3pwc0000gn/T/tmp977XCT If you specified a log_file in the FirefoxBinary constructor, check it for details.
+
+Traceback (most recent call last):
+  File "/Users/ghanshyamrajpurohit/NewWS/Flights/aurus-testing/dx_selenium_tests/test_suites/scripts/dx_test/dx_test.py", line 14, in __init__
+    self.pages = self.get_page_objects()
+  File "/Users/ghanshyamrajpurohit/NewWS/Flights/aurus-testing/dx_selenium_tests/test_suites/scripts/dx_test/dx_test.py", line 49, in get_page_objects
+    return PageObjects(self.driver.get_browser())
+  File "/Users/ghanshyamrajpurohit/NewWS/Flights/aurus-testing/dx_selenium_tests/test_suites/dx_pages/configs/dx_web_driver.py", line 19, in get_browser
+    self.driver = Firefox(firefox_profile=profile)
+  File "/Users/ghanshyamrajpurohit/Library/Python/2.7/lib/python/site-packages/pytractor-0.2.2.dev1-py2.7.egg/pytractor/mixins.py", line 74, in __init__
+    super(WebDriverMixin, self).__init__(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/selenium/webdriver/firefox/webdriver.py", line 103, in __init__
+    self.binary, timeout)
+  File "/Library/Python/2.7/site-packages/selenium/webdriver/firefox/extension_connection.py", line 51, in __init__
+    self.binary.launch_browser(self.profile, timeout=timeout)
+  File "/Library/Python/2.7/site-packages/selenium/webdriver/firefox/firefox_binary.py", line 68, in launch_browser
+    self._wait_until_connectable(timeout=timeout)
+  File "/Library/Python/2.7/site-packages/selenium/webdriver/firefox/firefox_binary.py", line 106, in _wait_until_connectable
+    % (self.profile.path))</msg>
+</errors>
+</robot>

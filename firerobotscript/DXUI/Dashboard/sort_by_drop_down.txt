@@ -1,0 +1,30 @@
+*** Settings ***
+
+Resource           dashboard_variables.txt 
+Documentation	   Test suite created with FireRobot.
+Library	           Selenium2Library   15.0   5.0
+Resource           Common_Variables.txt  
+Force Tags		   tags.regression.DIGC  
+
+*** Test Cases ***
+
+DXUITC-1219: Functionality of Data Range drop down
+  Go To         https://${app_link}?locale=en
+  Click Link  	Dashboard
+  Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Date Range Campaign to Date Month to Date Last 30 days Last 7 days')])[last()]
+  
+DXUITC-1222: Functionality of Sort by drop down
+  Page Should Contain Element  	xpath=(.//div[contains(normalize-space(.), 'Sort by Spend CTR Impressions CPA Completed Views Recently Started End Date Campaign Name Advertiser')])[last()]  
+  
+DXUITC-1225: Functionality of Data Source drop down
+  Page Should Contain List   	xpath=.//select[contains(normalize-space(.), 'DataXu Third Party')]  
+  
+DXUITC-1242: Functionality of Expand button
+  Click Image   	xpath=(.//img[@alt='Icon_toggle'])[1]
+  Click Image   	xpath=(.//img[@alt='Icon_toggle'])[2]  
+
+DXUITC-1243: Functionality of Edit campaign button  
+  Click Image   	xpath=(.//img[@alt='Edit campaign'])[1] 
+  Page Should Contain Element   	xpath=(.//div[contains(normalize-space(.), 'Edit campaign')])[last()]
+ 
+ 

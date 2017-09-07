@@ -1,0 +1,37 @@
+*** Settings ***
+
+Documentation	 Test suite created with FireRobot.
+Library	         Selenium2Library   15.0   5.0
+Resource         Common_Variables.txt
+Resource         Common_Variables_Flights.txt
+Library			 ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.FF
+
+*** Test Cases ***
+
+DXUITC-3423:Impression cap
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Click Link       Flights
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	Wait Until Page Contains   	Flight Details
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Input Text   	 css=#flight_impression_cap   	${impression-cap-optional}
+	Click Button           css=input.primary
+	Page Should Contain    Impression cap is not a number
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Clear Element Text     css=#flight_impression_cap
+	Input Text   	       css=#flight_impression_cap   	${impression-cap-optional-2}
+	Page Should Contain    Impression cap is not a number
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4	
+	Click Element    css=#impressions_cap>div.section_header.contain_cols12>h1>div.section_title.cols4
+	Input Text   	       css=#flight_impression_cap   	${impression-cap-optional-3}
+	Page Should Contain   Upload File

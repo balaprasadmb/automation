@@ -1,0 +1,62 @@
+***Settings***
+
+Resource          SF_Validation_Variable.txt
+Documentation	  Test suite created with FireRobot.
+Library	          Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}		Campaign
+
+
+***Test Cases***
+
+To check SF page fields validation for Forecasting.
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${uid}=			Get Uid
+	${campaign-name}	Catenate    SEPARATOR=-	${campaign}	${uid}
+    Click Link  	css=a.add.button.new_campaign_top
+	Sleep           5s
+    Input Text  	campaign[advertiser][name]  	                ${advertiser}
+    Submit Form    	id= pick_advertiser
+    Input Text  	campaign_name  	                                ${campaign-name}
+    Input Text  	campaign_start_date  	                        ${mmddyyyy}
+    Input Text  	campaign_end_date  	                            ${mmddyyyy-2}
+    Input Text  	campaign_io_number  	                        ${optional}
+    Select From List By Label  	campaign_campaign_cost_model_type_id  	${cost-model}
+    Input Text  	campaign_cog_attributes_cpa_goal        	${cpa}
+    Input Text  	campaign_cog_attributes_insertion_order_budget 	${budget}
+    Input Text  	campaign_cog_attributes_cpm  	                ${cpm}
+    Input Text  	campaign_cog_attributes_cogs  	                ${cogs}
+    Input Text  	campaign_cog_attributes_margin  	        ${margin}
+    Click Element  	campaign_objective_Distribution
+    Click Element  	campaign_objective_Distribution
+    Click Button  	campaign_submit
+    Input Text   	css=input.ember-view.ember-text-field.flight_name.text   	${description}
+	Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid}
+	Input Text       css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	${budget-2}
+	Input Text   	css=input.ember-view.ember-text-field.day_cap   	${day-cap}
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+	Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+	
+    
+To check Start date End Date empty
+   Input Text  	flight_start_at_visible  	                       ${empty} 
+   Input Text   flight_end_at_visible   	                       ${empty} 
+   Page Should Contain Element   	xpath=(.//div[contains(normalize-space(.), 'Add dates, budget & bid to see forecast.')])[last()]
+
+To check for past start date and valid end date
+    Input Text    	flight_start_at_visible  	                   ${mmddyyyy-5}
+    Input Text          flight_end_at_visible   	               ${mmddyyyy-2}
+    Sleep               5s
+    Click Element	flight_visibility
+    Page Should Contain 	Add dates, budget & bid to see forecast. 
+
+ 
+   
+

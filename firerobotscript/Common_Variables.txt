@@ -1,0 +1,12 @@
+***Variables***
+${BROWSER}        		Firefox
+${email-address}		dx_admin@dataxu.com
+${password}				P@22w0rd
+${app_link}       		stg-ui-app05.sldc.dataxu.net
+${start_date}			06/05/2015
+${end_date}			07/01/2015
+${past_start_date}		05/31/2015
+${past_end_date}		06/01/2015
+${special_char}			!@##$
+${char_date}			dataxu
+${invalid_date}			25/52/1250

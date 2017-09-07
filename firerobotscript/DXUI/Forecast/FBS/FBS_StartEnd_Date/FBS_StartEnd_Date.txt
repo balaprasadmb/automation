@@ -1,0 +1,77 @@
+***Settings***
+Resource          FBS_StartEndDate_variable.txt
+Documentation	  Test suite created with FireRobot.
+Library	          Selenium2Library   15.0   5.0
+Resource          Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.FF
+
+*** Variables ***
+
+${campaign}		Campaign
+
+***Test Cases***
+
+DXUITC-5031 :Flight Past Start Date Test Case
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+	${advertiser}=	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link		css=.first>a[href*='/campaigns/']
+    Click Link		Add Flights
+    Wait Until Page Contains Element	css=input.ember-view.ember-text-field.flight_name.text	
+    Input Text   	css=input.ember-view.ember-text-field.flight_name.text    	                                            ${description}
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker  					${start_date}
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker                     ${end_date}
+    Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field    	                                ${bid-2}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field   	        ${budget-3}
+    Click Element	css=input.ember-view.ember-text-field.flight_name.text
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker  					${past_start_date}
+    Click Element	css=input.ember-view.ember-text-field.flight_name.text
+    Wait Until Page Contains		Start date has passed.
+    Page Should Contain		Start date has passed. Forecast is for planning purposes, and is only available if run dates are in the future.
+
+DXUITC-5032: Flight Past End Date Test Case
+	Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker  	                 ${start_date}
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker                      ${end_date}
+    Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid-2}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field       ${budget}
+    Click Element   css=input.ember-view.ember-text-field.percent
+    Click Element	css=input.ember-view.ember-text-field.flight_name.text
+    Input Text		css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker				${past_end_date}
+    Click Element	css=input.ember-view.ember-text-field.flight_name.text
+    Page Should Contain   	Forecast
+    Wait Until Page Contains	The end date is in the past. Forecasting unavailable.
+    Page Should Contain   	The end date is in the past. Forecasting unavailable.
+	
+DXUITC-5033 :Flight Blank Date Test Case
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker  	 				${EMPTY}
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker                      ${EMPTY}
+    Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid-2}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field       ${budget}
+    Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Page Should Contain   	Forecast
+    Wait Until Page Contains	Add dates, budget & bid to see forecast. Note: forecasting is for planning purposes – start date must be in the future.	
+    Page Should Contain   	Add dates, budget & bid to see forecast. Note: forecasting is for planning purposes – start date must be in the future.
+
+DXUITC-4860 : Flight valid date Test Case
+    Input Text   	css=input.ember-view.ember-text-field.flight_name.text    	                                            ${description}
+    Input Text  	css=input.ember-view.ember-text-field.text.datepicker.flight-start-date.hasDatepicker  	${start_date}
+    Input Text   	css=input.ember-view.ember-text-field.text.datepicker.flight-end-date.hasDatepicker                     ${end_date}
+    Input Text   	css=div.cols1.flight-field-bid>div.numeric>input.ember-text-field   	${bid-2}
+    Input Text   	css=div.cols1.flight-field-budget>div.numeric.io_budget>input.ember-view.ember-text-field       ${budget}
+    Click Element   css=input.ember-view.ember-text-field.percent
+	Click Element   css=input.ember-view.ember-text-field.percent
+    Click Button   	css=button.ember-view.ember-button.primary.save-and-continue
+    Wait Until Page Contains Element	css=#audience_targeting > .section_header > h1 > .cols4
+	Page Should Contain             Forecast
+    Page Should Contain             Flight Name
+    Page Should Contain             Flight Duration
+    Page Should Contain             FLIGHT SETTINGS
+    Page Should Contain             CREATIVES & AUDIENCE
+    Page Should Contain             CAMPAIGN DETAILS
+    Page Should Contain             INVESTMENT
+    Page Should Contain             FLIGHT ALLOCATION 

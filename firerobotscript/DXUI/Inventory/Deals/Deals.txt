@@ -1,0 +1,112 @@
+***Settings***
+
+Documentation	Test suite created with FireRobot.
+Library	   		Selenium2Library   15.0   5.0
+Resource		Variables_Deals.txt
+Resource        Common_Variables.txt
+Library			${EXECDIR}/python/setup.py
+Force Tags		tags.regression.DIGC
+
+
+*** Variables ***
+
+${campaign-name}	DealName
+
+***Test Cases***
+DXUITC-4614: To check access of 'Deals' sub tab to user who has permission of 'Deal ID Inventory' under Product feature
+    Go To		http://${app_link}/advertisers/1/campaigns?locale=en
+    Click Link  			drop6
+	${advertiser}	 Get Advertiser
+    Click Element    css=.chzn-single
+    Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	Page Should Contain   	Deals
+
+DXUITC-5183: To verify the contents of 'Deals ID' list page
+	Click Link   				\#ui-tabs-2
+	Sleep						5s
+	Wait Until Page Contains	New Deal
+	Wait Until Page Contains   	Deal Name
+	Page Should Contain   		Deal ID
+	Page Should Contain   		Exchange
+	Page Should Contain   		Cost (CPM)
+	Page Should Contain   		Deal Type
+	Page Should Contain   		Dates
+	Page Should Contain   		Show
+	Page Should Contain   		10
+	Page Should Contain   		25
+	Page Should Contain   		50
+	Page Should Contain   		100
+	Page Should Contain   		entries
+	Page Should Contain   		Previous
+	Page Should Contain   		Next
+   
+DXUITC-5185: Functionality of 'New Deals' button   
+    Click Link   			New Deal
+    Page Should Contain   	Create Deal
+   
+DXUITC-5186: Contents of Deals ID edit page
+	Page Should Contain   			Deal Details
+	Page Should Contain   			Deal Name
+	Page Should Contain   			Created On
+	Page Should Contain   			Exchange
+	Page Should Contain   			Deal ID
+	Page Should Contain   			Deal Type
+	Page Should Contain   			Currency
+	Page Should Contain   			Cost (CPM)
+	Page Should Contain   			Start Date
+	Page Should Contain   			End Date
+	Page Should Contain   			Description (optional)
+	Page Should Contain   			Permissions
+	Page Should Contain   			Permissioned Agency Groups
+	Page Should Contain   			Permissioned Agencies
+	Page Should Contain   			Permissioned Advertisers
+	Page Should Contain Button  	Cancel
+	Page Should Contain Button  	deal_inventory_submit
+
+DXUITC-4616: Creation of 'Deals ID inventory'
+    ${uid}=		        Get Uid
+    ${deal-name}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+	Input Text   						deal_inventory_name   									${deal-name}
+	Select From List By Value   		deal_inventory_inventory_supplier_id   					${exchange}
+	Input Text   						deal_inventory_external_id   							${deal-id}
+	Select From List By Value   		deal_inventory_deal_type   								${deal-type}
+	Select From List By Value   		deal_inventory_currency_id   							${currency}
+	Input Text   						deal_inventory_cost_value   							${cost-cpm}
+	Input Text   						deal_inventory_start_at   								${start_date}	
+	Input Text   						deal_inventory_end_at   								${end_date}	
+	Input Text   						deal_inventory_description   							${description-optional}
+    ${agency_group}=	 				Get Agency Group
+	${agency}=							Get Agency
+	${advertiser}=						Get Advertiser
+	Input Text							css=#agency_groups_chzn> .chzn-choices > li > input		${agency_group}
+	Selenium2Library.Press Key    		css=#agency_groups_chzn> .chzn-choices > li > input    \\13
+	Input Text							css=#agencies_chzn>.chzn-choices > li > input			${agency}
+	Selenium2Library.Press Key    		css=#agencies_chzn>.chzn-choices > li > input    \\13
+	Input Text							css=#advertisers_chzn>.chzn-choices > li > input		${advertiser}
+	Selenium2Library.Press Key    		css=#advertisers_chzn>.chzn-choices > li > input	   \\13
+	Click Button   						deal_inventory_submit
+	Sleep								5s
+	Wait Until Page Contains			New Deal
+	Wait Until Page Contains   			Deal Name
+	
+   
+DXUITC-5187: Functionality of 'Cancel' button from deals edit page
+    Click Link  					drop6
+	Click Link   					\#ui-tabs-2
+	Wait Until Page Contains		New Deal
+	Wait Until Page Contains   		Deal Name
+	Click Link   					New Deal
+	Click Button   					Cancel   
+	Wait Until Page Contains		New Deal    
+	Wait Until Page Contains   		Deal Name
+	Page Should Contain   			Deal ID
+	Page Should Contain   			Exchange
+	Page Should Contain   			Cost (CPM)
+	Page Should Contain   			Deal Type
+	Page Should Contain   			Dates
+   
+DXUITC-5184: To verify contents of sprocket icon from Deals ID list page
+	Click Image					//img[@alt='Icon_gear']
+	Page Should Contain  		Edit   
+   

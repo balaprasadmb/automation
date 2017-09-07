@@ -1,0 +1,8 @@
+*** Variables ***
+
+${project-plan-budget} 	20000
+${currency} 	1
+${last-click} 	14
+${last-click-2} 	days
+${currency3}	2
+${name}		media_plan

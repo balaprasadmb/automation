@@ -1,0 +1,21 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.DIGC
+
+*** Test Cases ***
+DXUITC-857: IAB quality guidelines
+    Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    ${advertiser}	Get Advertiser
+	${campaign}		Get Campaign
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+    Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link       ${campaign}
+    Page Should Contain Link    ${advertiser}
+    Click Link    IAB quality guidelines
+    Select Window    url=http://www.iab.net/iab_products_and_industry_services/508676/ne_guidelines
+    Select Window    title=DataXu: ${advertiser} Campaign Details
+    

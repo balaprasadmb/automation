@@ -1,0 +1,91 @@
+#***Settings***
+
+#Documentation	Test suite created with FireRobot.
+#Library	   		Selenium2Library   15.0   5.0
+#Resource		Variables_GM_MobileFlight.txt
+#Resource        Common_Variables.txt
+#Library	 	    ${EXECDIR}/python/setup.py
+#Force Tags		tags.regression.DIGC
+
+#*** Variables ***
+
+#${campaign-name}	GMCampaign
+
+#***Test Cases***
+
+#DXUITC-5191: Creation of 'GM Mobile campaign'
+    #Go To			http://${app_link}/advertisers/1/campaigns?locale=en
+    #Click Link  				drop1
+	#${advertiser}	            Get Advertiser
+	#Click Element               css=.chzn-single
+	#Input Text    	            css=div.chzn-search>input    ${advertiser}
+    #Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+	#Click Link		New Campaign
+	#Input Text		id=advertiser		${advertiser}
+	#Click Link      ${advertiser} 
+    #Click Link      ${advertiser}
+    #Select From List By Value   pick_media_type   	          					mobile
+    #Select From List By Label   pick_inventory_type  							${inventory-type} 
+    #Click Button	 			campaign_submit
+	#${uid}=		    Get Uid
+    #${GMcampaign}		Catenate	SEPARATOR=-	${campaign-name}	 ${uid}
+    #Input Text	    			campaign_name  	        						${GMcampaign}
+    #Input Text  				campaign_start_date    							${start_date}
+    #Input Text  				campaign_end_date  								${end_date}
+    #Input Text  				campaign_io_number  							${cpa}
+    #Click Element  				css=div#budget_and_spending_setup > div.section_header.contain_cols12 > h1 > div.section_title.cols4
+    #Select From List By Label  	campaign_campaign_cost_model_type_id  			${cost-model}
+    #Input Text  				campaign_cog_attributes_cpa_goal				${cpa}
+    #Input Text  				campaign_cog_attributes_insertion_order_budget  ${budget}
+    #Input Text  				campaign_cog_attributes_cpm			        	${cpa}
+    #Input Text  				campaign_cog_attributes_cogs					${cpa}
+    #Input Text  				campaign_cog_attributes_margin					${cpa}
+    #Click Element  				campaign_objective_Distribution
+    #Click Element  				select_all_inventory
+    #Click Button  				campaign_submit
+
+#DXUITC-350: Create GM flight with blank description field	
+    #Click Link  				New Flight
+	#Click Link					Save All
+	#Page Should Contain   		Please enter a description for all new flights
+	
+#DXUITC-5191: Creation of 'GM Mobile flight'
+    #Input Text          		css=input.ember-view.ember-text-field.new_description  		${GMflight}
+	#Click Link					Save All
+
+#DXUITC-241: To verify contents of GM Mobile flight show page.
+    Click Link  				${GMflight}
+    #Page Should Contain         Flight Details
+    #Page Should Contain         Guaranteed Media
+    #Page Should Contain         Guaranteed Media
+    #Page Should Contain         Guaranteed Inventory
+    #Page Should Contain         Add On Costs
+    #Page Should Contain         Impression Caps
+    #Page Should Contain         Frequency Cap
+    #Page Should Contain         Language Targeting
+    #Page Should Contain         Geographic Targeting
+    #Page Should Contain         Dayparting
+    #Page Should Contain         Audience Targeting
+
+#DXUITC-248: To verify contents of GM Mobile flight Edit page.
+    #Click Link  		   			Edit
+    #Page Should Contain            	Flight Details
+    #Page Should Contain            	Guaranteed Inventory
+    #Page Should Contain            	Add On Costs
+    #Page Should Contain            	Impression Caps
+    #Page Should Contain            	Frequency Cap
+    #Page Should Contain            	WiFi vs. Carrier Gateway
+    #Page Should Contain            	Applications, Mobile websites, or both
+    #Page Should Contain            	Mobile Devices
+    #Page Should Contain            	Mobile Platforms
+    #Page Should Contain            	Language Targeting
+    #Page Should Contain            	Geographic Targeting
+    #Page Should Contain            	Dayparting
+    #Page Should Contain            	Audience Targeting
+    #Page Should Contain Button     	Cancel
+    #Page Should Contain Button     	Save & Exit
+
+#DXUITC-358: Blank flight description field from GM flight edit page
+	#Clear Element Text				flight_description
+	#Click Button   					flight_submit
+	#Page Should Contain   			Description can't be blank

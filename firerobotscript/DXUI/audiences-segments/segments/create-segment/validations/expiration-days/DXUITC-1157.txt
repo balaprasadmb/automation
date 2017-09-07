@@ -1,0 +1,48 @@
+*** Settings ***
+Documentation     Test suite created with FireRobot.
+Library           Selenium2Library    15.0    5.0
+Resource          Common_Variables.txt
+Library			  ${EXECDIR}/python/setup.py
+Force Tags		  tags.regression.SA
+
+*** Variables ***
+${segments}       audie
+${expiration}     2147483647
+${expiration1}     2147483646
+
+*** Test Cases ***
+DXUITC-1157:To verify that segment is not created with 2147483647 Expiration days
+    Go To    http://${app_link}/advertisers/1/segments?locale=en
+	${advertiser}	Get Advertiser
+    Click Element    css=.chzn-single
+	Input Text    	 css=div.chzn-search>input    ${advertiser}
+	Selenium2Library.Press Key    css=div.chzn-search>input    \\13
+    Click Link    Segments
+    Click Link    Create First Party Segment
+    Page Should Contain    Create new Segment for ${advertiser}
+    Page Should Contain Link    Back to List
+    Input Text    segment_name    ${segments}
+    Input Text    segment_expiration    ${expiration}
+    Click Element    segment_submit
+    Page Should Contain    Expiration must be less than 2147483647
+
+DXUITC-1166:To verify that segment is not created with 0 Expiration days
+    Input Text    segment_name    ${segments}
+    Input Text    segment_expiration    0
+    Click Element    segment_submit
+    Page Should Contain    Expiration must be greater than 0
+
+DXUITC-1162:To verify that segment is not created with characters Expiration days
+    Input Text    segment_name    ${segments}
+    Input Text    segment_expiration    aaaaaaa
+    Click Element    segment_submit
+    Page Should Contain    Expiration is not a number
+
+DXUITC-1159:To verify that segment is created with 2147483646 Expiration days
+	${uid}=			Get Uid
+	${segment}		Catenate    SEPARATOR=-	${segments}	${uid}
+	Input Text    segment_name    ${segment}
+    Input Text    segment_expiration    ${expiration1}
+    Click Element    segment_submit
+    Page Should Contain    Successfully created segment '${segment}'.
+    Page Should Contain    2147483646 days
