@@ -7,5 +7,4 @@ wsgiref==0.1.2
 xlrd==0.9.3
 pyyaml==3.11
 robotframework-pabot==0.30
-paramiko==2.0.2
 pytractor==0.2.1
